@@ -1,0 +1,7 @@
+.main_container .top_nav,
+.nav-md .container.body .right_col {
+	margin-left: 0;
+}
+.widget {
+	max-width: none;
+}
