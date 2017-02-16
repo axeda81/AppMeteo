@@ -285,7 +285,7 @@ class gestioneutenti extends CI_Controller
 		// Verifico se c'è una sessione attiva, altrimenti torno al login
 		$is_logged_in = $this->session->userdata('is_logged_in');
 
-		if(!isset($is_logged_in) || $is_logged_in != true) {
+		if(!isset($is_logged_in) || $is_logged_in == false) {
 
 			$paginaIniziale = base_url().'index.php/login';
 			echo 'Sessione scaduta o login non effettuato - non hai il permesso di accedere a questa pagina. <a href='.$paginaIniziale.'>Login </a>';

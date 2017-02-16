@@ -32,8 +32,6 @@
               </div>
             </div>
           </div>
-
-
           <div class = "row">
             <div class="well" style="overflow: auto">
               <div class="col-md-4">
@@ -42,7 +40,7 @@
               <div class="col-md-8">
                 <div class="form-group">
                   <?php 
-                    $options = array("all" => 'Tutte le zone', "60" => '60', "61" => '61', "62" => '62', "63" => '63', "64" => '64');
+                    $options = array("all" => 'Tutte', "60" => '60', "61" => '61', "62" => '62', "63" => '63', "64" => '64');
                     echo form_dropdown('select_zona[]', $options, "all", array('class'=>'form-control select2_multiple', 'multiple' => 'true')); ?>
                 </div>
               </div>
@@ -56,7 +54,7 @@
               <div class="col-md-8">
                 <div class="form-group">
                   <?php 
-                    $options = array("all" => 'Tutte le zone', "0" => 'Verde', "1" => 'Gialla', "2" => 'Arancione');
+                    $options = array("all" => 'Tutte', "0" => 'Verde', "1" => 'Gialla', "2" => 'Arancione');
                     echo form_dropdown('select_allerta[]', $options, "all", array('class'=>'form-control select2_multiple', 'multiple' => 'true')); ?>
                 </div>
               </div>
@@ -80,7 +78,6 @@
               </div>
             </div>
           </div>          
-
           <!-- Pulsanti per confermare le previsioni o tornare indietro alla compilazione -->
           <div class="row">
             <div class ="col-md-12">                 

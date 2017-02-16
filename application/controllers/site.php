@@ -19,12 +19,13 @@ class site extends CI_Controller
 
 			case 0: // meteorologo: fa le previsioni e può rivedere solo le sue
 				$data['content'] = 'members_area/meteo/home';
+				$this->verificaPrevEffettuate();
 				break;
 			case 1: // dirigente: può rivedere le previsioni di tutti
 				$data['content'] = 'members_area/dirigente/home'; 
 				$data['fuoriorario'] = false;
 				break;
-			case 2: // amministratore: crea/elimina utenti
+			case 2: // amministratore: crea/elimina/modifica utenti
 				$data['content'] = 'members_area/admin/home'; 
 				$data['fuoriorario'] = false;
 				break;
@@ -50,15 +51,26 @@ class site extends CI_Controller
 		else return false;
 	}
 
+	function verificaPrevEffettuate() {
+
+		$id_utente = $this->utenti_model->id_da_username($this->session->userdata('username'));
+		$var =  $this->previsionieffettuate_model->prevgiaeffettuate($id_utente);
+		$sess = array(
+
+				'prev_fatte' => $var,
+				'prev_confermate' => $var
+		);
+		$this->session->set_userdata($sess);
+	}
+
 	function meteorologo()
 	{
-
 		// Prima cosa: controllare se l'utente ha già effettuato le previsioni
 		// in data odierna. In tal caso non può rifarle ma (TODO) solo rivederle.
-		$id_utente = $this->utenti_model->id_da_username($this->session->userdata('username'));
 		
-		if ($this->previsionieffettuate_model->prevgiaeffettuate($id_utente) == true)
+		if ($this->session->userdata('prev_confermate') == true)
 		{
+			// Carico la view dove si avverte l'utente che ha già effettuato le previsioni
 			$data['content'] = 'members_area/meteo/prevgiaeffettuate';
 		}
 		else 
@@ -86,7 +98,7 @@ class site extends CI_Controller
 		// Verifico se c'è una sessione attiva, altrimenti torno al login
 		$is_logged_in = $this->session->userdata('is_logged_in');
 
-		if(!isset($is_logged_in) || $is_logged_in != true) {
+		if(!isset($is_logged_in) || $is_logged_in == false) {
 
 			$paginaIniziale = base_url().'index.php/login';
 			echo 'Sessione scaduta o login non effettuato - non hai il permesso di accedere a questa pagina. <a href='.$paginaIniziale.'>Login </a>';

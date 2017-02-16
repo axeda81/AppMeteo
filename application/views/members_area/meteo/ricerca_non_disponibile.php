@@ -5,7 +5,8 @@
         <div class ="col-md-9">
           <div class="title_left">
             <h3>Ricerca non disponibile </h3>
-            <h5>Torna dopo le ore 12:00 o dopo aver compilato le tue previsioni.</h5>            
+            <h5>Torna dopo aver compilato le tue previsioni.</h5>         
+            <?php echo $this->session->userdata('prev_confermate'); ?> 
           </div>
         </div>
         <div class ="col-md-3">

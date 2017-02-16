@@ -23,7 +23,6 @@
   </div>
   <div class="clearfix"></div>
     <?php echo form_open('site/conferma_dati', array('class' => 'form-horizontal form-label-left')); ?>
-
   <div class = "row">
     <div class ="col-md-8">
       <div class="x_panel">
