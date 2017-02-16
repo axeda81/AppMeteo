@@ -9,59 +9,54 @@
       			</div>
     		</div>
     	</div>
-
     	<div class="row">
             <div class="col-md-6 col-xs-12">
                 <div class="x_panel">
                   	<div class="x_content">
-				        <br />
-
 	                	<?php echo form_open('gestioneutenti/crea_nuovo_utente', array('class' => 'form-horizontal form-label-left')); ?>
 		                <div class="form-group">
-	                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Nome</label>
-	                        <div class="col-md-9 col-sm-9 col-xs-12">
-	                          <input type="text" class="form-control" name="nome">
+		                	<?php echo form_label('Nome', 'nome', array('class' => 'control-label col-md-3 col-sm-3 col-xs-12')); ?>
+	                        <div class="col-md-9 col-sm-9 col-xs-12">                   
+								<?php echo form_input(array('type' => 'text', 'class'=>'form-control', 'id' => 'nome', 'name' => 'nome')); ?>
 	                        </div>
 	                    </div>
-	                    <div class="form-group">
-	                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Cognome</label>
-	                        <div class="col-md-9 col-sm-9 col-xs-12">
-	                          <input type="text" class="form-control" name="cognome">
-	                    	</div>
+		                <div class="form-group">
+		                	<?php echo form_label('Cognome', 'cognome', array('class' => 'control-label col-md-3 col-sm-3 col-xs-12')); ?>
+	                        <div class="col-md-9 col-sm-9 col-xs-12">                   
+								<?php echo form_input(array('type' => 'text', 'class'=>'form-control', 'id' => 'cognome', 'name' => 'cognome')); ?>
+	                        </div>
 	                    </div>
 		                <div class="form-group">
-		                	<label class="control-label col-md-3 col-sm-3 col-xs-12">Tipo utente</label>
+		                	<?php echo form_label('Tipo utente', 'tipoutente', array('class' => 'control-label col-md-3 col-sm-3 col-xs-12')); ?>
 		                	<div class="col-md-9 col-sm-9 col-xs-12">
-		                  		<select class="form-control" id="tipo_utente" name="tipoutente">
-		                    		<option value="0">Meteorologo</option>
-		                    		<option value="1">Dirigente</option>
-		                    		<option value="2">Amministratore</option>
-		                  		</select>
-		                  	</div>
+		                	<?php 
+		                		$options = array("0" => 'Meteorologo', "1" => 'Dirigente', "2" => 'Amministratore');
+		                		echo form_dropdown('tipoutente', $options, "0", array('class'=>'form-control')); ?>
+							</div>	                  	
 		                </div>
-	                    <div class="form-group">
-	                        <label class="control-label col-md-3 col-sm-3 col-xs-12">E-mail</label>
-	                        <div class="col-md-9 col-sm-9 col-xs-12">
-	                          <input type="text" class="form-control" placeholder="" name="email">
-	                    	</div>
-	                    </div>    
-	                    <div class="form-group">
-	                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Username</label>
-	                        <div class="col-md-9 col-sm-9 col-xs-12">
-	                          <input type="text" class="form-control" placeholder="" name="username">
-	                    	</div>
-	                    </div>	                                
-	                    <div class="form-group">
-	                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Password</label>
-	                        <div class="col-md-9 col-sm-9 col-xs-12">
-	                          <input type="password" class="form-control" placeholder="" name="password">
-	                    	</div>
+		                <div class="form-group">
+		                	<?php echo form_label('E-mail', 'email', array('class' => 'control-label col-md-3 col-sm-3 col-xs-12')); ?>
+	                        <div class="col-md-9 col-sm-9 col-xs-12">                   
+								<?php echo form_input(array('type' => 'text', 'class'=>'form-control', 'id' => 'email', 'name' => 'email')); ?>
+	                        </div>
 	                    </div>
-	                    <div class="form-group">
-	                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Conferma password</label>
-	                        <div class="col-md-9 col-sm-9 col-xs-12">
-	                          <input type="password" class="form-control" placeholder="" name="password2">
-	                    	</div>
+		                <div class="form-group">
+		                	<?php echo form_label('Username', 'username', array('class' => 'control-label col-md-3 col-sm-3 col-xs-12')); ?>
+	                        <div class="col-md-9 col-sm-9 col-xs-12">                   
+								<?php echo form_input(array('type' => 'text', 'class'=>'form-control', 'id' => 'username', 'name' => 'username')); ?>
+	                        </div>
+	                    </div>
+		                <div class="form-group">
+		                	<?php echo form_label('Password', 'password', array('class' => 'control-label col-md-3 col-sm-3 col-xs-12')); ?>
+	                        <div class="col-md-9 col-sm-9 col-xs-12">                   
+								<?php echo form_input(array('type' => 'password', 'class'=>'form-control', 'id' => 'password', 'name' => 'password')); ?>
+	                        </div>
+	                    </div>
+		                <div class="form-group">
+		                	<?php echo form_label('Password', 'password2', array('class' => 'control-label col-md-3 col-sm-3 col-xs-12')); ?>
+	                        <div class="col-md-9 col-sm-9 col-xs-12">                   
+								<?php echo form_input(array('type' => 'password', 'class'=>'form-control', 'id' => 'password2', 'name' => 'password2')); ?>
+	                        </div>
 	                    </div>
 	                   	<div class="ln_solid"></div>
 					        <?php 
@@ -75,7 +70,7 @@
 					        ?>
 	                    <div class="form-group">
 	                        <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
-		        				<button type="submit" class="btn btn-success submit pull-right">Conferma</button>
+	                        	<?php echo form_submit('submit', 'Salva', array('class' => 'btn btn-success submit pull-right')); ?>
         						<?php echo anchor('gestioneutenti/amministra_utenti', 'Indietro', array('class' => 'btn btn-primary pull-right')); ?>
 	                        	<?php echo form_close(); ?>
 	                        </div>

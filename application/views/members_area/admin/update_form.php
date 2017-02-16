@@ -29,7 +29,6 @@
     <div class ="col-md-8">
       <div class="x_panel">
         <div class="x_content">
-          <?php echo form_open();?>
             <table id="datatable-checkbox" class="table table-striped table-bordered">
               <thead>
                 	<tr>
@@ -45,7 +44,7 @@
               	   <tr>
                     <td> 
                       <a href="<?php echo base_url().'index.php/gestioneutenti/visualizza_utente/'.$row->ID; ?>"><i class="fa fa-edit"></i>&nbsp;</a>
-                      <a href="<?php echo base_url().'index.php/gestioneutenti/elimina/'.$row->ID; ?>"><i class="fa fa-trash"></i>&nbsp;</a>
+                      <a href="<?php echo base_url().'index.php/gestioneutenti/elimina/'.$row->ID; ?>"><i class="fa fa-trash"></i></a>
                     </td>  
                     <td><?php echo $row->nome; ?> </td>
                     <td><?php echo $row->cognome; ?> </td>
@@ -66,8 +65,7 @@
   					       <h3> Non ci sono utenti a parte l'amministratore. </h3>
   				      <?php endif; ?>
               </tbody>
-            </table>
-          <?php echo form_close(); ?>
+            </table>         
         </div>
       </div>  
     </div>

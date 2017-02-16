@@ -4,15 +4,14 @@
       <div class="page-title">
         <div class ="col-md-9">
           <div class="title_left">
-            <h3>Nuovo utente creato. </h3>
-	            <?php 
-	              if(isset($messaggio))  {
-	              	echo '<div class="row">';
-	                echo '<div class="col-md-9 alert alert-success" role="alert"> <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> <span class="sr-only"></span>';
-	                echo $messaggio;
-	                echo '</div></div>';
-	              } 
-	            ?>    
+            <?php 
+              if(isset($messaggio))  {
+              	echo '<div class="row">';
+                echo '<div class="col-md-9 alert alert-success" role="alert"> <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> <span class="sr-only"></span>';
+                echo $messaggio;
+                echo '</div></div>';
+              } 
+            ?>    
           </div>
         </div>
         <div class ="col-md-3">
