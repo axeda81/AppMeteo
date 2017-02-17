@@ -104,6 +104,7 @@ class archivio extends CI_Controller
 
 		$data['content'] = 'members_area/meteo/risultati_ricerca_tutto'; 
 		$data['result'] = $result; 
+
 		$this->load->view('includes/template', $data);	
 	}
 

@@ -60,13 +60,13 @@
               </div>
             </div>
           </div>
-
           <!-- Pulsanti per confermare le previsioni o tornare indietro alla compilazione -->
           <div class="row">
             <div class="col-md-6">
               <div class="checkbox">
-                <?php echo form_input(array('type' => 'checkbox', 'class'=>'flat', 'checked' => 'true', 'id' => 'miePrevisioni', 'name' => 'miePrevisioni')); ?>
-                <?php echo form_label('Mostra anche le mie previsioni', 'miePrevisioni', array('class' => 'control-label')); ?>          
+                <label>
+                  <input type="checkbox" class="flat" checked="checked" name="miePrevisioni"> Mostra anche le mie previsioni
+                </label>
               </div>
             </div>
             <div class ="col-md-6">                 

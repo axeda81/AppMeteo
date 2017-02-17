@@ -220,7 +220,7 @@ class dettaglioprevisioni_model extends CI_Model {
 
 		if ($cond_a !== '') $condizione = "$condizione AND $cond_a";
 
-		// echo $condizione;
+		 //echo $condizione;
 
 		$this->db->where($condizione);	
 
