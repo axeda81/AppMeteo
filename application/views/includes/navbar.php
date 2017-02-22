@@ -14,6 +14,7 @@
           <ul class="dropdown-menu dropdown-usermenu pull-right">
             <li><?php echo anchor('site/members_area', 'Home'); ?></li>
             <li><?php echo anchor('gestioneutenti/mostra_profilo', 'Il tuo profilo'); ?></li>
+            <li><?php echo anchor('site/istruzioni', 'Istruzioni per l\'uso'); ?></li>
             <li><?php echo anchor('login/logout', 'Logout'); ?></li>
           </ul>
         </li>

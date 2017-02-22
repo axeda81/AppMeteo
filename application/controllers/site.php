@@ -37,6 +37,12 @@ class site extends CI_Controller
 
 	}
 
+	function istruzioni() {
+
+		$data['content'] = 'members_area/istruzioni'; 
+		$this->load->view('includes/template', $data);
+	}
+
 	function fuoriorariomax()
 	{
 
