@@ -1,6 +1,6 @@
 <?php
 
-class dettaglioprevisioni_model extends CI_Model {
+class Dettaglioprevisioni_model extends CI_Model {
 
 	function inserisci_dati($id_preveff, $fuoriorario) {
 

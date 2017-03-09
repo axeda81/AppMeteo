@@ -1,6 +1,6 @@
 <?php
 	
-class archivio extends CI_Controller 
+class Archivio extends CI_Controller 
 {
 
 	function __construct()

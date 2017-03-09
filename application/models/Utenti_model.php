@@ -1,6 +1,6 @@
 <?php
 
-class utenti_model extends CI_Model {
+class Utenti_model extends CI_Model {
 
 	function validate($username, $password){
 

@@ -1,6 +1,6 @@
 <?php
 
-class gestioneutenti extends CI_Controller 
+class Gestioneutenti extends CI_Controller 
 {
 
 	function __construct()

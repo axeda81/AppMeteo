@@ -1,6 +1,6 @@
 <?php
 
-class previsionieffettuate_model extends CI_Model {
+class Previsionieffettuate_model extends CI_Model {
 
 	function prevgiaeffettuate ($id) {
 
