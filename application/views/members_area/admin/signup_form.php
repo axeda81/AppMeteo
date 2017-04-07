@@ -53,7 +53,7 @@
 	                        </div>
 	                    </div>
 		                <div class="form-group">
-		                	<?php echo form_label('Password', 'password2', array('class' => 'control-label col-md-3 col-sm-3 col-xs-12')); ?>
+		                	<?php echo form_label('Conferma password', 'password2', array('class' => 'control-label col-md-3 col-sm-3 col-xs-12')); ?>
 	                        <div class="col-md-9 col-sm-9 col-xs-12">                   
 								<?php echo form_input(array('type' => 'password', 'class'=>'form-control', 'id' => 'password2', 'name' => 'password2')); ?>
 	                        </div>

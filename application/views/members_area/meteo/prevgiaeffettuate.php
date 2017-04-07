@@ -5,7 +5,7 @@
         <div class ="col-md-9">
           <div class="title_left">
             <h3>Hai già effettuato le tue previsioni per oggi! </h3>
-            <h5>Torna domani entro le ore 12:00.</h5>
+            <h5>Torna domani entro le ore 12:00</h5>
           </div>
         </div>
         <div class ="col-md-3">

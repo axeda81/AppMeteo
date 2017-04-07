@@ -35,12 +35,14 @@
       $fascia4 = "Domani 06:00 - 12:00";
       $fascia5 = "Domani 12:00 - 18:00";
       $fascia6 = "Domani 18:00 - 24:00";
-      $prev0 = "Nessuna precipitazione";
-      $prev1 = "FS";
-      $prev2 = "FD";
+      $prev0 = "No temporali";
+      $prev1 = "Temporali sparsi";
+      $prev2 = "Temporali diffusi";
     ?>
+
     <div class = "row">
       <div class ="col-md-8">
+
         <!-- ZONA 60 -->
         <div class="row">
           <div class ="col-md-12">
@@ -590,15 +592,31 @@
 
     </div>
 
-    <!-- Pulsanti per resettare il form o salvare tutto -->
     <div class="row">
-      <div class ="col-md-12">                 
-        <button type="submit" class="btn btn-success submit pull-right">Rivedi e conferma previsioni</button>
-        <button type="reset" class="btn btn-primary pull-right">Clear</button>
-        <?php echo form_close(); ?>
+      <div class="col-md-4">
+        <div class="x_panel">
+          <div class="form-group">
+           <div class="x_title">
+              <h3> <small> Sei di turno oggi? </small></h3> 
+           </div> 
+            <p>
+              SI <input type="radio" class="flat" name="turno" id="turnoS" value="SI" required /> 
+              NO <input type="radio" class="flat" name="turno" id="turnoN" value="NO" />
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="x_panel">
+          <div class="form-group">
+            <button type="submit" class="btn btn-success submit pull-right">Rivedi e conferma previsioni</button>
+            <button type="reset" class="btn btn-primary pull-right">Clear</button>
+            <?php echo form_close(); ?>
+          </div> 
+        </div>     
       </div>
     </div>
-
   </div>
 </div>
+
 <!-- /page content -->
