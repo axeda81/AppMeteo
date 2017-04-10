@@ -33,9 +33,10 @@
           <table id="datatable-buttons" class="table table-striped table-bordered">
             <thead>
               <tr>
-                <th>Zona</th>
                 <th>Data previsione</th>
                 <th>Ora previsione</th>
+                <th>In turno</th>
+                <th>Zona</th>
                 <th>Fascia Oraria</th>
                 <th>Previsione</th>
                 <th>Allerta</th>
@@ -48,9 +49,13 @@
                 $domani = date('d-m-Y',strtotime($oggi.' +'."1".' days'));          
               ?>
               <tr>
-                <td><?php echo $row->zona; ?></td>
                 <td><?php echo $oggi ?> </td>
                 <td><?php echo $row->Ora; ?> </td>
+                <td><?php 
+                    if($row->inTurno == "0") echo "NO";
+                    else echo "SI";
+                ?> </td>
+                <td><?php echo $row->zona; ?></td>
                 <td>
                   <?php 
                     switch ($row->ID_fasciaoraria) {

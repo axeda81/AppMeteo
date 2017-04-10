@@ -34,9 +34,9 @@
           <table id="datatable-buttons" class="table table-striped table-bordered">
             <thead>
               <tr>
-                <th>Zona</th>
                 <th>Data previsione</th>
                 <th>Ora previsione</th>
+                <th>Zona</th>
                 <th>Fascia Oraria</th>
                 <th>Previsione</th>
                 <th>Allerta</th>
@@ -49,9 +49,9 @@
               ?>              
               <?php if(isset($previsioni)) : foreach($previsioni as $row): ?>
               <tr>
-                <td><?php echo $row->zona; ?></td>
                 <td><?php echo $oggi; ?> </td>
                 <td><?php echo $dati_previsione[0]->Ora; ?> </td>
+                <td><?php echo $row->zona; ?></td>
                 <td>
                   <?php 
                     switch ($row->ID_fasciaoraria) {

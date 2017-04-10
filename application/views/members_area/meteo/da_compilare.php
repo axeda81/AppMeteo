@@ -600,8 +600,8 @@
               <h3> <small> Sei di turno oggi? </small></h3> 
            </div> 
             <p>
-              SI <input type="radio" class="flat" name="turno" id="turnoS" value="SI" required /> 
-              NO <input type="radio" class="flat" name="turno" id="turnoN" value="NO" />
+              SI <input type="radio" class="flat" name="turno" id="turnoS" value="1" required /> 
+              NO <input type="radio" class="flat" name="turno" id="turnoN" value="0" />
             </p>
           </div>
         </div>

@@ -25,7 +25,8 @@ class Previsionieffettuate_model extends CI_Model {
 
 			'ID_utente' => $this->session->userdata('id_utente'),
 			'Data' => date("Y-m-d"),
-			'Ora' => date("H:i")
+			'Ora' => date("H:i"),
+			'inTurno' => $this->input->post('turno')
 		);
 
 		$this->db->insert('previsionieffettuate', $data);
