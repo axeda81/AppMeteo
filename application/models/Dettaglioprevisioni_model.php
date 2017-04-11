@@ -24,10 +24,11 @@ class Dettaglioprevisioni_model extends CI_Model {
 
 		for ($i = 1; $i <= 5; $i++) { // Scorro le zone
 
-			for($j = 1; $j <= 6; $j++) {
-				// Per ogni zona, scorro le fasce orarie prendendo in considerazione le prime due solo se non son passate le 12
+			for($j = 1; $j <= 12; $j++) {
+				// Per ogni zona, scorro le fasce orarie prendendo in considerazione le prime quattro (quelle relative
+				// alla giornata odierna) solo se non son passate le 12
 
-				$nomevar = "fo${j}z${i}";
+				$nomevar = "fo${j}z${i}"; echo $nomevar;
 				$data['ID_tipoprevisione'] = $this->input->post($nomevar);
 				$data['ID_fasciaoraria'] = $j;
 				$codicezona = $i + 59;

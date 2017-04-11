@@ -83,6 +83,8 @@ class Site extends CI_Controller
 		{
 			// Se le previsioni non son già state fatte da quell'utente, carico la view per farle 
 			$data['content'] = 'members_area/meteo/da_compilare';
+			$this->load->model('Fasciaorariaprevisione_model');
+			$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie();
 			 	
 		}
 
