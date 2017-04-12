@@ -31,20 +31,20 @@ class Gestioneutenti extends CI_Controller
         if($id == null)
         {
 			// Se l'id non è stato passato correttamente ricarico tutta la view con l'elenco degli utenti
-			$data['users'] = $this->utenti_model->elenco_utenti();
+			$data['users'] = $this->Utenti_model->elenco_utenti();
 			$data['content'] = 'members_area/admin/update_form';
 
 			$this->load->view('includes/template', $data);
         }
 
-		$data['dati_utente'] = $this->utenti_model->dati_utente($id);
+		$data['dati_utente'] = $this->Utenti_model->dati_utente($id);
 		$data['content'] = 'members_area/admin/pagina_utente';
 		$this->load->view('includes/template', $data);
 	}
 
 	function salva_modifiche_utente($id=null){
 
-		$data['dati_utente'] = $this->utenti_model->dati_utente($id);
+		$data['dati_utente'] = $this->Utenti_model->dati_utente($id);
 
 
 		//Regole di validazione
@@ -90,13 +90,13 @@ class Gestioneutenti extends CI_Controller
 				}
 			
 				// Scrittura su DB
-				$result = $this->utenti_model->aggiorna_utente($datiModificati, $this->input->post('id_utente')); 
+				$result = $this->Utenti_model->aggiorna_utente($datiModificati, $this->input->post('id_utente')); 
 
 				if ($result == true) {
 
 					// Aggiornamento dei dati andato a buon fine 
 					$data['messaggio'] = 'Le modifiche all\'utente sono state salvate correttamente!';
-					$data['users'] = $this->utenti_model->elenco_utenti();
+					$data['users'] = $this->Utenti_model->elenco_utenti();
 					$data['content'] = 'members_area/admin/update_form';
 
 					$this->load->view('includes/template', $data);
@@ -117,16 +117,16 @@ class Gestioneutenti extends CI_Controller
         if($id == null)
         {
 			// Se l'id non è stato passato correttamente ricarico tutta la view con l'elenco degli utenti
-			$data['users'] = $this->utenti_model->elenco_utenti();
+			$data['users'] = $this->Utenti_model->elenco_utenti();
 			$data['content'] = 'members_area/admin/update_form';
 
 			$this->load->view('includes/template', $data);
         }
 
-        $this->utenti_model->elimina_utente($id);
+        $this->Utenti_model->elimina_utente($id);
 
         $data['messaggio'] = 'Cancellazione dell\'utente andata a buon fine.';
-        $data['users'] = $this->utenti_model->elenco_utenti();
+        $data['users'] = $this->Utenti_model->elenco_utenti();
 		$data['content'] = 'members_area/admin/update_form';
 		$this->load->view('includes/template', $data);
 
@@ -161,7 +161,7 @@ class Gestioneutenti extends CI_Controller
 
 			// Se la validazione è andata a buon fine si inserisce il nuovo utente nel DB
 
-			$result = $this->utenti_model->crea_nuovo_utente();
+			$result = $this->Utenti_model->crea_nuovo_utente();
 
 			if ($result = true){
 
@@ -183,7 +183,7 @@ class Gestioneutenti extends CI_Controller
 		// Deve mostrare l'elenco degli utenti presenti (tranne l'amministratore stesso)
 		// e dare modo di selezionarne uno da cancellare (o magari anche da modificare)
 		
-		$data['users'] = $this->utenti_model->elenco_utenti();
+		$data['users'] = $this->Utenti_model->elenco_utenti();
 		$data['content'] = 'members_area/admin/update_form';
 
 		$this->load->view('includes/template', $data);		
@@ -194,7 +194,7 @@ class Gestioneutenti extends CI_Controller
 	{
 		
 		// Carico una view dove vengano mostrati i dati del profilo dell'utente loggato, che può anche modificarli
-		$data['dati_utente'] = $this->utenti_model->dati_utente($this->session->userdata('id_utente'));
+		$data['dati_utente'] = $this->Utenti_model->dati_utente($this->session->userdata('id_utente'));
 		$data['content'] = 'members_area/visualizza_profilo';
 
 		$this->load->view('includes/template', $data);		
@@ -204,7 +204,7 @@ class Gestioneutenti extends CI_Controller
 	{
 
 		// Carico una view dove sia modificabile solo la password dell'utente loggato
-		$data['dati_utente'] = $this->utenti_model->dati_utente($this->session->userdata('id_utente'));
+		$data['dati_utente'] = $this->Utenti_model->dati_utente($this->session->userdata('id_utente'));
 		$data['content'] = 'members_area/modifica_profilo';
 
 		$this->load->view('includes/template', $data);			
@@ -217,7 +217,7 @@ class Gestioneutenti extends CI_Controller
 		// Validazione password e conferma password
 		// Ritorno alla pagina di visualizzazione profilo
 
-		$data['dati_utente'] = $this->utenti_model->dati_utente($this->session->userdata('id_utente'));
+		$data['dati_utente'] = $this->Utenti_model->dati_utente($this->session->userdata('id_utente'));
 
 		// Regole di validazione:
 
@@ -238,7 +238,7 @@ class Gestioneutenti extends CI_Controller
 		{
 
 			// Validazione OK, ma devo controllare se la vecchia password inserita è giusta
-			if ($this->utenti_model->validate($this->session->userdata('username'), md5($this->input->post('oldPassword'))) == false)
+			if ($this->Utenti_model->validate($this->session->userdata('username'), md5($this->input->post('oldPassword'))) == false)
 			{
 				// Password sbagliata 
 				$data['messaggioerrore'] = 'Attenzione! La vecchia password è sbagliata.';
@@ -257,14 +257,14 @@ class Gestioneutenti extends CI_Controller
 				);				
 
 				// Scrittura su DB
-				$result = $this->utenti_model->aggiorna_utente_loggato($datiModificati); 
+				$result = $this->Utenti_model->aggiorna_utente_loggato($datiModificati); 
 
 				if ($result = true)
 				{
 					// Aggiornamento dei dati andato a buon fine 
 					$data['messaggio'] = 'Le modifiche al tuo profilo sono state salvate correttamente!';
 					$data['content'] = 'members_area/visualizza_profilo';
-					$data['dati_utente'] = $this->utenti_model->dati_utente($this->session->userdata('id_utente'));
+					$data['dati_utente'] = $this->Utenti_model->dati_utente($this->session->userdata('id_utente'));
 
 					$this->load->view('includes/template', $data);	
 				}

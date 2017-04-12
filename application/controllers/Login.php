@@ -12,7 +12,7 @@ class Login extends CI_Controller {
 
 		// Chiedo al modello di verificare i dati inseriti dall'utente
 
-		$result = $this->utenti_model->validate($this->input->post('username'), md5($this->input->post('password')));
+		$result = $this->Utenti_model->validate($this->input->post('username'), md5($this->input->post('password')));
 
 		if ($result == true) {
 
@@ -23,9 +23,9 @@ class Login extends CI_Controller {
 			$data = array(
 
 				'username' => $this->input->post('username'),
-				'nome' => $this->utenti_model->nome_da_username($this->input->post('username')),
-				'tipo_utente' => $this->utenti_model->tipo_utente($this->input->post('username')),
-				'id_utente' => $this->utenti_model->id_da_username($this->input->post('username')),
+				'nome' => $this->Utenti_model->nome_da_username($this->input->post('username')),
+				'tipo_utente' => $this->Utenti_model->tipo_utente($this->input->post('username')),
+				'id_utente' => $this->Utenti_model->id_da_username($this->input->post('username')),
 				'is_logged_in' => true
 			);
 

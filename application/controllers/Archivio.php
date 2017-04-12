@@ -26,7 +26,7 @@ class Archivio extends CI_Controller
 		// Carico una view in cui siano disponibili come opzioni di ricerca la zona, la data, il tipo di allerta e l'utente. 
 		// Queto tipo di ricerca può essere fatta solo dal dirigente 
 		$data['content'] = 'members_area/dirigente/ricerca';  
-		$data['elenco_meteo'] = $this->utenti_model->elenco_meteo();
+		$data['elenco_meteo'] = $this->Utenti_model->elenco_meteo();
 		$this->load->view('includes/template', $data);	
 	}
 
@@ -56,7 +56,7 @@ class Archivio extends CI_Controller
 
 		// Chiamo funzioni del modello con le opzioni selezionate dall'utente loggato
 		$id_utente = $this->session->userdata('id_utente');
-		$tipo = $this->utenti_model->tipo_utente_da_id($id_utente); 
+		$tipo = $this->Utenti_model->tipo_utente_da_id($id_utente); 
 		// $tipo = 0, l'utente è un  meteorologo e può cercare solo tra le sue previsioni
 
 		$zona = $this->input->post('select_zona');
@@ -72,9 +72,9 @@ class Archivio extends CI_Controller
 		$datafine = date('Y-m-d', strtotime($date[1])); // YYYY-mm-dd, nel formato accettato dal DB
 
 		if (isset($utenti))
-			$result = $this->dettaglioprevisioni_model->ricerca($id_utente, $zona, $allerta, $datainizio, $datafine, $utenti);
+			$result = $this->Dettaglioprevisioni_model->ricerca($id_utente, $zona, $allerta, $datainizio, $datafine, $utenti);
 		else 
-			$result = $this->dettaglioprevisioni_model->ricerca($id_utente, $zona, $allerta, $datainizio, $datafine, null);
+			$result = $this->Dettaglioprevisioni_model->ricerca($id_utente, $zona, $allerta, $datainizio, $datafine, null);
 		
 
 		// Chiamo una view passandole i risultati della ricerca 
@@ -91,7 +91,7 @@ class Archivio extends CI_Controller
 		// db, per tutti gli utenti - torno i risultati ma poi non pubblicherò i nomi degli utenti 
 		$id_utente = $this->session->userdata('id_utente');
 		$prev_utente_loggato = $this->input->post('miePrevisioni');
-		$tipo = $this->utenti_model->tipo_utente_da_id($id_utente); 
+		$tipo = $this->Utenti_model->tipo_utente_da_id($id_utente); 
 		$zona = $this->input->post('select_zona');
 		$allerta = $this->input->post('select_allerta');
 		$date = explode("-",$this->input->post('daterange')); // Prendo le due date (inizio e fine range, in formato dd/mm/YYYY) separatamente
@@ -100,7 +100,7 @@ class Archivio extends CI_Controller
 		$datainizio = date('Y-m-d', strtotime($date[0])); // YYYY-mm-dd, nel formato accettato dal DB
 		$datafine = date('Y-m-d', strtotime($date[1])); // YYYY-mm-dd, nel formato accettato dal DB
 
-		$result = $this->dettaglioprevisioni_model->ricerca_tutto($id_utente, $zona, $allerta, $datainizio, $datafine, $prev_utente_loggato);
+		$result = $this->Dettaglioprevisioni_model->ricerca_tutto($id_utente, $zona, $allerta, $datainizio, $datafine, $prev_utente_loggato);
 
 		$data['content'] = 'members_area/meteo/risultati_ricerca_tutto'; 
 		$data['result'] = $result; 

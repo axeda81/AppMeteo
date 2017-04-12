@@ -15,7 +15,7 @@ class Site extends CI_Controller
 
 		//Carico la view dell'area riservata agli utenti registrati, in funzione del tipo di utente
 
-		switch ($this->utenti_model->tipo_utente($this->session->userdata('username'))) {
+		switch ($this->Utenti_model->tipo_utente($this->session->userdata('username'))) {
 
 			case 0: // meteorologo: fa le previsioni e può rivedere solo le sue
 				$data['content'] = 'members_area/meteo/home';
@@ -59,8 +59,8 @@ class Site extends CI_Controller
 
 	function verificaPrevEffettuate() {
 
-		$id_utente = $this->utenti_model->id_da_username($this->session->userdata('username'));
-		$var =  $this->previsionieffettuate_model->prevgiaeffettuate($id_utente);
+		$id_utente = $this->Utenti_model->id_da_username($this->session->userdata('username'));
+		$var =  $this->Previsionieffettuate_model->prevgiaeffettuate($id_utente);
 		$sess = array(
 
 				'prev_fatte' => $var,
@@ -72,7 +72,7 @@ class Site extends CI_Controller
 	function meteorologo()
 	{
 		// Prima cosa: controllare se l'utente ha già effettuato le previsioni
-		// in data odierna. In tal caso non può rifarle ma (TODO) solo rivederle.
+		// in data odierna. In tal caso non può rifarle ma solo rivederle.
 		
 		if ($this->session->userdata('prev_confermate') == true)
 		{
@@ -83,7 +83,7 @@ class Site extends CI_Controller
 		{
 			// Se le previsioni non son già state fatte da quell'utente, carico la view per farle 
 			$data['content'] = 'members_area/meteo/da_compilare';
-			$this->load->model('Fasciaorariaprevisione_model');
+			
 			$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie();
 			 	
 		}
@@ -121,11 +121,12 @@ class Site extends CI_Controller
 		// Prima cosa, bisogna salvare l'informazione relativa al fatto che l'utente che è loggato sta facendo le previsioni,
 		// va inserita quindi una riga nella tabella previsionieffettuate facendosi restituire l'ID 
 		
-		$id_preveff = $this->previsionieffettuate_model->inserisci_riga();
+		$id_preveff = $this->Previsionieffettuate_model->inserisci_riga();
 
 		$data = array(
 
-			'id_preveff' => $id_preveff
+			'id_preveff' => $id_preveff,
+			'inTurno' => $this->input->post('turno')
 		);
 
 		// Salvo l'ID della previsione nella sessione così posso utilizzarlo anche in altre funzioni
@@ -136,13 +137,16 @@ class Site extends CI_Controller
 //		}
 
 		// Salvo nella tabella dettaglioprevisioni tutte le previsioni fatte (20 righe se sono già passate le 12, 30 altrimenti)
-		$result = $this->dettaglioprevisioni_model->inserisci_dati($id_preveff, $this->fuoriorariomax());
+		$result = $this->Dettaglioprevisioni_model->inserisci_dati($id_preveff, $this->fuoriorariomax());
 
 		if ($result = true) {
 
 			// Tutti gli inserimenti nel DB sono andati a buon fine, riempio la view di riepilogo 
-			$data['previsioni'] = $this->dettaglioprevisioni_model->elenco_previsioni($id_preveff);
-			$data['dati_previsione'] = $this->previsionieffettuate_model->dati_previsione($id_preveff);
+			$data['previsioni'] = $this->Dettaglioprevisioni_model->elenco_previsioni($id_preveff);
+			$data['dati_previsione'] = $this->Previsionieffettuate_model->dati_previsione($id_preveff);
+
+			$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie();
+
 			$data['content'] = 'members_area/meteo/rivedidati'; // Devo poter rivedere i dati per confermare 
 			$this->load->view('includes/template', $data);
 
@@ -158,8 +162,11 @@ class Site extends CI_Controller
 			// ERRORE
 			// Deve eliminare le righe inserite in previsionieffettuate e dettaglioprevisioni e ricaricare la view meteo così viene ricompilata
 
-			$this->previsionieffettuate_model->elimina_riga($id_preveff);
-			$this->dettaglioprevisioni_model->elimina_dati($id_preveff);
+			$this->Previsionieffettuate_model->elimina_riga($id_preveff);
+			$this->Dettaglioprevisioni_model->elimina_dati($id_preveff);
+
+			$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie();
+
 			$data['content'] = 'members_area/meteo/da_compilare';
 			$data['messaggioerrore'] = 'Errore nell\'inserimento dei dati nel DB. Per favore compila nuovamente le tue previsioni.'; // TODO - usare questo messaggio nella view
 			$this->load->view('includes/template', $data);
@@ -187,9 +194,12 @@ class Site extends CI_Controller
 
 		$id_preveff = $this->session->userdata('id_preveff');
 		// Devo caricare la view meteo_compilato, che è uguale a meteo ma con i dati ripresi dal db 
-		$data['previsioni'] = $this->dettaglioprevisioni_model->elenco_previsioni($id_preveff);
+		$data['previsioni'] = $this->Dettaglioprevisioni_model->elenco_previsioni($id_preveff);
 		// Questa query su dettaglioprevisioni tornerà 20 oppure 30 righe, lo so chiamando $this->fuoriorariomax()
 		$data['fuoriorario'] = $this->fuoriorariomax();
+
+		$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie();
+
 		$data['content'] = 'members_area/meteo/compilato';  
 		
 		$this->load->view('includes/template', $data);		
@@ -202,14 +212,15 @@ class Site extends CI_Controller
 		// Aggiorno tutti i dati delle previsioni (modificati o meno, li sovrascrivo tutti)
 		$id_preveff = $this->session->userdata('id_preveff'); 
 
-		$this->previsionieffettuate_model->aggiorna_orario_riga($id_preveff); // Aggiorno l'orario di modifica della riga con ID = id_preveff
-		$result = $this->dettaglioprevisioni_model->aggiorna_dati($id_preveff, $this->fuoriorariomax());
+		$this->Previsionieffettuate_model->aggiorna_orario_riga($id_preveff); // Aggiorno l'orario di modifica della riga con ID = id_preveff
+		$result = $this->Dettaglioprevisioni_model->aggiorna_dati($id_preveff, $this->fuoriorariomax());
 
 		if ($result = true) {
 
 			// Tutti gli aggiornamenti nel DB sono andati a buon fine 
-			$data['previsioni'] = $this->dettaglioprevisioni_model->elenco_previsioni($id_preveff);
-			$data['dati_previsione'] = $this->previsionieffettuate_model->dati_previsione($id_preveff);
+			$data['previsioni'] = $this->Dettaglioprevisioni_model->elenco_previsioni($id_preveff);
+			$data['dati_previsione'] = $this->Previsionieffettuate_model->dati_previsione($id_preveff);
+			$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie();
 			$data['content'] = 'members_area/meteo/rivedidati'; // Devo poter rivedere i dati per confermare 
 			$this->load->view('includes/template', $data);
 		}
@@ -225,8 +236,9 @@ class Site extends CI_Controller
 		// Carico la view 
 		// Tutti gli inserimenti nel DB sono andati a buon fine
 		$data['messaggioerrore'] = 'Attenzione! Conferma i tuoi dati prima di fare logout.'; 
-		$data['previsioni'] = $this->dettaglioprevisioni_model->elenco_previsioni($id_preveff);
-		$data['dati_previsione'] = $this->previsionieffettuate_model->dati_previsione($id_preveff);
+		$data['previsioni'] = $this->Dettaglioprevisioni_model->elenco_previsioni($id_preveff);
+		$data['dati_previsione'] = $this->Previsionieffettuate_model->dati_previsione($id_preveff);
+		$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie();
 		$data['content'] = 'members_area/meteo/rivedidati'; // Devo poter rivedere i dati per confermare 
 		$this->load->view('includes/template', $data);
 	}

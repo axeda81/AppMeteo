@@ -91,7 +91,7 @@
                 </td>
                 <td>
                   <?php
-                    $utente = $this->utenti_model->nome_da_id($row->ID_utente); 
+                    $utente = $this->Utenti_model->nome_da_id($row->ID_utente); 
                     echo "$utente->Nome $utente->Cognome";
                    ?>
                 </td>

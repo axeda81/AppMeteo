@@ -19,22 +19,25 @@ class Dettaglioprevisioni_model extends CI_Model {
 		);
 
 		$nomevar = "";
+		$numzone = 5;
+		$numfasceorarie = 12;
+		$numfasceorarieoggi = 4;
 
 		$this->db->trans_start();
 
-		for ($i = 1; $i <= 5; $i++) { // Scorro le zone
+		for ($i = 1; $i <= $numzone; $i++) { // Scorro le zone
 
-			for($j = 1; $j <= 12; $j++) {
+			for($j = 1; $j <= $numfasceorarie; $j++) {
 				// Per ogni zona, scorro le fasce orarie prendendo in considerazione le prime quattro (quelle relative
 				// alla giornata odierna) solo se non son passate le 12
 
-				$nomevar = "fo${j}z${i}"; echo $nomevar;
+				$nomevar = "fo${j}z${i}";
 				$data['ID_tipoprevisione'] = $this->input->post($nomevar);
 				$data['ID_fasciaoraria'] = $j;
 				$codicezona = $i + 59;
 				$data['zona'] = "${codicezona}";
 
-				if ((((($j == 1) or ($j == 2)) and ($fuoriorario == false))) or ($j > 2)) {
+				if (((($j <= $numfasceorarieoggi) and ($fuoriorario == false))) or ($j > $numfasceorarieoggi)) {
 					
 					$result = $result && $this->db->insert('dettaglioprevisioni', $data);
 				}

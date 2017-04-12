@@ -51,14 +51,20 @@
                 <td><?php echo $row->Ora; ?> </td>
                 <td><?php echo $row->zona; ?></td>
                 <td>
-                  <?php 
+                   <?php 
                     switch ($row->ID_fasciaoraria) {
-                      case "1": echo "Dalle 12:00 alle 18:00 del "; echo $oggi; break;
-                      case "2": echo "Dalle 18:00 alle 24:00 del "; echo $oggi; break;
-                      case "3": echo "Dalle 00:00 alle 06:00 del "; echo $domani; break;
-                      case "4": echo "Dalle 06:00 alle 12:00 del "; echo $domani; break;
-                      case "5": echo "Dalle 12:00 alle 18:00 del "; echo $domani; break;
-                      case "6": echo "Dalle 18:00 alle 24:00 del "; echo $domani; break;
+                      case "1": echo "Dalle 12:00 alle 15:00 del "; echo $oggi; break;
+                      case "2": echo "Dalle 15:00 alle 18:00 del "; echo $oggi; break;
+                      case "3": echo "Dalle 18:00 alle 21:00 del "; echo $oggi; break;
+                      case "4": echo "Dalle 21:00 alle 24:00 del "; echo $oggi; break;
+                      case "5": echo "Dalle 00:00 alle 03:00 del "; echo $domani; break;
+                      case "6": echo "Dalle 03:00 alle 06:00 del "; echo $domani; break;
+                      case "7": echo "Dalle 06:00 alle 09:00 del "; echo $domani; break;
+                      case "8": echo "Dalle 09:00 alle 12:00 del "; echo $domani; break;
+                      case "9": echo "Dalle 12:00 alle 15:00 del "; echo $domani; break;
+                      case "10": echo "Dalle 15:00 alle 18:00 del "; echo $domani; break;
+                      case "11": echo "Dalle 18:00 alle 21:00 del "; echo $domani; break;
+                      case "12": echo "Dalle 21:00 alle 24:00 del "; echo $domani; break;
                       default: break;
                     }
                   ?>
