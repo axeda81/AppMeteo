@@ -29,7 +29,6 @@
       $zona62 = "Zona 62";
       $zona63 = "Zona 63";
       $zona64 = "Zona 64";
-
       $prev0 = "No temporali";
       $prev1 = "Temporali sparsi";
       $prev2 = "Temporali diffusi";
@@ -145,7 +144,7 @@
                         <label><input type="radio" class="flat" name="fo5z1" <?php if (($previsioni[$indice]->ID_tipoprevisione == 2)&&($fuoriorario==false)) echo "checked"; ?> value = "2">  <?php echo $prev2; ?> </label>
                       </div>
                     </div> 
-                    <?php if ($fuoriorario==false) $indice++; ?>
+                    <?php $indice++; ?>
                   </div>
                 </div>
                 <div class ="col-md-2">
@@ -162,7 +161,7 @@
                         <label><input type="radio" class="flat" name="fo6z1" <?php if (($previsioni[$indice]->ID_tipoprevisione == 2)&&($fuoriorario==false)) echo "checked"; ?> value = "2">  <?php echo $prev2; ?> </label>
                       </div>
                     </div> 
-                    <?php if ($fuoriorario==false) $indice++; ?>
+                     <?php $indice++; ?>
                   </div>
                 </div>  
               </div>
@@ -182,7 +181,7 @@
                         <label><input type="radio" class="flat" name="fo7z1" <?php if (($previsioni[$indice]->ID_tipoprevisione == 2)&&($fuoriorario==false)) echo "checked"; ?> value = "2">  <?php echo $prev2; ?> </label>
                       </div>
                     </div> 
-                    <?php if ($fuoriorario==false) $indice++; ?>
+                     <?php $indice++; ?>
                   </div>
                 </div>
                 <div class ="col-md-2">
@@ -199,7 +198,7 @@
                         <label><input type="radio" class="flat" name="fo8z1" <?php if (($previsioni[$indice]->ID_tipoprevisione == 2)&&($fuoriorario==false)) echo "checked"; ?> value = "2">  <?php echo $prev2; ?> </label>
                       </div>
                     </div> 
-                    <?php if ($fuoriorario==false) $indice++; ?>
+                     <?php $indice++; ?>
                   </div>
                 </div>
                 <div class ="col-md-2">
@@ -216,7 +215,7 @@
                         <label><input type="radio" class="flat" name="fo9z1" <?php if (($previsioni[$indice]->ID_tipoprevisione == 2)&&($fuoriorario==false)) echo "checked"; ?> value = "2">  <?php echo $prev2; ?> </label>
                       </div>
                     </div> 
-                    <?php if ($fuoriorario==false) $indice++; ?>
+                     <?php $indice++; ?>
                   </div>
                 </div>
                 <div class ="col-md-2">
@@ -233,7 +232,7 @@
                         <label><input type="radio" class="flat" name="fo10z1" <?php if (($previsioni[$indice]->ID_tipoprevisione == 2)&&($fuoriorario==false)) echo "checked"; ?> value = "2">  <?php echo $prev2; ?> </label>
                       </div>
                     </div> 
-                    <?php if ($fuoriorario==false) $indice++; ?>
+                     <?php $indice++; ?>
                   </div>
                 </div>
                 <div class ="col-md-2">
@@ -250,7 +249,7 @@
                         <label><input type="radio" class="flat" name="fo11z1" <?php if (($previsioni[$indice]->ID_tipoprevisione == 2)&&($fuoriorario==false)) echo "checked"; ?> value = "2">  <?php echo $prev2; ?> </label>
                       </div>
                     </div> 
-                    <?php if ($fuoriorario==false) $indice++; ?>
+                     <?php $indice++; ?>
                   </div>
                 </div>
                 <div class ="col-md-2">
@@ -267,7 +266,7 @@
                         <label><input type="radio" class="flat" name="fo12z1" <?php if (($previsioni[$indice]->ID_tipoprevisione == 2)&&($fuoriorario==false)) echo "checked"; ?> value = "2">  <?php echo $prev2; ?> </label>
                       </div>
                     </div> 
-                    <?php if ($fuoriorario==false) $indice++; ?>
+                     <?php $indice++; ?>
                   </div>
                 </div>  
               </div>
@@ -280,23 +279,24 @@
           <div class ="col-md-12">
             <div class = "x_panel">
               <div class="x_title">
-                <h3> <small> <?php echo $zona61; ?>  </small></h3>
+                <h3> <small> <?php echo $zona61; ?> </small></h3>
               </div>
-              <div class="row">
+              <div class = "row">
                 <div class ="col-md-2">
                   <div class="form-group">
                     <label class="control-label text-navy"><?php echo $fascia1; ?></label>
                     <div class="">
                       <div class="radio">
-                        <label><input type="radio" class="flat" checked name="fo1z2" <?php if (isset($fo1z2) && $fo1z2=="0") echo "checked"; if ($fuoriorario=="true") echo "disabled";?> value = "0"> <?php echo $prev0; ?> </label>
+                        <label><input type="radio" class="flat" checked name="fo1z2" <?php if (($previsioni[$indice]->ID_tipoprevisione == 0)&&($fuoriorario==false)) echo "checked"; if ($fuoriorario==true) echo "disabled";?> value = "0"> <?php echo $prev0; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo1z2" <?php if (isset($fo1z2) && $fo1z2=="1") echo "checked"; if ($fuoriorario=="true") echo "disabled";?> value = "1"> <?php echo $prev1; ?> </label>
+                        <label><input type="radio" class="flat" name="fo1z2" <?php if (($previsioni[$indice]->ID_tipoprevisione == 1)&&($fuoriorario==false)) echo "checked"; if ($fuoriorario==true) echo "disabled";?> value = "1">  <?php echo $prev1; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo1z2" <?php if (isset($fo1z2) && $fo1z2=="2") echo "checked"; if ($fuoriorario=="true") echo "disabled";?> value = "2"> <?php echo $prev2; ?> </label>
+                        <label><input type="radio" class="flat" name="fo1z2" <?php if (($previsioni[$indice]->ID_tipoprevisione == 2)&&($fuoriorario==false)) echo "checked"; if ($fuoriorario==true) echo "disabled";?> value = "2">  <?php echo $prev2; ?> </label>
                       </div>
                     </div> 
+                    <?php if ($fuoriorario==false) $indice++; ?>
                   </div>
                 </div>
                 <div class ="col-md-2">
@@ -304,15 +304,16 @@
                     <label class="control-label text-navy"><?php echo $fascia2; ?></label>
                     <div class="">
                       <div class="radio">
-                        <label><input type="radio" class="flat" checked name="fo2z2" <?php if (isset($fo2z2) && $fo2z2=="0") echo "checked"; if ($fuoriorario=="true") echo "disabled";?> value = "0"> <?php echo $prev0; ?> </label>
+                        <label><input type="radio" class="flat" checked name="fo2z2" <?php if (($previsioni[$indice]->ID_tipoprevisione == 0)&&($fuoriorario==false)) echo "checked"; if ($fuoriorario==true) echo "disabled";?> value = "0"> <?php echo $prev0; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo2z2" <?php if (isset($fo2z2) && $fo2z2=="1") echo "checked"; if ($fuoriorario=="true") echo "disabled";?> value = "1"> <?php echo $prev1; ?> </label>
+                        <label><input type="radio" class="flat" name="fo2z2" <?php if (($previsioni[$indice]->ID_tipoprevisione == 1)&&($fuoriorario==false)) echo "checked"; if ($fuoriorario==true) echo "disabled";?> value = "1">  <?php echo $prev1; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo2z2" <?php if (isset($fo2z2) && $fo2z2=="2") echo "checked"; if ($fuoriorario=="true") echo "disabled";?> value = "2"> <?php echo $prev2; ?> </label>
+                        <label><input type="radio" class="flat" name="fo2z2" <?php if (($previsioni[$indice]->ID_tipoprevisione == 2)&&($fuoriorario==false)) echo "checked"; if ($fuoriorario==true) echo "disabled";?> value = "2">  <?php echo $prev2; ?> </label>
                       </div>
                     </div> 
+                    <?php if ($fuoriorario==false) $indice++; ?>
                   </div>
                 </div>
                 <div class ="col-md-2">
@@ -320,15 +321,16 @@
                     <label class="control-label text-navy"><?php echo $fascia3; ?></label>
                     <div class="">
                       <div class="radio">
-                        <label><input type="radio" class="flat" checked name="fo3z2" <?php if (isset($fo3z2) && $fo3z2=="0") echo "checked"; if ($fuoriorario=="true") echo "disabled";?> value = "0"> <?php echo $prev0; ?> </label>
+                        <label><input type="radio" class="flat" checked name="fo3z2" <?php if (($previsioni[$indice]->ID_tipoprevisione == 0)&&($fuoriorario==false)) echo "checked"; if ($fuoriorario==true) echo "disabled";?> value = "0"> <?php echo $prev0; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo3z2" <?php if (isset($fo3z2) && $fo3z2=="1") echo "checked"; if ($fuoriorario=="true") echo "disabled";?> value = "1"> <?php echo $prev1; ?> </label>
+                        <label><input type="radio" class="flat" name="fo3z2" <?php if (($previsioni[$indice]->ID_tipoprevisione == 1)&&($fuoriorario==false)) echo "checked"; if ($fuoriorario==true) echo "disabled";?> value = "1">  <?php echo $prev1; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo3z2" <?php if (isset($fo3z2) && $fo3z2=="2") echo "checked"; if ($fuoriorario=="true") echo "disabled";?> value = "2"> <?php echo $prev2; ?> </label>
+                        <label><input type="radio" class="flat" name="fo3z2" <?php if (($previsioni[$indice]->ID_tipoprevisione == 2)&&($fuoriorario==false)) echo "checked"; if ($fuoriorario==true) echo "disabled";?> value = "2">  <?php echo $prev2; ?> </label>
                       </div>
                     </div> 
+                    <?php if ($fuoriorario==false) $indice++; ?>
                   </div>
                 </div>
                 <div class ="col-md-2">
@@ -336,15 +338,16 @@
                     <label class="control-label text-navy"><?php echo $fascia4; ?></label>
                     <div class="">
                       <div class="radio">
-                        <label><input type="radio" class="flat" checked name="fo4z2" <?php if (isset($fo4z2) && $fo4z2=="0") echo "checked"; if ($fuoriorario=="true") echo "disabled";?> value = "0"> <?php echo $prev0; ?> </label>
+                        <label><input type="radio" class="flat" checked name="fo4z2" <?php if (($previsioni[$indice]->ID_tipoprevisione == 0)&&($fuoriorario==false)) echo "checked"; if ($fuoriorario==true) echo "disabled";?> value = "0"> <?php echo $prev0; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo4z2" <?php if (isset($fo4z2) && $fo4z2=="1") echo "checked"; if ($fuoriorario=="true") echo "disabled";?> value = "1"> <?php echo $prev1; ?> </label>
+                        <label><input type="radio" class="flat" name="fo4z2" <?php if (($previsioni[$indice]->ID_tipoprevisione == 1)&&($fuoriorario==false)) echo "checked"; if ($fuoriorario==true) echo "disabled";?> value = "1">  <?php echo $prev1; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo4z2" <?php if (isset($fo4z2) && $fo4z2=="2") echo "checked"; if ($fuoriorario=="true") echo "disabled";?> value = "2"> <?php echo $prev2; ?> </label>
+                        <label><input type="radio" class="flat" name="fo4z2" <?php if (($previsioni[$indice]->ID_tipoprevisione == 2)&&($fuoriorario==false)) echo "checked"; if ($fuoriorario==true) echo "disabled";?> value = "2">  <?php echo $prev2; ?> </label>
                       </div>
                     </div> 
+                    <?php if ($fuoriorario==false) $indice++; ?>
                   </div>
                 </div>
                 <div class ="col-md-2">
@@ -352,15 +355,16 @@
                     <label class="control-label text-navy"><?php echo $fascia5; ?></label>
                     <div class="">
                       <div class="radio">
-                        <label><input type="radio" class="flat" checked name="fo5z2" <?php if (isset($fo5z2) && $fo5z2=="0") echo "checked";?> value = "0"> <?php echo $prev0; ?></label>
+                        <label><input type="radio" class="flat" checked name="fo5z2" <?php if (($previsioni[$indice]->ID_tipoprevisione == 0)&&($fuoriorario==false)) echo "checked"; ?> value = "0"> <?php echo $prev0; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo5z2" <?php if (isset($fo5z2) && $fo5z2=="1") echo "checked";?> value = "1"> <?php echo $prev1; ?> </label>
+                        <label><input type="radio" class="flat" name="fo5z2" <?php if (($previsioni[$indice]->ID_tipoprevisione == 1)&&($fuoriorario==false)) echo "checked"; ?> value = "1">  <?php echo $prev1; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo5z2" <?php if (isset($fo5z2) && $fo5z2=="2") echo "checked";?> value = "2"> <?php echo $prev2; ?> </label>
+                        <label><input type="radio" class="flat" name="fo5z2" <?php if (($previsioni[$indice]->ID_tipoprevisione == 2)&&($fuoriorario==false)) echo "checked"; ?> value = "2">  <?php echo $prev2; ?> </label>
                       </div>
                     </div> 
+                    <?php if ($fuoriorario==false) $indice++; ?>
                   </div>
                 </div>
                 <div class ="col-md-2">
@@ -368,50 +372,53 @@
                     <label class="control-label text-navy"><?php echo $fascia6; ?></label>
                     <div class="">
                       <div class="radio">
-                        <label><input type="radio" class="flat" checked name="fo6z2" <?php if (isset($fo6z2) && $fo6z2=="0") echo "checked";?> value = "0"> <?php echo $prev0; ?> </label>
+                        <label><input type="radio" class="flat" checked name="fo6z2" <?php if (($previsioni[$indice]->ID_tipoprevisione == 0)&&($fuoriorario==false)) echo "checked"; ?> value = "0"> <?php echo $prev0; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo6z2" <?php if (isset($fo6z2) && $fo6z2=="1") echo "checked";?> value = "1"> <?php echo $prev1; ?> </label>
+                        <label><input type="radio" class="flat" name="fo6z2" <?php if (($previsioni[$indice]->ID_tipoprevisione == 1)&&($fuoriorario==false)) echo "checked"; ?> value = "1">  <?php echo $prev1; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo6z2" <?php if (isset($fo6z2) && $fo6z2=="2") echo "checked";?> value = "2"> <?php echo $prev2; ?> </label>
+                        <label><input type="radio" class="flat" name="fo6z2" <?php if (($previsioni[$indice]->ID_tipoprevisione == 2)&&($fuoriorario==false)) echo "checked"; ?> value = "2">  <?php echo $prev2; ?> </label>
                       </div>
                     </div> 
+                    <?php if ($fuoriorario==false) $indice++; ?>
                   </div>
-                </div> 
+                </div>  
               </div>
               </br>
-              <div class="row">
+              <div class = "row">
                 <div class ="col-md-2">
                   <div class="form-group">
                     <label class="control-label text-navy"><?php echo $fascia7; ?></label>
                     <div class="">
                       <div class="radio">
-                        <label><input type="radio" class="flat" checked name="fo7z2" <?php if (isset($fo7z2) && $fo7z2=="0") echo "checked"; ?> value = "0"> <?php echo $prev0; ?> </label>
+                        <label><input type="radio" class="flat" checked name="fo7z2" <?php if (($previsioni[$indice]->ID_tipoprevisione == 0)&&($fuoriorario==false)) echo "checked"; ?> value = "0"> <?php echo $prev0; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo7z2" <?php if (isset($fo7z2) && $fo7z2=="1") echo "checked"; ?> value = "1"> <?php echo $prev1; ?> </label>
+                        <label><input type="radio" class="flat" name="fo7z2" <?php if (($previsioni[$indice]->ID_tipoprevisione == 1)&&($fuoriorario==false)) echo "checked"; ?> value = "1">  <?php echo $prev1; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo7z2" <?php if (isset($fo7z2) && $fo7z2=="2") echo "checked"; ?> value = "2"> <?php echo $prev2; ?> </label>
+                        <label><input type="radio" class="flat" name="fo7z2" <?php if (($previsioni[$indice]->ID_tipoprevisione == 2)&&($fuoriorario==false)) echo "checked"; ?> value = "2">  <?php echo $prev2; ?> </label>
                       </div>
                     </div> 
+                    <?php if ($fuoriorario==false) $indice++; ?>
                   </div>
-                </div>              
+                </div>
                 <div class ="col-md-2">
                   <div class="form-group">
                     <label class="control-label text-navy"><?php echo $fascia8; ?></label>
                     <div class="">
                       <div class="radio">
-                        <label><input type="radio" class="flat" checked name="fo8z2" <?php if (isset($fo8z2) && $fo8z2=="0") echo "checked"; ?> value = "0"> <?php echo $prev0; ?> </label>
+                        <label><input type="radio" class="flat" checked name="fo8z2" <?php if (($previsioni[$indice]->ID_tipoprevisione == 0)&&($fuoriorario==false)) echo "checked"; ?> value = "0"> <?php echo $prev0; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo8z2" <?php if (isset($fo8z2) && $fo8z2=="1") echo "checked"; ?> value = "1"> <?php echo $prev1; ?> </label>
+                        <label><input type="radio" class="flat" name="fo8z2" <?php if (($previsioni[$indice]->ID_tipoprevisione == 1)&&($fuoriorario==false)) echo "checked"; ?> value = "1">  <?php echo $prev1; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo8z2" <?php if (isset($fo8z2) && $fo8z2=="2") echo "checked"; ?> value = "2"> <?php echo $prev2; ?> </label>
+                        <label><input type="radio" class="flat" name="fo8z2" <?php if (($previsioni[$indice]->ID_tipoprevisione == 2)&&($fuoriorario==false)) echo "checked"; ?> value = "2">  <?php echo $prev2; ?> </label>
                       </div>
                     </div> 
+                    <?php if ($fuoriorario==false) $indice++; ?>
                   </div>
                 </div>
                 <div class ="col-md-2">
@@ -419,15 +426,16 @@
                     <label class="control-label text-navy"><?php echo $fascia9; ?></label>
                     <div class="">
                       <div class="radio">
-                        <label><input type="radio" class="flat" checked name="fo9z2" <?php if (isset($fo9z2) && $fo9z2=="0") echo "checked";?> value = "0"> <?php echo $prev0; ?> </label>
+                        <label><input type="radio" class="flat" checked name="fo9z2" <?php if (($previsioni[$indice]->ID_tipoprevisione == 0)&&($fuoriorario==false)) echo "checked"; ?> value = "0"> <?php echo $prev0; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo9z2" <?php if (isset($fo9z2) && $fo9z2=="1") echo "checked";?> value = "1"> <?php echo $prev1; ?> </label>
+                        <label><input type="radio" class="flat" name="fo9z2" <?php if (($previsioni[$indice]->ID_tipoprevisione == 1)&&($fuoriorario==false)) echo "checked"; ?> value = "1">  <?php echo $prev1; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo9z2" <?php if (isset($fo9z2) && $fo9z2=="2") echo "checked";?> value = "2"> <?php echo $prev2; ?> </label>
+                        <label><input type="radio" class="flat" name="fo9z2" <?php if (($previsioni[$indice]->ID_tipoprevisione == 2)&&($fuoriorario==false)) echo "checked"; ?> value = "2">  <?php echo $prev2; ?> </label>
                       </div>
                     </div> 
+                    <?php if ($fuoriorario==false) $indice++; ?>
                   </div>
                 </div>
                 <div class ="col-md-2">
@@ -435,15 +443,16 @@
                     <label class="control-label text-navy"><?php echo $fascia10; ?></label>
                     <div class="">
                       <div class="radio">
-                        <label><input type="radio" class="flat" checked name="fo10z2" <?php if (isset($fo10z2) && $fo10z2=="0") echo "checked";?> value = "0"> <?php echo $prev0; ?> </label>
+                        <label><input type="radio" class="flat" checked name="fo10z2" <?php if (($previsioni[$indice]->ID_tipoprevisione == 0)&&($fuoriorario==false)) echo "checked"; ?> value = "0"> <?php echo $prev0; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo10z2" <?php if (isset($fo10z2) && $fo10z2=="1") echo "checked";?> value = "1"> <?php echo $prev1; ?> </label>
+                        <label><input type="radio" class="flat" name="fo10z2" <?php if (($previsioni[$indice]->ID_tipoprevisione == 1)&&($fuoriorario==false)) echo "checked"; ?> value = "1">  <?php echo $prev1; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo10z2" <?php if (isset($fo10z2) && $fo10z2=="2") echo "checked";?> value = "2"> <?php echo $prev2; ?> </label>
+                        <label><input type="radio" class="flat" name="fo10z2" <?php if (($previsioni[$indice]->ID_tipoprevisione == 2)&&($fuoriorario==false)) echo "checked"; ?> value = "2">  <?php echo $prev2; ?> </label>
                       </div>
                     </div> 
+                    <?php if ($fuoriorario==false) $indice++; ?>
                   </div>
                 </div>
                 <div class ="col-md-2">
@@ -451,15 +460,16 @@
                     <label class="control-label text-navy"><?php echo $fascia11; ?></label>
                     <div class="">
                       <div class="radio">
-                        <label><input type="radio" class="flat" checked name="fo11z2" <?php if (isset($fo11z2) && $fo11z2=="0") echo "checked";?> value = "0"> <?php echo $prev0; ?></label>
+                        <label><input type="radio" class="flat" checked name="fo11z2" <?php if (($previsioni[$indice]->ID_tipoprevisione == 0)&&($fuoriorario==false)) echo "checked"; ?> value = "0"> <?php echo $prev0; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo11z2" <?php if (isset($fo11z2) && $fo11z2=="1") echo "checked";?> value = "1"> <?php echo $prev1; ?> </label>
+                        <label><input type="radio" class="flat" name="fo11z2" <?php if (($previsioni[$indice]->ID_tipoprevisione == 1)&&($fuoriorario==false)) echo "checked"; ?> value = "1">  <?php echo $prev1; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo11z2" <?php if (isset($fo11z2) && $fo11z2=="2") echo "checked";?> value = "2"> <?php echo $prev2; ?> </label>
+                        <label><input type="radio" class="flat" name="fo11z2" <?php if (($previsioni[$indice]->ID_tipoprevisione == 2)&&($fuoriorario==false)) echo "checked"; ?> value = "2">  <?php echo $prev2; ?> </label>
                       </div>
                     </div> 
+                    <?php if ($fuoriorario==false) $indice++; ?>
                   </div>
                 </div>
                 <div class ="col-md-2">
@@ -467,17 +477,18 @@
                     <label class="control-label text-navy"><?php echo $fascia12; ?></label>
                     <div class="">
                       <div class="radio">
-                        <label><input type="radio" class="flat" checked name="fo12z2" <?php if (isset($fo12z2) && $fo12z2=="0") echo "checked";?> value = "0"> <?php echo $prev0; ?> </label>
+                        <label><input type="radio" class="flat" checked name="fo12z2" <?php if (($previsioni[$indice]->ID_tipoprevisione == 0)&&($fuoriorario==false)) echo "checked"; ?> value = "0"> <?php echo $prev0; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo12z2" <?php if (isset($fo12z2) && $fo12z2=="1") echo "checked";?> value = "1"> <?php echo $prev1; ?> </label>
+                        <label><input type="radio" class="flat" name="fo12z2" <?php if (($previsioni[$indice]->ID_tipoprevisione == 1)&&($fuoriorario==false)) echo "checked"; ?> value = "1">  <?php echo $prev1; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo12z2" <?php if (isset($fo12z2) && $fo12z2=="2") echo "checked";?> value = "2"> <?php echo $prev2; ?> </label>
+                        <label><input type="radio" class="flat" name="fo12z2" <?php if (($previsioni[$indice]->ID_tipoprevisione == 2)&&($fuoriorario==false)) echo "checked"; ?> value = "2">  <?php echo $prev2; ?> </label>
                       </div>
                     </div> 
+                    <?php if ($fuoriorario==false) $indice++; ?>
                   </div>
-                </div> 
+                </div>  
               </div>
             </div> 
           </div>
@@ -488,23 +499,24 @@
           <div class ="col-md-12">
             <div class = "x_panel">
               <div class="x_title">
-                <h3> <small> <?php echo $zona62; ?>  </small></h3>
+                <h3> <small> <?php echo $zona62; ?> </small></h3>
               </div>
-              <div class="row">
+              <div class = "row">
                 <div class ="col-md-2">
                   <div class="form-group">
                     <label class="control-label text-navy"><?php echo $fascia1; ?></label>
                     <div class="">
                       <div class="radio">
-                        <label><input type="radio" class="flat" checked name="fo1z3" <?php if (isset($fo1z3) && $fo1z3=="0") echo "checked"; if ($fuoriorario=="true") echo "disabled";?> value = "0"> <?php echo $prev0; ?> </label>
+                        <label><input type="radio" class="flat" checked name="fo1z3" <?php if (($previsioni[$indice]->ID_tipoprevisione == 0)&&($fuoriorario==false)) echo "checked"; if ($fuoriorario==true) echo "disabled";?> value = "0"> <?php echo $prev0; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo1z3" <?php if (isset($fo1z3) && $fo1z3=="1") echo "checked"; if ($fuoriorario=="true") echo "disabled";?> value = "1"> <?php echo $prev1; ?> </label>
+                        <label><input type="radio" class="flat" name="fo1z3" <?php if (($previsioni[$indice]->ID_tipoprevisione == 1)&&($fuoriorario==false)) echo "checked"; if ($fuoriorario==true) echo "disabled";?> value = "1">  <?php echo $prev1; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo1z3" <?php if (isset($fo1z3) && $fo1z3=="2") echo "checked"; if ($fuoriorario=="true") echo "disabled";?> value = "2"> <?php echo $prev2; ?> </label>
+                        <label><input type="radio" class="flat" name="fo1z3" <?php if (($previsioni[$indice]->ID_tipoprevisione == 2)&&($fuoriorario==false)) echo "checked"; if ($fuoriorario==true) echo "disabled";?> value = "2">  <?php echo $prev2; ?> </label>
                       </div>
                     </div> 
+                    <?php if ($fuoriorario==false) $indice++; ?>
                   </div>
                 </div>
                 <div class ="col-md-2">
@@ -512,15 +524,16 @@
                     <label class="control-label text-navy"><?php echo $fascia2; ?></label>
                     <div class="">
                       <div class="radio">
-                        <label><input type="radio" class="flat" checked name="fo2z3" <?php if (isset($fo2z3) && $fo2z3=="0") echo "checked"; if ($fuoriorario=="true") echo "disabled";?> value = "0"> <?php echo $prev0; ?> </label>
+                        <label><input type="radio" class="flat" checked name="fo2z3" <?php if (($previsioni[$indice]->ID_tipoprevisione == 0)&&($fuoriorario==false)) echo "checked"; if ($fuoriorario==true) echo "disabled";?> value = "0"> <?php echo $prev0; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo2z3" <?php if (isset($fo2z3) && $fo2z3=="1") echo "checked"; if ($fuoriorario=="true") echo "disabled";?> value = "1"> <?php echo $prev1; ?> </label>
+                        <label><input type="radio" class="flat" name="fo2z3" <?php if (($previsioni[$indice]->ID_tipoprevisione == 1)&&($fuoriorario==false)) echo "checked"; if ($fuoriorario==true) echo "disabled";?> value = "1">  <?php echo $prev1; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo2z3" <?php if (isset($fo2z3) && $fo2z3=="2") echo "checked"; if ($fuoriorario=="true") echo "disabled";?> value = "2"> <?php echo $prev2; ?> </label>
+                        <label><input type="radio" class="flat" name="fo2z3" <?php if (($previsioni[$indice]->ID_tipoprevisione == 2)&&($fuoriorario==false)) echo "checked"; if ($fuoriorario==true) echo "disabled";?> value = "2">  <?php echo $prev2; ?> </label>
                       </div>
                     </div> 
+                    <?php if ($fuoriorario==false) $indice++; ?>
                   </div>
                 </div>
                 <div class ="col-md-2">
@@ -528,15 +541,16 @@
                     <label class="control-label text-navy"><?php echo $fascia3; ?></label>
                     <div class="">
                       <div class="radio">
-                        <label><input type="radio" class="flat" checked name="fo3z3" <?php if (isset($fo3z3) && $fo3z3=="0") echo "checked"; if ($fuoriorario=="true") echo "disabled";?> value = "0"> <?php echo $prev0; ?> </label>
+                        <label><input type="radio" class="flat" checked name="fo3z3" <?php if (($previsioni[$indice]->ID_tipoprevisione == 0)&&($fuoriorario==false)) echo "checked"; if ($fuoriorario==true) echo "disabled";?> value = "0"> <?php echo $prev0; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo3z3" <?php if (isset($fo3z3) && $fo3z3=="1") echo "checked"; if ($fuoriorario=="true") echo "disabled";?> value = "1"> <?php echo $prev1; ?> </label>
+                        <label><input type="radio" class="flat" name="fo3z3" <?php if (($previsioni[$indice]->ID_tipoprevisione == 1)&&($fuoriorario==false)) echo "checked"; if ($fuoriorario==true) echo "disabled";?> value = "1">  <?php echo $prev1; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo3z3" <?php if (isset($fo3z3) && $fo3z3=="2") echo "checked"; if ($fuoriorario=="true") echo "disabled";?> value = "2"> <?php echo $prev2; ?> </label>
+                        <label><input type="radio" class="flat" name="fo3z3" <?php if (($previsioni[$indice]->ID_tipoprevisione == 2)&&($fuoriorario==false)) echo "checked"; if ($fuoriorario==true) echo "disabled";?> value = "2">  <?php echo $prev2; ?> </label>
                       </div>
                     </div> 
+                    <?php if ($fuoriorario==false) $indice++; ?>
                   </div>
                 </div>
                 <div class ="col-md-2">
@@ -544,15 +558,16 @@
                     <label class="control-label text-navy"><?php echo $fascia4; ?></label>
                     <div class="">
                       <div class="radio">
-                        <label><input type="radio" class="flat" checked name="fo4z3" <?php if (isset($fo4z3) && $fo4z3=="0") echo "checked"; if ($fuoriorario=="true") echo "disabled";?> value = "0"> <?php echo $prev0; ?> </label>
+                        <label><input type="radio" class="flat" checked name="fo4z3" <?php if (($previsioni[$indice]->ID_tipoprevisione == 0)&&($fuoriorario==false)) echo "checked"; if ($fuoriorario==true) echo "disabled";?> value = "0"> <?php echo $prev0; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo4z3" <?php if (isset($fo4z3) && $fo4z3=="1") echo "checked"; if ($fuoriorario=="true") echo "disabled";?> value = "1"> <?php echo $prev1; ?> </label>
+                        <label><input type="radio" class="flat" name="fo4z3" <?php if (($previsioni[$indice]->ID_tipoprevisione == 1)&&($fuoriorario==false)) echo "checked"; if ($fuoriorario==true) echo "disabled";?> value = "1">  <?php echo $prev1; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo4z3" <?php if (isset($fo4z3) && $fo4z3=="2") echo "checked"; if ($fuoriorario=="true") echo "disabled";?> value = "2"> <?php echo $prev2; ?> </label>
+                        <label><input type="radio" class="flat" name="fo4z3" <?php if (($previsioni[$indice]->ID_tipoprevisione == 2)&&($fuoriorario==false)) echo "checked"; if ($fuoriorario==true) echo "disabled";?> value = "2">  <?php echo $prev2; ?> </label>
                       </div>
                     </div> 
+                    <?php if ($fuoriorario==false) $indice++; ?>
                   </div>
                 </div>
                 <div class ="col-md-2">
@@ -560,15 +575,16 @@
                     <label class="control-label text-navy"><?php echo $fascia5; ?></label>
                     <div class="">
                       <div class="radio">
-                        <label><input type="radio" class="flat" checked name="fo5z3" <?php if (isset($fo5z3) && $fo5z3=="0") echo "checked";?> value = "0"> <?php echo $prev0; ?> </label>
+                        <label><input type="radio" class="flat" checked name="fo5z3" <?php if (($previsioni[$indice]->ID_tipoprevisione == 0)&&($fuoriorario==false)) echo "checked"; ?> value = "0"> <?php echo $prev0; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo5z3" <?php if (isset($fo5z3) && $fo5z3=="1") echo "checked";?> value = "1"> <?php echo $prev1; ?> </label>
+                        <label><input type="radio" class="flat" name="fo5z3" <?php if (($previsioni[$indice]->ID_tipoprevisione == 1)&&($fuoriorario==false)) echo "checked"; ?> value = "1">  <?php echo $prev1; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo5z3" <?php if (isset($fo5z3) && $fo5z3=="2") echo "checked";?> value = "2"> <?php echo $prev2; ?> </label>
+                        <label><input type="radio" class="flat" name="fo5z3" <?php if (($previsioni[$indice]->ID_tipoprevisione == 2)&&($fuoriorario==false)) echo "checked"; ?> value = "2">  <?php echo $prev2; ?> </label>
                       </div>
                     </div> 
+                    <?php if ($fuoriorario==false) $indice++; ?>
                   </div>
                 </div>
                 <div class ="col-md-2">
@@ -576,34 +592,36 @@
                     <label class="control-label text-navy"><?php echo $fascia6; ?></label>
                     <div class="">
                       <div class="radio">
-                        <label><input type="radio" class="flat" checked name="fo6z3" <?php if (isset($fo6z3) && $fo6z3=="0") echo "checked";?> value = "0"> <?php echo $prev0; ?> </label>
+                        <label><input type="radio" class="flat" checked name="fo6z3" <?php if (($previsioni[$indice]->ID_tipoprevisione == 0)&&($fuoriorario==false)) echo "checked"; ?> value = "0"> <?php echo $prev0; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo6z3" <?php if (isset($fo6z3) && $fo6z3=="1") echo "checked";?> value = "1"> <?php echo $prev1; ?> </label>
+                        <label><input type="radio" class="flat" name="fo6z3" <?php if (($previsioni[$indice]->ID_tipoprevisione == 1)&&($fuoriorario==false)) echo "checked"; ?> value = "1">  <?php echo $prev1; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo6z3" <?php if (isset($fo6z3) && $fo6z3=="2") echo "checked";?> value = "2"> <?php echo $prev2; ?> </label>
+                        <label><input type="radio" class="flat" name="fo6z3" <?php if (($previsioni[$indice]->ID_tipoprevisione == 2)&&($fuoriorario==false)) echo "checked"; ?> value = "2">  <?php echo $prev2; ?> </label>
                       </div>
                     </div> 
+                    <?php if ($fuoriorario==false) $indice++; ?>
                   </div>
-                </div> 
-              </div> 
+                </div>  
+              </div>
               </br>
-              <div class="row">
+              <div class = "row">
                 <div class ="col-md-2">
                   <div class="form-group">
                     <label class="control-label text-navy"><?php echo $fascia7; ?></label>
                     <div class="">
                       <div class="radio">
-                        <label><input type="radio" class="flat" checked name="fo7z3" <?php if (isset($fo7z3) && $fo7z3=="0") echo "checked"; ?> value = "0"> <?php echo $prev0; ?> </label>
+                        <label><input type="radio" class="flat" checked name="fo7z3" <?php if (($previsioni[$indice]->ID_tipoprevisione == 0)&&($fuoriorario==false)) echo "checked"; ?> value = "0"> <?php echo $prev0; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo7z3" <?php if (isset($fo7z3) && $fo7z3=="1") echo "checked"; ?> value = "1"> <?php echo $prev1; ?> </label>
+                        <label><input type="radio" class="flat" name="fo7z3" <?php if (($previsioni[$indice]->ID_tipoprevisione == 1)&&($fuoriorario==false)) echo "checked"; ?> value = "1">  <?php echo $prev1; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo7z3" <?php if (isset($fo7z3) && $fo7z3=="2") echo "checked"; ?> value = "2"> <?php echo $prev2; ?> </label>
+                        <label><input type="radio" class="flat" name="fo7z3" <?php if (($previsioni[$indice]->ID_tipoprevisione == 2)&&($fuoriorario==false)) echo "checked"; ?> value = "2">  <?php echo $prev2; ?> </label>
                       </div>
                     </div> 
+                    <?php if ($fuoriorario==false) $indice++; ?>
                   </div>
                 </div>
                 <div class ="col-md-2">
@@ -611,15 +629,16 @@
                     <label class="control-label text-navy"><?php echo $fascia8; ?></label>
                     <div class="">
                       <div class="radio">
-                        <label><input type="radio" class="flat" checked name="fo8z3" <?php if (isset($fo8z3) && $fo8z3=="0") echo "checked"; ?> value = "0"> <?php echo $prev0; ?> </label>
+                        <label><input type="radio" class="flat" checked name="fo8z3" <?php if (($previsioni[$indice]->ID_tipoprevisione == 0)&&($fuoriorario==false)) echo "checked"; ?> value = "0"> <?php echo $prev0; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo8z3" <?php if (isset($fo8z3) && $fo8z3=="1") echo "checked"; ?> value = "1"> <?php echo $prev1; ?> </label>
+                        <label><input type="radio" class="flat" name="fo8z3" <?php if (($previsioni[$indice]->ID_tipoprevisione == 1)&&($fuoriorario==false)) echo "checked"; ?> value = "1">  <?php echo $prev1; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo8z3" <?php if (isset($fo8z3) && $fo8z3=="2") echo "checked"; ?> value = "2"> <?php echo $prev2; ?> </label>
+                        <label><input type="radio" class="flat" name="fo8z3" <?php if (($previsioni[$indice]->ID_tipoprevisione == 2)&&($fuoriorario==false)) echo "checked"; ?> value = "2">  <?php echo $prev2; ?> </label>
                       </div>
                     </div> 
+                    <?php if ($fuoriorario==false) $indice++; ?>
                   </div>
                 </div>
                 <div class ="col-md-2">
@@ -627,15 +646,16 @@
                     <label class="control-label text-navy"><?php echo $fascia9; ?></label>
                     <div class="">
                       <div class="radio">
-                        <label><input type="radio" class="flat" checked name="fo9z3" <?php if (isset($fo9z3) && $fo9z3=="0") echo "checked";?> value = "0"> <?php echo $prev0; ?> </label>
+                        <label><input type="radio" class="flat" checked name="fo9z3" <?php if (($previsioni[$indice]->ID_tipoprevisione == 0)&&($fuoriorario==false)) echo "checked"; ?> value = "0"> <?php echo $prev0; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo9z3" <?php if (isset($fo9z3) && $fo9z3=="1") echo "checked";?> value = "1"> <?php echo $prev1; ?> </label>
+                        <label><input type="radio" class="flat" name="fo9z3" <?php if (($previsioni[$indice]->ID_tipoprevisione == 1)&&($fuoriorario==false)) echo "checked"; ?> value = "1">  <?php echo $prev1; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo9z3" <?php if (isset($fo9z3) && $fo9z3=="2") echo "checked";?> value = "2"> <?php echo $prev2; ?> </label>
+                        <label><input type="radio" class="flat" name="fo9z3" <?php if (($previsioni[$indice]->ID_tipoprevisione == 2)&&($fuoriorario==false)) echo "checked"; ?> value = "2">  <?php echo $prev2; ?> </label>
                       </div>
                     </div> 
+                    <?php if ($fuoriorario==false) $indice++; ?>
                   </div>
                 </div>
                 <div class ="col-md-2">
@@ -643,15 +663,16 @@
                     <label class="control-label text-navy"><?php echo $fascia10; ?></label>
                     <div class="">
                       <div class="radio">
-                        <label><input type="radio" class="flat" checked name="fo10z3" <?php if (isset($fo10z3) && $fo10z3=="0") echo "checked";?> value = "0"> <?php echo $prev0; ?> </label>
+                        <label><input type="radio" class="flat" checked name="fo10z3" <?php if (($previsioni[$indice]->ID_tipoprevisione == 0)&&($fuoriorario==false)) echo "checked"; ?> value = "0"> <?php echo $prev0; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo10z3" <?php if (isset($fo10z3) && $fo10z3=="1") echo "checked";?> value = "1"> <?php echo $prev1; ?> </label>
+                        <label><input type="radio" class="flat" name="fo10z3" <?php if (($previsioni[$indice]->ID_tipoprevisione == 1)&&($fuoriorario==false)) echo "checked"; ?> value = "1">  <?php echo $prev1; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo10z3" <?php if (isset($fo10z3) && $fo10z3=="2") echo "checked";?> value = "2"> <?php echo $prev2; ?> </label>
+                        <label><input type="radio" class="flat" name="fo10z3" <?php if (($previsioni[$indice]->ID_tipoprevisione == 2)&&($fuoriorario==false)) echo "checked"; ?> value = "2">  <?php echo $prev2; ?> </label>
                       </div>
                     </div> 
+                    <?php if ($fuoriorario==false) $indice++; ?>
                   </div>
                 </div>
                 <div class ="col-md-2">
@@ -659,15 +680,16 @@
                     <label class="control-label text-navy"><?php echo $fascia11; ?></label>
                     <div class="">
                       <div class="radio">
-                        <label><input type="radio" class="flat" checked name="fo11z3" <?php if (isset($fo11z3) && $fo11z3=="0") echo "checked";?> value = "0"> <?php echo $prev0; ?> </label>
+                        <label><input type="radio" class="flat" checked name="fo11z3" <?php if (($previsioni[$indice]->ID_tipoprevisione == 0)&&($fuoriorario==false)) echo "checked"; ?> value = "0"> <?php echo $prev0; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo11z3" <?php if (isset($fo11z3) && $fo11z3=="1") echo "checked";?> value = "1"> <?php echo $prev1; ?> </label>
+                        <label><input type="radio" class="flat" name="fo11z3" <?php if (($previsioni[$indice]->ID_tipoprevisione == 1)&&($fuoriorario==false)) echo "checked"; ?> value = "1">  <?php echo $prev1; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo11z3" <?php if (isset($fo11z3) && $fo11z3=="2") echo "checked";?> value = "2"> <?php echo $prev2; ?> </label>
+                        <label><input type="radio" class="flat" name="fo11z3" <?php if (($previsioni[$indice]->ID_tipoprevisione == 2)&&($fuoriorario==false)) echo "checked"; ?> value = "2">  <?php echo $prev2; ?> </label>
                       </div>
                     </div> 
+                    <?php if ($fuoriorario==false) $indice++; ?>
                   </div>
                 </div>
                 <div class ="col-md-2">
@@ -675,18 +697,19 @@
                     <label class="control-label text-navy"><?php echo $fascia12; ?></label>
                     <div class="">
                       <div class="radio">
-                        <label><input type="radio" class="flat" checked name="fo12z3" <?php if (isset($fo12z3) && $fo12z3=="0") echo "checked";?> value = "0"> <?php echo $prev0; ?> </label>
+                        <label><input type="radio" class="flat" checked name="fo12z3" <?php if (($previsioni[$indice]->ID_tipoprevisione == 0)&&($fuoriorario==false)) echo "checked"; ?> value = "0"> <?php echo $prev0; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo12z3" <?php if (isset($fo12z3) && $fo12z3=="1") echo "checked";?> value = "1"> <?php echo $prev1; ?> </label>
+                        <label><input type="radio" class="flat" name="fo12z3" <?php if (($previsioni[$indice]->ID_tipoprevisione == 1)&&($fuoriorario==false)) echo "checked"; ?> value = "1">  <?php echo $prev1; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo12z3" <?php if (isset($fo12z3) && $fo12z3=="2") echo "checked";?> value = "2"> <?php echo $prev2; ?> </label>
+                        <label><input type="radio" class="flat" name="fo12z3" <?php if (($previsioni[$indice]->ID_tipoprevisione == 2)&&($fuoriorario==false)) echo "checked"; ?> value = "2">  <?php echo $prev2; ?> </label>
                       </div>
                     </div> 
+                    <?php if ($fuoriorario==false) $indice++; ?>
                   </div>
-                </div> 
-              </div> 
+                </div>  
+              </div>
             </div> 
           </div>
         </div>
@@ -698,21 +721,22 @@
               <div class="x_title">
                 <h3> <small> <?php echo $zona63; ?> </small></h3>
               </div>
-              <div class="row">
+              <div class = "row">
                 <div class ="col-md-2">
                   <div class="form-group">
                     <label class="control-label text-navy"><?php echo $fascia1; ?></label>
                     <div class="">
                       <div class="radio">
-                        <label><input type="radio" class="flat" checked name="fo1z4" <?php if (isset($fo1z4) && $fo1z4=="0") echo "checked"; if ($fuoriorario=="true") echo "disabled";?> value = "0"> <?php echo $prev0; ?> </label>
+                        <label><input type="radio" class="flat" checked name="fo1z4" <?php if (($previsioni[$indice]->ID_tipoprevisione == 0)&&($fuoriorario==false)) echo "checked"; if ($fuoriorario==true) echo "disabled";?> value = "0"> <?php echo $prev0; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo1z4" <?php if (isset($fo1z4) && $fo1z4=="1") echo "checked"; if ($fuoriorario=="true") echo "disabled";?> value = "1"> <?php echo $prev1; ?> </label>
+                        <label><input type="radio" class="flat" name="fo1z4" <?php if (($previsioni[$indice]->ID_tipoprevisione == 1)&&($fuoriorario==false)) echo "checked"; if ($fuoriorario==true) echo "disabled";?> value = "1">  <?php echo $prev1; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo1z4" <?php if (isset($fo1z4) && $fo1z4=="2") echo "checked"; if ($fuoriorario=="true") echo "disabled";?> value = "2"> <?php echo $prev2; ?> </label>
+                        <label><input type="radio" class="flat" name="fo1z4" <?php if (($previsioni[$indice]->ID_tipoprevisione == 2)&&($fuoriorario==false)) echo "checked"; if ($fuoriorario==true) echo "disabled";?> value = "2">  <?php echo $prev2; ?> </label>
                       </div>
                     </div> 
+                    <?php if ($fuoriorario==false) $indice++; ?>
                   </div>
                 </div>
                 <div class ="col-md-2">
@@ -720,15 +744,16 @@
                     <label class="control-label text-navy"><?php echo $fascia2; ?></label>
                     <div class="">
                       <div class="radio">
-                        <label><input type="radio" class="flat" checked name="fo2z4" <?php if (isset($fo2z4) && $fo2z4=="0") echo "checked"; if ($fuoriorario=="true") echo "disabled";?> value = "0"> <?php echo $prev0; ?> </label>
+                        <label><input type="radio" class="flat" checked name="fo2z4" <?php if (($previsioni[$indice]->ID_tipoprevisione == 0)&&($fuoriorario==false)) echo "checked"; if ($fuoriorario==true) echo "disabled";?> value = "0"> <?php echo $prev0; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo2z4" <?php if (isset($fo2z4) && $fo2z4=="1") echo "checked"; if ($fuoriorario=="true") echo "disabled";?> value = "1"> <?php echo $prev1; ?> </label>
+                        <label><input type="radio" class="flat" name="fo2z4" <?php if (($previsioni[$indice]->ID_tipoprevisione == 1)&&($fuoriorario==false)) echo "checked"; if ($fuoriorario==true) echo "disabled";?> value = "1">  <?php echo $prev1; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo2z4" <?php if (isset($fo2z4) && $fo2z4=="2") echo "checked"; if ($fuoriorario=="true") echo "disabled";?> value = "2"> <?php echo $prev2; ?> </label>
+                        <label><input type="radio" class="flat" name="fo2z4" <?php if (($previsioni[$indice]->ID_tipoprevisione == 2)&&($fuoriorario==false)) echo "checked"; if ($fuoriorario==true) echo "disabled";?> value = "2">  <?php echo $prev2; ?> </label>
                       </div>
                     </div> 
+                    <?php if ($fuoriorario==false) $indice++; ?>
                   </div>
                 </div>
                 <div class ="col-md-2">
@@ -736,15 +761,16 @@
                     <label class="control-label text-navy"><?php echo $fascia3; ?></label>
                     <div class="">
                       <div class="radio">
-                        <label><input type="radio" class="flat" checked name="fo3z4" <?php if (isset($fo3z4) && $fo3z4=="0") echo "checked"; if ($fuoriorario=="true") echo "disabled";?> value = "0"> <?php echo $prev0; ?> </label>
+                        <label><input type="radio" class="flat" checked name="fo3z4" <?php if (($previsioni[$indice]->ID_tipoprevisione == 0)&&($fuoriorario==false)) echo "checked"; if ($fuoriorario==true) echo "disabled";?> value = "0"> <?php echo $prev0; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo3z4" <?php if (isset($fo3z4) && $fo3z4=="1") echo "checked"; if ($fuoriorario=="true") echo "disabled";?> value = "1"> <?php echo $prev1; ?> </label>
+                        <label><input type="radio" class="flat" name="fo3z4" <?php if (($previsioni[$indice]->ID_tipoprevisione == 1)&&($fuoriorario==false)) echo "checked"; if ($fuoriorario==true) echo "disabled";?> value = "1">  <?php echo $prev1; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo3z4" <?php if (isset($fo3z4) && $fo3z4=="2") echo "checked"; if ($fuoriorario=="true") echo "disabled";?> value = "2"> <?php echo $prev2; ?> </label>
+                        <label><input type="radio" class="flat" name="fo3z4" <?php if (($previsioni[$indice]->ID_tipoprevisione == 2)&&($fuoriorario==false)) echo "checked"; if ($fuoriorario==true) echo "disabled";?> value = "2">  <?php echo $prev2; ?> </label>
                       </div>
                     </div> 
+                    <?php if ($fuoriorario==false) $indice++; ?>
                   </div>
                 </div>
                 <div class ="col-md-2">
@@ -752,15 +778,16 @@
                     <label class="control-label text-navy"><?php echo $fascia4; ?></label>
                     <div class="">
                       <div class="radio">
-                        <label><input type="radio" class="flat" checked name="fo4z4" <?php if (isset($fo4z4) && $fo4z4=="0") echo "checked"; if ($fuoriorario=="true") echo "disabled";?> value = "0"> <?php echo $prev0; ?> </label>
+                        <label><input type="radio" class="flat" checked name="fo4z4" <?php if (($previsioni[$indice]->ID_tipoprevisione == 0)&&($fuoriorario==false)) echo "checked"; if ($fuoriorario==true) echo "disabled";?> value = "0"> <?php echo $prev0; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo4z4" <?php if (isset($fo4z4) && $fo4z4=="1") echo "checked"; if ($fuoriorario=="true") echo "disabled";?> value = "1"> <?php echo $prev1; ?> </label>
+                        <label><input type="radio" class="flat" name="fo4z4" <?php if (($previsioni[$indice]->ID_tipoprevisione == 1)&&($fuoriorario==false)) echo "checked"; if ($fuoriorario==true) echo "disabled";?> value = "1">  <?php echo $prev1; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo4z4" <?php if (isset($fo4z4) && $fo4z4=="2") echo "checked"; if ($fuoriorario=="true") echo "disabled";?> value = "2"> <?php echo $prev2; ?> </label>
+                        <label><input type="radio" class="flat" name="fo4z4" <?php if (($previsioni[$indice]->ID_tipoprevisione == 2)&&($fuoriorario==false)) echo "checked"; if ($fuoriorario==true) echo "disabled";?> value = "2">  <?php echo $prev2; ?> </label>
                       </div>
                     </div> 
+                    <?php if ($fuoriorario==false) $indice++; ?>
                   </div>
                 </div>
                 <div class ="col-md-2">
@@ -768,15 +795,16 @@
                     <label class="control-label text-navy"><?php echo $fascia5; ?></label>
                     <div class="">
                       <div class="radio">
-                        <label><input type="radio" class="flat" checked name="fo5z4" <?php if (isset($fo5z4) && $fo5z4=="0") echo "checked";?> value = "0"> <?php echo $prev0; ?> </label>
+                        <label><input type="radio" class="flat" checked name="fo5z4" <?php if (($previsioni[$indice]->ID_tipoprevisione == 0)&&($fuoriorario==false)) echo "checked"; ?> value = "0"> <?php echo $prev0; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo5z4" <?php if (isset($fo5z4) && $fo5z4=="1") echo "checked";?> value = "1"> <?php echo $prev1; ?> </label>
+                        <label><input type="radio" class="flat" name="fo5z4" <?php if (($previsioni[$indice]->ID_tipoprevisione == 1)&&($fuoriorario==false)) echo "checked"; ?> value = "1">  <?php echo $prev1; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo5z4" <?php if (isset($fo5z4) && $fo5z4=="2") echo "checked";?> value = "2"> <?php echo $prev2; ?> </label>
+                        <label><input type="radio" class="flat" name="fo5z4" <?php if (($previsioni[$indice]->ID_tipoprevisione == 2)&&($fuoriorario==false)) echo "checked"; ?> value = "2">  <?php echo $prev2; ?> </label>
                       </div>
                     </div> 
+                    <?php if ($fuoriorario==false) $indice++; ?>
                   </div>
                 </div>
                 <div class ="col-md-2">
@@ -784,34 +812,36 @@
                     <label class="control-label text-navy"><?php echo $fascia6; ?></label>
                     <div class="">
                       <div class="radio">
-                        <label><input type="radio" class="flat" checked name="fo6z4" <?php if (isset($fo6z4) && $fo6z4=="0") echo "checked";?> value = "0"> <?php echo $prev0; ?> </label>
+                        <label><input type="radio" class="flat" checked name="fo6z4" <?php if (($previsioni[$indice]->ID_tipoprevisione == 0)&&($fuoriorario==false)) echo "checked"; ?> value = "0"> <?php echo $prev0; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo6z4" <?php if (isset($fo6z4) && $fo6z4=="1") echo "checked";?> value = "1"> <?php echo $prev1; ?> </label>
+                        <label><input type="radio" class="flat" name="fo6z4" <?php if (($previsioni[$indice]->ID_tipoprevisione == 1)&&($fuoriorario==false)) echo "checked"; ?> value = "1">  <?php echo $prev1; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo6z4" <?php if (isset($fo6z4) && $fo6z4=="2") echo "checked";?> value = "2"> <?php echo $prev2; ?> </label>
+                        <label><input type="radio" class="flat" name="fo6z4" <?php if (($previsioni[$indice]->ID_tipoprevisione == 2)&&($fuoriorario==false)) echo "checked"; ?> value = "2">  <?php echo $prev2; ?> </label>
                       </div>
                     </div> 
+                    <?php if ($fuoriorario==false) $indice++; ?>
                   </div>
-                </div> 
-              </div> 
+                </div>  
+              </div>
               </br>
-              <div class="row">
+              <div class = "row">
                 <div class ="col-md-2">
                   <div class="form-group">
                     <label class="control-label text-navy"><?php echo $fascia7; ?></label>
                     <div class="">
                       <div class="radio">
-                        <label><input type="radio" class="flat" checked name="fo7z4" <?php if (isset($fo7z4) && $fo7z4=="0") echo "checked"; ?> value = "0"> <?php echo $prev0; ?> </label>
+                        <label><input type="radio" class="flat" checked name="fo7z4" <?php if (($previsioni[$indice]->ID_tipoprevisione == 0)&&($fuoriorario==false)) echo "checked"; ?> value = "0"> <?php echo $prev0; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo7z4" <?php if (isset($fo7z4) && $fo7z4=="1") echo "checked"; ?> value = "1"> <?php echo $prev1; ?> </label>
+                        <label><input type="radio" class="flat" name="fo7z4" <?php if (($previsioni[$indice]->ID_tipoprevisione == 1)&&($fuoriorario==false)) echo "checked"; ?> value = "1">  <?php echo $prev1; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo7z4" <?php if (isset($fo7z4) && $fo7z4=="2") echo "checked"; ?> value = "2"> <?php echo $prev2; ?> </label>
+                        <label><input type="radio" class="flat" name="fo7z4" <?php if (($previsioni[$indice]->ID_tipoprevisione == 2)&&($fuoriorario==false)) echo "checked"; ?> value = "2">  <?php echo $prev2; ?> </label>
                       </div>
                     </div> 
+                    <?php if ($fuoriorario==false) $indice++; ?>
                   </div>
                 </div>
                 <div class ="col-md-2">
@@ -819,15 +849,16 @@
                     <label class="control-label text-navy"><?php echo $fascia8; ?></label>
                     <div class="">
                       <div class="radio">
-                        <label><input type="radio" class="flat" checked name="fo8z4" <?php if (isset($fo8z4) && $fo8z4=="0") echo "checked"; ?> value = "0"> <?php echo $prev0; ?> </label>
+                        <label><input type="radio" class="flat" checked name="fo8z4" <?php if (($previsioni[$indice]->ID_tipoprevisione == 0)&&($fuoriorario==false)) echo "checked"; ?> value = "0"> <?php echo $prev0; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo8z4" <?php if (isset($fo8z4) && $fo8z4=="1") echo "checked"; ?> value = "1"> <?php echo $prev1; ?> </label>
+                        <label><input type="radio" class="flat" name="fo8z4" <?php if (($previsioni[$indice]->ID_tipoprevisione == 1)&&($fuoriorario==false)) echo "checked"; ?> value = "1">  <?php echo $prev1; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo8z4" <?php if (isset($fo8z4) && $fo8z4=="2") echo "checked"; ?> value = "2"> <?php echo $prev2; ?> </label>
+                        <label><input type="radio" class="flat" name="fo8z4" <?php if (($previsioni[$indice]->ID_tipoprevisione == 2)&&($fuoriorario==false)) echo "checked"; ?> value = "2">  <?php echo $prev2; ?> </label>
                       </div>
                     </div> 
+                    <?php if ($fuoriorario==false) $indice++; ?>
                   </div>
                 </div>
                 <div class ="col-md-2">
@@ -835,15 +866,16 @@
                     <label class="control-label text-navy"><?php echo $fascia9; ?></label>
                     <div class="">
                       <div class="radio">
-                        <label><input type="radio" class="flat" checked name="fo9z4" <?php if (isset($fo9z4) && $fo9z4=="0") echo "checked";?> value = "0"> <?php echo $prev0; ?> </label>
+                        <label><input type="radio" class="flat" checked name="fo9z4" <?php if (($previsioni[$indice]->ID_tipoprevisione == 0)&&($fuoriorario==false)) echo "checked"; ?> value = "0"> <?php echo $prev0; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo9z4" <?php if (isset($fo9z4) && $fo9z4=="1") echo "checked";?> value = "1"> <?php echo $prev1; ?> </label>
+                        <label><input type="radio" class="flat" name="fo9z4" <?php if (($previsioni[$indice]->ID_tipoprevisione == 1)&&($fuoriorario==false)) echo "checked"; ?> value = "1">  <?php echo $prev1; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo9z4" <?php if (isset($fo9z4) && $fo9z4=="2") echo "checked";?> value = "2"> <?php echo $prev2; ?> </label>
+                        <label><input type="radio" class="flat" name="fo9z4" <?php if (($previsioni[$indice]->ID_tipoprevisione == 2)&&($fuoriorario==false)) echo "checked"; ?> value = "2">  <?php echo $prev2; ?> </label>
                       </div>
                     </div> 
+                    <?php if ($fuoriorario==false) $indice++; ?>
                   </div>
                 </div>
                 <div class ="col-md-2">
@@ -851,15 +883,16 @@
                     <label class="control-label text-navy"><?php echo $fascia10; ?></label>
                     <div class="">
                       <div class="radio">
-                        <label><input type="radio" class="flat" checked name="fo10z4" <?php if (isset($fo10z4) && $fo10z4=="0") echo "checked";?> value = "0"> <?php echo $prev0; ?> </label>
+                        <label><input type="radio" class="flat" checked name="fo10z4" <?php if (($previsioni[$indice]->ID_tipoprevisione == 0)&&($fuoriorario==false)) echo "checked"; ?> value = "0"> <?php echo $prev0; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo10z4" <?php if (isset($fo10z4) && $fo10z4=="1") echo "checked";?> value = "1"> <?php echo $prev1; ?> </label>
+                        <label><input type="radio" class="flat" name="fo10z4" <?php if (($previsioni[$indice]->ID_tipoprevisione == 1)&&($fuoriorario==false)) echo "checked"; ?> value = "1">  <?php echo $prev1; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo10z4" <?php if (isset($fo10z4) && $fo10z4=="2") echo "checked";?> value = "2"> <?php echo $prev2; ?> </label>
+                        <label><input type="radio" class="flat" name="fo10z4" <?php if (($previsioni[$indice]->ID_tipoprevisione == 2)&&($fuoriorario==false)) echo "checked"; ?> value = "2">  <?php echo $prev2; ?> </label>
                       </div>
                     </div> 
+                    <?php if ($fuoriorario==false) $indice++; ?>
                   </div>
                 </div>
                 <div class ="col-md-2">
@@ -867,15 +900,16 @@
                     <label class="control-label text-navy"><?php echo $fascia11; ?></label>
                     <div class="">
                       <div class="radio">
-                        <label><input type="radio" class="flat" checked name="fo11z4" <?php if (isset($fo11z4) && $fo11z4=="0") echo "checked";?> value = "0"> <?php echo $prev0; ?> </label>
+                        <label><input type="radio" class="flat" checked name="fo11z4" <?php if (($previsioni[$indice]->ID_tipoprevisione == 0)&&($fuoriorario==false)) echo "checked"; ?> value = "0"> <?php echo $prev0; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo11z4" <?php if (isset($fo11z4) && $fo11z4=="1") echo "checked";?> value = "1"> <?php echo $prev1; ?> </label>
+                        <label><input type="radio" class="flat" name="fo11z4" <?php if (($previsioni[$indice]->ID_tipoprevisione == 1)&&($fuoriorario==false)) echo "checked"; ?> value = "1">  <?php echo $prev1; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo11z4" <?php if (isset($fo11z4) && $fo11z4=="2") echo "checked";?> value = "2"> <?php echo $prev2; ?> </label>
+                        <label><input type="radio" class="flat" name="fo11z4" <?php if (($previsioni[$indice]->ID_tipoprevisione == 2)&&($fuoriorario==false)) echo "checked"; ?> value = "2">  <?php echo $prev2; ?> </label>
                       </div>
                     </div> 
+                    <?php if ($fuoriorario==false) $indice++; ?>
                   </div>
                 </div>
                 <div class ="col-md-2">
@@ -883,18 +917,19 @@
                     <label class="control-label text-navy"><?php echo $fascia12; ?></label>
                     <div class="">
                       <div class="radio">
-                        <label><input type="radio" class="flat" checked name="fo12z4" <?php if (isset($fo12z4) && $fo12z4=="0") echo "checked";?> value = "0"> <?php echo $prev0; ?> </label>
+                        <label><input type="radio" class="flat" checked name="fo12z4" <?php if (($previsioni[$indice]->ID_tipoprevisione == 0)&&($fuoriorario==false)) echo "checked"; ?> value = "0"> <?php echo $prev0; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo12z4" <?php if (isset($fo12z4) && $fo12z4=="1") echo "checked";?> value = "1"> <?php echo $prev1; ?> </label>
+                        <label><input type="radio" class="flat" name="fo12z4" <?php if (($previsioni[$indice]->ID_tipoprevisione == 1)&&($fuoriorario==false)) echo "checked"; ?> value = "1">  <?php echo $prev1; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo12z4" <?php if (isset($fo12z4) && $fo12z4=="2") echo "checked";?> value = "2"> <?php echo $prev2; ?> </label>
+                        <label><input type="radio" class="flat" name="fo12z4" <?php if (($previsioni[$indice]->ID_tipoprevisione == 2)&&($fuoriorario==false)) echo "checked"; ?> value = "2">  <?php echo $prev2; ?> </label>
                       </div>
                     </div> 
+                    <?php if ($fuoriorario==false) $indice++; ?>
                   </div>
-                </div> 
-              </div> 
+                </div>  
+              </div>
             </div> 
           </div>
         </div>
@@ -904,23 +939,24 @@
           <div class ="col-md-12">
             <div class = "x_panel">
               <div class="x_title">
-                <h3> <small> <?php echo $zona64; ?>  </small></h3>
+                <h3> <small> <?php echo $zona64; ?> </small></h3>
               </div>
-              <div class="row">
+              <div class = "row">
                 <div class ="col-md-2">
                   <div class="form-group">
                     <label class="control-label text-navy"><?php echo $fascia1; ?></label>
                     <div class="">
                       <div class="radio">
-                        <label><input type="radio" class="flat" checked name="fo1z5" <?php if (isset($fo1z5) && $fo1z5=="0") echo "checked"; if ($fuoriorario=="true") echo "disabled";?> value = "0"> <?php echo $prev0; ?> </label>
+                        <label><input type="radio" class="flat" checked name="fo1z5" <?php if (($previsioni[$indice]->ID_tipoprevisione == 0)&&($fuoriorario==false)) echo "checked"; if ($fuoriorario==true) echo "disabled";?> value = "0"> <?php echo $prev0; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo1z5" <?php if (isset($fo1z5) && $fo1z5=="1") echo "checked"; if ($fuoriorario=="true") echo "disabled";?> value = "1"> <?php echo $prev1; ?> </label>
+                        <label><input type="radio" class="flat" name="fo1z5" <?php if (($previsioni[$indice]->ID_tipoprevisione == 1)&&($fuoriorario==false)) echo "checked"; if ($fuoriorario==true) echo "disabled";?> value = "1">  <?php echo $prev1; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo1z5" <?php if (isset($fo1z5) && $fo1z5=="2") echo "checked"; if ($fuoriorario=="true") echo "disabled";?> value = "2"> <?php echo $prev2; ?> </label>
+                        <label><input type="radio" class="flat" name="fo1z5" <?php if (($previsioni[$indice]->ID_tipoprevisione == 2)&&($fuoriorario==false)) echo "checked"; if ($fuoriorario==true) echo "disabled";?> value = "2">  <?php echo $prev2; ?> </label>
                       </div>
                     </div> 
+                    <?php if ($fuoriorario==false) $indice++; ?>
                   </div>
                 </div>
                 <div class ="col-md-2">
@@ -928,15 +964,16 @@
                     <label class="control-label text-navy"><?php echo $fascia2; ?></label>
                     <div class="">
                       <div class="radio">
-                        <label><input type="radio" class="flat" checked name="fo2z5" <?php if (isset($fo2z5) && $fo2z5=="0") echo "checked"; if ($fuoriorario=="true") echo "disabled";?> value = "0"> <?php echo $prev0; ?> </label>
+                        <label><input type="radio" class="flat" checked name="fo2z5" <?php if (($previsioni[$indice]->ID_tipoprevisione == 0)&&($fuoriorario==false)) echo "checked"; if ($fuoriorario==true) echo "disabled";?> value = "0"> <?php echo $prev0; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo2z5" <?php if (isset($fo2z5) && $fo2z5=="1") echo "checked"; if ($fuoriorario=="true") echo "disabled";?> value = "1"> <?php echo $prev1; ?> </label>
+                        <label><input type="radio" class="flat" name="fo2z5" <?php if (($previsioni[$indice]->ID_tipoprevisione == 1)&&($fuoriorario==false)) echo "checked"; if ($fuoriorario==true) echo "disabled";?> value = "1">  <?php echo $prev1; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo2z5" <?php if (isset($fo2z5) && $fo2z5=="2") echo "checked"; if ($fuoriorario=="true") echo "disabled";?> value = "2"> <?php echo $prev2; ?> </label>
+                        <label><input type="radio" class="flat" name="fo2z5" <?php if (($previsioni[$indice]->ID_tipoprevisione == 2)&&($fuoriorario==false)) echo "checked"; if ($fuoriorario==true) echo "disabled";?> value = "2">  <?php echo $prev2; ?> </label>
                       </div>
                     </div> 
+                    <?php if ($fuoriorario==false) $indice++; ?>
                   </div>
                 </div>
                 <div class ="col-md-2">
@@ -944,15 +981,16 @@
                     <label class="control-label text-navy"><?php echo $fascia3; ?></label>
                     <div class="">
                       <div class="radio">
-                        <label><input type="radio" class="flat" checked name="fo3z5" <?php if (isset($fo3z5) && $fo3z5=="0") echo "checked"; if ($fuoriorario=="true") echo "disabled";?> value = "0"> <?php echo $prev0; ?> </label>
+                        <label><input type="radio" class="flat" checked name="fo3z5" <?php if (($previsioni[$indice]->ID_tipoprevisione == 0)&&($fuoriorario==false)) echo "checked"; if ($fuoriorario==true) echo "disabled";?> value = "0"> <?php echo $prev0; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo3z5" <?php if (isset($fo3z5) && $fo3z5=="1") echo "checked"; if ($fuoriorario=="true") echo "disabled";?> value = "1"> <?php echo $prev1; ?> </label>
+                        <label><input type="radio" class="flat" name="fo3z5" <?php if (($previsioni[$indice]->ID_tipoprevisione == 1)&&($fuoriorario==false)) echo "checked"; if ($fuoriorario==true) echo "disabled";?> value = "1">  <?php echo $prev1; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo3z5" <?php if (isset($fo3z5) && $fo3z5=="2") echo "checked"; if ($fuoriorario=="true") echo "disabled";?> value = "2"> <?php echo $prev2; ?> </label>
+                        <label><input type="radio" class="flat" name="fo3z5" <?php if (($previsioni[$indice]->ID_tipoprevisione == 2)&&($fuoriorario==false)) echo "checked"; if ($fuoriorario==true) echo "disabled";?> value = "2">  <?php echo $prev2; ?> </label>
                       </div>
                     </div> 
+                    <?php if ($fuoriorario==false) $indice++; ?>
                   </div>
                 </div>
                 <div class ="col-md-2">
@@ -960,15 +998,16 @@
                     <label class="control-label text-navy"><?php echo $fascia4; ?></label>
                     <div class="">
                       <div class="radio">
-                        <label><input type="radio" class="flat" checked name="fo4z5" <?php if (isset($fo4z5) && $fo4z5=="0") echo "checked"; if ($fuoriorario=="true") echo "disabled";?> value = "0"> <?php echo $prev0; ?> </label>
+                        <label><input type="radio" class="flat" checked name="fo4z5" <?php if (($previsioni[$indice]->ID_tipoprevisione == 0)&&($fuoriorario==false)) echo "checked"; if ($fuoriorario==true) echo "disabled";?> value = "0"> <?php echo $prev0; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo4z5" <?php if (isset($fo4z5) && $fo4z5=="1") echo "checked"; if ($fuoriorario=="true") echo "disabled";?> value = "1"> <?php echo $prev1; ?> </label>
+                        <label><input type="radio" class="flat" name="fo4z5" <?php if (($previsioni[$indice]->ID_tipoprevisione == 1)&&($fuoriorario==false)) echo "checked"; if ($fuoriorario==true) echo "disabled";?> value = "1">  <?php echo $prev1; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo4z5" <?php if (isset($fo4z5) && $fo4z5=="2") echo "checked"; if ($fuoriorario=="true") echo "disabled";?> value = "2"> <?php echo $prev2; ?> </label>
+                        <label><input type="radio" class="flat" name="fo4z5" <?php if (($previsioni[$indice]->ID_tipoprevisione == 2)&&($fuoriorario==false)) echo "checked"; if ($fuoriorario==true) echo "disabled";?> value = "2">  <?php echo $prev2; ?> </label>
                       </div>
                     </div> 
+                    <?php if ($fuoriorario==false) $indice++; ?>
                   </div>
                 </div>
                 <div class ="col-md-2">
@@ -976,15 +1015,16 @@
                     <label class="control-label text-navy"><?php echo $fascia5; ?></label>
                     <div class="">
                       <div class="radio">
-                        <label><input type="radio" class="flat" checked name="fo5z5" <?php if (isset($fo5z5) && $fo5z5=="0") echo "checked";?> value = "0"> <?php echo $prev0; ?> </label>
+                        <label><input type="radio" class="flat" checked name="fo5z5" <?php if (($previsioni[$indice]->ID_tipoprevisione == 0)&&($fuoriorario==false)) echo "checked"; ?> value = "0"> <?php echo $prev0; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo5z5" <?php if (isset($fo5z5) && $fo5z5=="1") echo "checked";?> value = "1"> <?php echo $prev1; ?> </label>
+                        <label><input type="radio" class="flat" name="fo5z5" <?php if (($previsioni[$indice]->ID_tipoprevisione == 1)&&($fuoriorario==false)) echo "checked"; ?> value = "1">  <?php echo $prev1; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo5z5" <?php if (isset($fo5z5) && $fo5z5=="2") echo "checked";?> value = "2"> <?php echo $prev2; ?> </label>
+                        <label><input type="radio" class="flat" name="fo5z5" <?php if (($previsioni[$indice]->ID_tipoprevisione == 2)&&($fuoriorario==false)) echo "checked"; ?> value = "2">  <?php echo $prev2; ?> </label>
                       </div>
                     </div> 
+                    <?php if ($fuoriorario==false) $indice++; ?>
                   </div>
                 </div>
                 <div class ="col-md-2">
@@ -992,34 +1032,36 @@
                     <label class="control-label text-navy"><?php echo $fascia6; ?></label>
                     <div class="">
                       <div class="radio">
-                        <label><input type="radio" class="flat" checked name="fo6z5" <?php if (isset($fo6z5) && $fo6z5=="0") echo "checked";?> value = "0"> <?php echo $prev0; ?> </label>
+                        <label><input type="radio" class="flat" checked name="fo6z5" <?php if (($previsioni[$indice]->ID_tipoprevisione == 0)&&($fuoriorario==false)) echo "checked"; ?> value = "0"> <?php echo $prev0; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo6z5" <?php if (isset($fo6z5) && $fo6z5=="1") echo "checked";?> value = "1"> <?php echo $prev1; ?> </label>
+                        <label><input type="radio" class="flat" name="fo6z5" <?php if (($previsioni[$indice]->ID_tipoprevisione == 1)&&($fuoriorario==false)) echo "checked"; ?> value = "1">  <?php echo $prev1; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo6z5" <?php if (isset($fo6z5) && $fo6z5=="2") echo "checked";?> value = "2"> <?php echo $prev2; ?> </label>
+                        <label><input type="radio" class="flat" name="fo6z5" <?php if (($previsioni[$indice]->ID_tipoprevisione == 2)&&($fuoriorario==false)) echo "checked"; ?> value = "2">  <?php echo $prev2; ?> </label>
                       </div>
                     </div> 
+                    <?php if ($fuoriorario==false) $indice++; ?>
                   </div>
                 </div>  
-              </div>  
+              </div>
               </br>
-              <div class="row">
+              <div class = "row">
                 <div class ="col-md-2">
                   <div class="form-group">
                     <label class="control-label text-navy"><?php echo $fascia7; ?></label>
                     <div class="">
                       <div class="radio">
-                        <label><input type="radio" class="flat" checked name="fo7z5" <?php if (isset($fo7z5) && $fo7z5=="0") echo "checked"; ?> value = "0"> <?php echo $prev0; ?> </label>
+                        <label><input type="radio" class="flat" checked name="fo7z5" <?php if (($previsioni[$indice]->ID_tipoprevisione == 0)&&($fuoriorario==false)) echo "checked"; ?> value = "0"> <?php echo $prev0; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo7z5" <?php if (isset($fo7z5) && $fo7z5=="1") echo "checked"; ?> value = "1"> <?php echo $prev1; ?> </label>
+                        <label><input type="radio" class="flat" name="fo7z5" <?php if (($previsioni[$indice]->ID_tipoprevisione == 1)&&($fuoriorario==false)) echo "checked"; ?> value = "1">  <?php echo $prev1; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo7z5" <?php if (isset($fo7z5) && $fo7z5=="2") echo "checked"; ?> value = "2"> <?php echo $prev2; ?> </label>
+                        <label><input type="radio" class="flat" name="fo7z5" <?php if (($previsioni[$indice]->ID_tipoprevisione == 2)&&($fuoriorario==false)) echo "checked"; ?> value = "2">  <?php echo $prev2; ?> </label>
                       </div>
                     </div> 
+                    <?php if ($fuoriorario==false) $indice++; ?>
                   </div>
                 </div>
                 <div class ="col-md-2">
@@ -1027,15 +1069,16 @@
                     <label class="control-label text-navy"><?php echo $fascia8; ?></label>
                     <div class="">
                       <div class="radio">
-                        <label><input type="radio" class="flat" checked name="fo8z5" <?php if (isset($fo8z5) && $fo8z5=="0") echo "checked"; ?> value = "0"> <?php echo $prev0; ?> </label>
+                        <label><input type="radio" class="flat" checked name="fo8z5" <?php if (($previsioni[$indice]->ID_tipoprevisione == 0)&&($fuoriorario==false)) echo "checked"; ?> value = "0"> <?php echo $prev0; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo8z5" <?php if (isset($fo8z5) && $fo8z5=="1") echo "checked"; ?> value = "1"> <?php echo $prev1; ?> </label>
+                        <label><input type="radio" class="flat" name="fo8z5" <?php if (($previsioni[$indice]->ID_tipoprevisione == 1)&&($fuoriorario==false)) echo "checked"; ?> value = "1">  <?php echo $prev1; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo8z5" <?php if (isset($fo8z5) && $fo8z5=="2") echo "checked"; ?> value = "2"> <?php echo $prev2; ?> </label>
+                        <label><input type="radio" class="flat" name="fo8z5" <?php if (($previsioni[$indice]->ID_tipoprevisione == 2)&&($fuoriorario==false)) echo "checked"; ?> value = "2">  <?php echo $prev2; ?> </label>
                       </div>
                     </div> 
+                    <?php if ($fuoriorario==false) $indice++; ?>
                   </div>
                 </div>
                 <div class ="col-md-2">
@@ -1043,15 +1086,16 @@
                     <label class="control-label text-navy"><?php echo $fascia9; ?></label>
                     <div class="">
                       <div class="radio">
-                        <label><input type="radio" class="flat" checked name="fo9z5" <?php if (isset($fo9z5) && $fo9z5=="0") echo "checked";?> value = "0"> <?php echo $prev0; ?> </label>
+                        <label><input type="radio" class="flat" checked name="fo9z5" <?php if (($previsioni[$indice]->ID_tipoprevisione == 0)&&($fuoriorario==false)) echo "checked"; ?> value = "0"> <?php echo $prev0; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo9z5" <?php if (isset($fo9z5) && $fo9z5=="1") echo "checked";?> value = "1"> <?php echo $prev1; ?> </label>
+                        <label><input type="radio" class="flat" name="fo9z5" <?php if (($previsioni[$indice]->ID_tipoprevisione == 1)&&($fuoriorario==false)) echo "checked"; ?> value = "1">  <?php echo $prev1; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo9z5" <?php if (isset($fo9z5) && $fo9z5=="2") echo "checked";?> value = "2"> <?php echo $prev2; ?> </label>
+                        <label><input type="radio" class="flat" name="fo9z5" <?php if (($previsioni[$indice]->ID_tipoprevisione == 2)&&($fuoriorario==false)) echo "checked"; ?> value = "2">  <?php echo $prev2; ?> </label>
                       </div>
                     </div> 
+                    <?php if ($fuoriorario==false) $indice++; ?>
                   </div>
                 </div>
                 <div class ="col-md-2">
@@ -1059,15 +1103,16 @@
                     <label class="control-label text-navy"><?php echo $fascia10; ?></label>
                     <div class="">
                       <div class="radio">
-                        <label><input type="radio" class="flat" checked name="fo10z5" <?php if (isset($fo10z5) && $fo10z5=="0") echo "checked";?> value = "0"> <?php echo $prev0; ?> </label>
+                        <label><input type="radio" class="flat" checked name="fo10z5" <?php if (($previsioni[$indice]->ID_tipoprevisione == 0)&&($fuoriorario==false)) echo "checked"; ?> value = "0"> <?php echo $prev0; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo10z5" <?php if (isset($fo10z5) && $fo10z5=="1") echo "checked";?> value = "1"> <?php echo $prev1; ?> </label>
+                        <label><input type="radio" class="flat" name="fo10z5" <?php if (($previsioni[$indice]->ID_tipoprevisione == 1)&&($fuoriorario==false)) echo "checked"; ?> value = "1">  <?php echo $prev1; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo10z5" <?php if (isset($fo10z5) && $fo10z5=="2") echo "checked";?> value = "2"> <?php echo $prev2; ?> </label>
+                        <label><input type="radio" class="flat" name="fo10z5" <?php if (($previsioni[$indice]->ID_tipoprevisione == 2)&&($fuoriorario==false)) echo "checked"; ?> value = "2">  <?php echo $prev2; ?> </label>
                       </div>
                     </div> 
+                    <?php if ($fuoriorario==false) $indice++; ?>
                   </div>
                 </div>
                 <div class ="col-md-2">
@@ -1075,15 +1120,16 @@
                     <label class="control-label text-navy"><?php echo $fascia11; ?></label>
                     <div class="">
                       <div class="radio">
-                        <label><input type="radio" class="flat" checked name="fo11z5" <?php if (isset($fo11z5) && $fo11z5=="0") echo "checked";?> value = "0"> <?php echo $prev0; ?> </label>
+                        <label><input type="radio" class="flat" checked name="fo11z5" <?php if (($previsioni[$indice]->ID_tipoprevisione == 0)&&($fuoriorario==false)) echo "checked"; ?> value = "0"> <?php echo $prev0; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo11z5" <?php if (isset($fo11z5) && $fo11z5=="1") echo "checked";?> value = "1"> <?php echo $prev1; ?> </label>
+                        <label><input type="radio" class="flat" name="fo11z5" <?php if (($previsioni[$indice]->ID_tipoprevisione == 1)&&($fuoriorario==false)) echo "checked"; ?> value = "1">  <?php echo $prev1; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo11z5" <?php if (isset($fo11z5) && $fo11z5=="2") echo "checked";?> value = "2"> <?php echo $prev2; ?> </label>
+                        <label><input type="radio" class="flat" name="fo11z5" <?php if (($previsioni[$indice]->ID_tipoprevisione == 2)&&($fuoriorario==false)) echo "checked"; ?> value = "2">  <?php echo $prev2; ?> </label>
                       </div>
                     </div> 
+                    <?php if ($fuoriorario==false) $indice++; ?>
                   </div>
                 </div>
                 <div class ="col-md-2">
@@ -1091,21 +1137,23 @@
                     <label class="control-label text-navy"><?php echo $fascia12; ?></label>
                     <div class="">
                       <div class="radio">
-                        <label><input type="radio" class="flat" checked name="fo12z5" <?php if (isset($fo12z5) && $fo12z5=="0") echo "checked";?> value = "0"> <?php echo $prev0; ?> </label>
+                        <label><input type="radio" class="flat" checked name="fo12z5" <?php if (($previsioni[$indice]->ID_tipoprevisione == 0)&&($fuoriorario==false)) echo "checked"; ?> value = "0"> <?php echo $prev0; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo12z5" <?php if (isset($fo12z5) && $fo12z5=="1") echo "checked";?> value = "1"> <?php echo $prev1; ?> </label>
+                        <label><input type="radio" class="flat" name="fo12z5" <?php if (($previsioni[$indice]->ID_tipoprevisione == 1)&&($fuoriorario==false)) echo "checked"; ?> value = "1">  <?php echo $prev1; ?> </label>
                       </div>
                       <div class="radio">
-                        <label><input type="radio" class="flat" name="fo12z5" <?php if (isset($fo12z5) && $fo12z5=="2") echo "checked";?> value = "2"> <?php echo $prev2; ?> </label>
+                        <label><input type="radio" class="flat" name="fo12z5" <?php if (($previsioni[$indice]->ID_tipoprevisione == 2)&&($fuoriorario==false)) echo "checked"; ?> value = "2">  <?php echo $prev2; ?> </label>
                       </div>
                     </div> 
+                    <?php if ($fuoriorario==false) $indice++; ?>
                   </div>
                 </div>  
-              </div>  
+              </div>
             </div> 
           </div>
         </div>
+
       </div>
 
       <div class = "col-md-4">
@@ -1129,8 +1177,14 @@
               <h3> <small> Sei di turno oggi? </small></h3> 
            </div> 
             <p>
-              SI <input type="radio" class="flat" name="turno" id="turnoS" value="1" required /> 
-              NO <input type="radio" class="flat" name="turno" id="turnoN" value="0" />
+              <?php 
+                if(isset($inTurno)) : 
+              ?>
+                  SI <input type="radio" class="flat" name="turno" <?php if ($inTurno == "1") echo "checked value=\"1\""; ?> />
+                  NO <input type="radio" class="flat" name="turno" <?php if ($inTurno == "0") echo "checked value=\"0\"";?> /> 
+              <?php 
+                endif;
+              ?>
             </p>
           </div>
         </div>

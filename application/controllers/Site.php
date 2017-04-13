@@ -144,7 +144,6 @@ class Site extends CI_Controller
 			// Tutti gli inserimenti nel DB sono andati a buon fine, riempio la view di riepilogo 
 			$data['previsioni'] = $this->Dettaglioprevisioni_model->elenco_previsioni($id_preveff);
 			$data['dati_previsione'] = $this->Previsionieffettuate_model->dati_previsione($id_preveff);
-
 			$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie();
 
 			$data['content'] = 'members_area/meteo/rivedidati'; // Devo poter rivedere i dati per confermare 
@@ -195,8 +194,12 @@ class Site extends CI_Controller
 		$id_preveff = $this->session->userdata('id_preveff');
 		// Devo caricare la view meteo_compilato, che è uguale a meteo ma con i dati ripresi dal db 
 		$data['previsioni'] = $this->Dettaglioprevisioni_model->elenco_previsioni($id_preveff);
-		// Questa query su dettaglioprevisioni tornerà 20 oppure 30 righe, lo so chiamando $this->fuoriorariomax()
+		// Questa query su dettaglioprevisioni tornerà un numero variabile di righe, lo so chiamando $this->fuoriorariomax()
 		$data['fuoriorario'] = $this->fuoriorariomax();
+		// Passo alla view anche l'informazione sul turno 
+		if ($this->Previsionieffettuate_model->prev_in_turno($id_preveff) == 1)
+			$data['inTurno'] = 1;
+		else $data['inTurno'] = 0;
 
 		$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie();
 
@@ -211,8 +214,8 @@ class Site extends CI_Controller
 
 		// Aggiorno tutti i dati delle previsioni (modificati o meno, li sovrascrivo tutti)
 		$id_preveff = $this->session->userdata('id_preveff'); 
-
-		$this->Previsionieffettuate_model->aggiorna_orario_riga($id_preveff); // Aggiorno l'orario di modifica della riga con ID = id_preveff
+		// Aggiorno l'orario di modifica della riga con ID = id_preveff e l'informazione sul turno
+		$this->Previsionieffettuate_model->aggiorna_dati($id_preveff); 
 		$result = $this->Dettaglioprevisioni_model->aggiorna_dati($id_preveff, $this->fuoriorariomax());
 
 		if ($result = true) {

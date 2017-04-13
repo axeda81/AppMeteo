@@ -74,9 +74,9 @@
                 <td>
                   <?php 
                     switch ($row->ID_tipoprevisione) {
-                      case "0": echo "Nessuna Precipitazione"; break;
-                      case "1": echo "FS"; break;
-                      case "2": echo "FD"; break;
+                      case "0": echo "No temporali"; break;
+                      case "1": echo "Temporali sparsi"; break;
+                      case "2": echo "Temporali diffusi"; break;
                       default: break;
                     }
                   ?>                    

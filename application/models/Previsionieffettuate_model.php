@@ -34,11 +34,12 @@ class Previsionieffettuate_model extends CI_Model {
 		return $this->db->insert_id();
 	}
 
-	function aggiorna_orario_riga($id) {
+	function aggiorna_dati($id) {
 
 		$data = array(
 
-			'Ora' => date("H:i")
+			'Ora' => date("H:i"),
+			'inTurno' => $this->input->post('turno')
 		);
 
 		$this->db->where('ID', $id);
@@ -85,4 +86,23 @@ class Previsionieffettuate_model extends CI_Model {
 		}
 
 	}
+
+	function prev_in_turno($id){
+
+		// Ritorna true o false a seconda che la previsione con l'id passato sia 
+		// stata fatta da un meteorologo in turno o meno
+
+		$this->db->select('inTurno');
+		$this->db->from('previsionieffettuate');
+		$this->db->where('ID', $id);
+		
+		$q = $this->db->get();
+
+		if($q->num_rows() == 1){
+
+			return $q->result();
+		}
+
+	}
+
 }
