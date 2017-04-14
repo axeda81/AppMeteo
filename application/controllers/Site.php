@@ -120,7 +120,6 @@ class Site extends CI_Controller
 
 		// Prima cosa, bisogna salvare l'informazione relativa al fatto che l'utente che è loggato sta facendo le previsioni,
 		// va inserita quindi una riga nella tabella previsionieffettuate facendosi restituire l'ID 
-		
 		$id_preveff = $this->Previsionieffettuate_model->inserisci_riga();
 
 		$data = array(
@@ -190,16 +189,17 @@ class Site extends CI_Controller
 
 	function ricompila_previsioni() 
 	{
-
 		$id_preveff = $this->session->userdata('id_preveff');
-		// Devo caricare la view meteo_compilato, che è uguale a meteo ma con i dati ripresi dal db 
+		
+		// Devo caricare la view meteo_compilato, che è uguale a meteo/da_compilare ma con i dati ripresi dal db 
 		$data['previsioni'] = $this->Dettaglioprevisioni_model->elenco_previsioni($id_preveff);
+		
 		// Questa query su dettaglioprevisioni tornerà un numero variabile di righe, lo so chiamando $this->fuoriorariomax()
 		$data['fuoriorario'] = $this->fuoriorariomax();
+		
 		// Passo alla view anche l'informazione sul turno 
-		if ($this->Previsionieffettuate_model->prev_in_turno($id_preveff) == 1)
-			$data['inTurno'] = 1;
-		else $data['inTurno'] = 0;
+		$res = $this->Previsionieffettuate_model->prev_in_turno($id_preveff);
+		$data['inTurno'] = $res[0]->inTurno;
 
 		$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie();
 
@@ -211,7 +211,6 @@ class Site extends CI_Controller
 
 	function aggiorna_dati() 
 	{
-
 		// Aggiorno tutti i dati delle previsioni (modificati o meno, li sovrascrivo tutti)
 		$id_preveff = $this->session->userdata('id_preveff'); 
 		// Aggiorno l'orario di modifica della riga con ID = id_preveff e l'informazione sul turno

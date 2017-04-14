@@ -51,8 +51,8 @@ class Dettaglioprevisioni_model extends CI_Model {
 
 	function aggiorna_dati($id_preveff, $fuoriorario) {
 
-		// Devo aggiornare nel DB tutte le previsioni, cioè numzone * numfasceorarie (6) = 30 righe 
-		// oppure numzone * 4 se è passato mezzogiorno, e quindi 20 righe
+		// Devo aggiornare nel DB tutte le previsioni, cioè numzone * numfasceorarie (12) = 60 righe 
+		// oppure numzone * 8 se è passato mezzogiorno, e quindi 40 righe
 
 		$result = true; // bool in cui salvo l'and dei risultati di tutti gli update, alla fine di 
 		// tutto sarà false se anche un solo inserimento nel db è andato male 
@@ -66,12 +66,15 @@ class Dettaglioprevisioni_model extends CI_Model {
 		);
 
 		$nomevar = "";
+		$numzone = 5;
+		$numfasceorarie = 12;
+		$numfasceorarieoggi = 4;
 
 		$this->db->trans_start();
 
-		for ($i = 1; $i <= 5; $i++) { // Scorro le zone
+		for ($i = 1; $i <= $numzone; $i++) { // Scorro le zone
 
-			for($j = 1; $j <= 6; $j++) {
+			for($j = 1; $j <= $numfasceorarie; $j++) {
 				// Per ogni zona, scorro le fasce orarie prendendo in considerazione le prime due solo se non son passate le 12
 
 				$nomevar = "fo${j}z${i}";
@@ -80,7 +83,7 @@ class Dettaglioprevisioni_model extends CI_Model {
 				$codicezona = $i + 59;
 				$data['zona'] = "${codicezona}";
 
-				if ((((($j == 1) or ($j == 2)) and ($fuoriorario == false))) or ($j > 2)) {
+				if ((($j <= $numfasceorarieoggi) and ($fuoriorario == false)) or ($j > $numfasceorarieoggi)) {
 					
 					// Non so l'ID della riga che devo aggiornare, ma dovrebbe essere identificata anche da ID_previsione + zona + fascia oraria
 					$this->db->where('ID_previsione', $id_preveff);

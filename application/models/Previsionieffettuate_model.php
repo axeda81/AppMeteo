@@ -89,7 +89,7 @@ class Previsionieffettuate_model extends CI_Model {
 
 	function prev_in_turno($id){
 
-		// Ritorna true o false a seconda che la previsione con l'id passato sia 
+		// Ritorna 1 o 0 a seconda che la previsione con l'id passato sia 
 		// stata fatta da un meteorologo in turno o meno
 
 		$this->db->select('inTurno');
@@ -102,7 +102,6 @@ class Previsionieffettuate_model extends CI_Model {
 
 			return $q->result();
 		}
-
 	}
 
 }
