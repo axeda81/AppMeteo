@@ -144,6 +144,7 @@ class Site extends CI_Controller
 			$data['previsioni'] = $this->Dettaglioprevisioni_model->elenco_previsioni($id_preveff);
 			$data['dati_previsione'] = $this->Previsionieffettuate_model->dati_previsione($id_preveff);
 			$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie();
+			$data['turno'] = $this->input->post('turno');
 
 			$data['content'] = 'members_area/meteo/rivedidati'; // Devo poter rivedere i dati per confermare 
 			$this->load->view('includes/template', $data);
@@ -223,6 +224,7 @@ class Site extends CI_Controller
 			$data['previsioni'] = $this->Dettaglioprevisioni_model->elenco_previsioni($id_preveff);
 			$data['dati_previsione'] = $this->Previsionieffettuate_model->dati_previsione($id_preveff);
 			$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie();
+			$data['turno'] = $this->session->userdata('inTurno');
 			$data['content'] = 'members_area/meteo/rivedidati'; // Devo poter rivedere i dati per confermare 
 			$this->load->view('includes/template', $data);
 		}
@@ -242,7 +244,19 @@ class Site extends CI_Controller
 		$data['dati_previsione'] = $this->Previsionieffettuate_model->dati_previsione($id_preveff);
 		$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie();
 		$data['content'] = 'members_area/meteo/rivedidati'; // Devo poter rivedere i dati per confermare 
+		$data['turno'] = $this->session->userdata('inTurno');
 		$this->load->view('includes/template', $data);
 	}
 
+	function annulla_previsioni () 
+	{
+		// Se viene cliccato "annulla previsioni" nella view rivedidati, va chiesta conferma dell'eliminazione
+		// e, in caso positivo, cancellate dal DB tutte le righe relative alla previsione e sistemate le 
+		// varie voci dentro la sessione 
+
+		// TODO
+		
+
+
+	}
 }

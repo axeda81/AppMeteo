@@ -98,6 +98,19 @@
               <?php endif; ?>
             </tbody>
           </table>
+
+          <?php if(isset($previsioni)) : ?>
+            <?php if(isset($turno)) : ?>
+              <div class = "row">
+                <div class = "col-md-4">
+                  <?php 
+                    if ($turno == "1") echo "Oggi sei di turno";
+                    else if ($turno == "0") echo "Oggi non sei di turno";
+                  ?>
+                </div>
+              </div>
+            <?php endif; ?>
+          <?php endif; ?>
         </div>
       </div>  
     </div>
@@ -119,6 +132,7 @@
     <div class ="col-md-12">                 
       <button type="submit" class="btn btn-success submit pull-right">Conferma previsioni</button>
         <?php echo anchor('site/ricompila_previsioni', 'Indietro', array('class' => 'btn btn-primary pull-right')); ?>
+        <?php echo anchor('site/annulla_previsioni', 'Annulla previsioni', array('class' => 'btn btn-primary pull-right')); ?>
         <?php echo form_close(); ?>
     </div>
   </div>

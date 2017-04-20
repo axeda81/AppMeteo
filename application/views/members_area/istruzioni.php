@@ -27,19 +27,25 @@
                   <p>
                       I previsori devono compilare le previsioni (<i>Le tue previsioni</i>) ogni giorno per le seguenti fasce orarie: 
                       <ul>
-                        <li>12-18 del giorno stesso</li>
-                        <li>18-24 del giorno stesso</li> 
-                        <li>0-6 del giorno successivo</li> 
-                        <li>6-12 del giorno successivo</li> 
-                        <li>12-18 del giorno successivo</li> 
-                        <li>18-24 del giorno successivo </li>     
+                        <li>12-15 del giorno stesso</li>
+                        <li>15-18 del giorno stesso</li> 
+                        <li>18-21 del giorno stesso</li> 
+                        <li>21-24 del giorno stesso</li> 
+                        <li>00-03 del giorno successivo</li> 
+                        <li>03-06 del giorno successivo </li>
+                        <li>06-09 del giorno successivo</li>
+                        <li>09-12 del giorno successivo</li> 
+                        <li>12-15 del giorno successivo</li> 
+                        <li>15-18 del giorno successivo</li> 
+                        <li>18-21 del giorno successivo</li> 
+                        <li>21-24 del giorno successivo </li>                                 
                       </ul>      
-                      Per ogni zona saranno disponibili le diverse fasce orarie, e per ogni fascia oraria la previsione potrà essere "<b>Nessuna precipitazione</b> (allerta verde)", "<b>FS</b> (allerta gialla)"o "<b>FD</b> (allerta arancione)". 
+                      Per ogni zona saranno disponibili le diverse fasce orarie, e per ogni fascia oraria la previsione potrà essere "<b>No temporali</b> (allerta verde)", "<b>Temporali sparsi</b> (allerta gialla)"o "<b>Temporali diffusi</b> (allerta arancione)". 
                       Una volta fatta la compilazione, andando avanti i dati saranno riepilogati e sarà possibile confermarli o tornare indietro per modificarli.  </br>
-                      Dopo le ore 12:00, le prime due fasce orarie non saranno più disponibili. </br>
+                      Dopo le ore 12:00, le fasce orarie relative alla giornata in corso non saranno più disponibili. </br>
                       Dopo la compilazione delle previsioni sarà possibile anche visualizzare, fare ricerche e salvare i dati delle previsioni di tutti gli utenti, in forma anonima (<i>Confronto previsioni</i>). </br>
                       La ricerca (per data, allerta, o zona) all'interno delle previsioni fatte dall'utente loggato in quel momento è sempre disponibile (<i>Archivio previsioni</i>).</br>
-                      I risultati delle ricerche possono sempre essere salvati nei formati csv o excel, oppure copiati o stampati.
+                      I risultati delle ricerche possono sempre essere salvati nei formati csv o excel, copiati o stampati.
                       Ogni utente può visualizzare i dati relativi al proprio profilo (<i>Il tuo profilo</i>) ed eventualmente modificare la password di accesso.
                   </p>
                 </div>
@@ -52,7 +58,7 @@
                           <li>Una o più allerte (o tutte)</li> 
                           <li>Uno o più meteorologi (o tutti)</li> 
                         </ul>    
-                    I risultati delle ricerche possono sempre essere salvati nei formati csv o excel, oppure copiati o stampati. 
+                    I risultati delle ricerche possono sempre essere salvati nei formati csv o excel, copiati o stampati. 
                   </p>
                 </div>
               </div>

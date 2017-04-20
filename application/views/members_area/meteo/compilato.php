@@ -1183,7 +1183,6 @@
                   SI <input type="radio" class="flat" name="turno" <?php if ($inTurno[0] == "1") echo "checked"; ?> value = "1" />
                   NO <input type="radio" class="flat" name="turno" <?php if ($inTurno[0] == "0") echo "checked"; ?> value = "0" />
               <?php 
-              echo $inTurno[0];
                 endif;
               ?>
             </p>
