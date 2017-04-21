@@ -48,7 +48,6 @@
         $fascia11 = $fasceorarie[10]->fasciaoraria;
         $fascia12 = $fasceorarie[11]->fasciaoraria;
       endif;
-
     ?>
 
     <div class = "row">

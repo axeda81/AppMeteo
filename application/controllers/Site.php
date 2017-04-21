@@ -174,7 +174,6 @@ class Site extends CI_Controller
 
 	function conferma_dati ()
 	{
-
 		// Viene chiamata quando, dopo aver rivisto i dati compilati, si da ok per salvarli definitivamente
 		$data = array(
 			'prev_confermate' => true
@@ -248,15 +247,22 @@ class Site extends CI_Controller
 		$this->load->view('includes/template', $data);
 	}
 
+	function conferma_annullamento_previsioni()
+	{
+		// Chiedo conferma della cancellazione delle previsioni dopo che è 
+		// stato cliccato "annulla previsioni" nella view rivedidati
+		$data['content'] = 'members_area/meteo/conferma_cancellazione'; 
+		$this->load->view('includes/template', $data);
+	}
+
 	function annulla_previsioni () 
 	{
-		// Se viene cliccato "annulla previsioni" nella view rivedidati, va chiesta conferma dell'eliminazione
-		// e, in caso positivo, cancellate dal DB tutte le righe relative alla previsione e sistemate le 
-		// varie voci dentro la sessione 
-
-		// TODO
-		
-
-
+		// Cancello tutte le righe del DB relative alle previsioni effettuate 
+		$id_preveff = $this->session->userdata('id_preveff');
+		$this->Previsionieffettuate_model->elimina_riga($id_preveff);
+		$this->Dettaglioprevisioni_model->elimina_dati($id_preveff);
+		// Torno alla home
+		$data['content'] = 'members_area/meteo/home'; 
+		$this->load->view('includes/template', $data);
 	}
 }
