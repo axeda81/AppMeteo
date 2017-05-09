@@ -28,14 +28,14 @@ class Gestioneutenti extends CI_Controller
 	function visualizza_utente($id = NULL) 
 	{
 		// Visualizzazione dei dati di un utente  da parte dell'Admin: può modificare tutti i campi
-        if($id == null)
-        {
+    if($id == null)
+    {
 			// Se l'id non è stato passato correttamente ricarico tutta la view con l'elenco degli utenti
 			$data['users'] = $this->Utenti_model->elenco_utenti();
 			$data['content'] = 'members_area/admin/update_form';
 
 			$this->load->view('includes/template', $data);
-        }
+     }
 
 		$data['dati_utente'] = $this->Utenti_model->dati_utente($id);
 		$data['content'] = 'members_area/admin/pagina_utente';
@@ -46,87 +46,93 @@ class Gestioneutenti extends CI_Controller
 
 		$data['dati_utente'] = $this->Utenti_model->dati_utente($id);
 
-
 		//Regole di validazione
 		$this->form_validation->set_rules('nome', 'Nome', 'trim|required');
 		$this->form_validation->set_rules('cognome', 'Cognome', 'trim|required');
 		$this->form_validation->set_rules('email', 'e-mail', 'trim|required|valid_email');
-		$this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[6]');
+		$this->form_validation->set_rules('username', 'Username', 'trim|required');
 		$this->form_validation->set_rules('password', 'Password', 'trim|min_length[6]|max_length[32]');
 		$this->form_validation->set_rules('password2', 'Conferma password', 'trim|matches[password]');
 
-		if ($this->form_validation->run() == false){
-
+		if ($this->form_validation->run() == false)
+		{
 			$data['messaggioerrore'] = 'Attenzione! ';
 			$data['content'] = 'members_area/admin/pagina_utente';
 			$this->load->view('includes/template', $data);	
 		}
-		else {
 
-				if ($this->input->post('password') !== "") {
+		else
+		{
+			if ($this->input->post('password') !== "") 
+			{
 
-					// Se è stata modificata la password la devo salvare (so che è uguale alla "conferma password" 
-					// perchè se arrivo qui ho superato la validazione)
-					$datiModificati = array(
+				// Se è stata modificata la password la devo salvare (so che è uguale alla "conferma password" 
+				// perchè se arrivo qui ho superato la validazione)
+				$datiModificati = array(
 
-						'nome' => $this->input->post('nome'),
-						'cognome' => $this->input->post('cognome'),
-						'username' => $this->input->post('username'),
-						'email' => $this->input->post('email'),
-						'tipo' => $this->input->post('tipo'),
-						'password' => md5($this->input->post('password'))
-					);	
-				}
-				else {
-					// Non devo salvare la password perchè non è stata modificata 	
-					$datiModificati = array(
+					'nome' => $this->input->post('nome'),
+					'cognome' => $this->input->post('cognome'),
+					'username' => $this->input->post('username'),
+					'email' => $this->input->post('email'),
+					'tipo' => $this->input->post('tipo'),
+					'password' => md5($this->input->post('password'))
+				);	
+			}
 
-						'nome' => $this->input->post('nome'),
-						'cognome' => $this->input->post('cognome'),
-						'username' => $this->input->post('username'),
-						'email' => $this->input->post('email'),
-						'tipo' => $this->input->post('tipo')
-					);		
-				}
+			else 
+			{
+				// Non devo salvare la password perchè non è stata modificata 	
+				$datiModificati = array(
+
+					'nome' => $this->input->post('nome'),
+					'cognome' => $this->input->post('cognome'),
+					'username' => $this->input->post('username'),
+					'email' => $this->input->post('email'),
+					'tipo' => $this->input->post('tipo')
+				);		
+			}
 			
-				// Scrittura su DB
-				$result = $this->Utenti_model->aggiorna_utente($datiModificati, $this->input->post('id_utente')); 
+			// Scrittura su DB
+			$result = $this->Utenti_model->aggiorna_utente($datiModificati, $this->input->post('id_utente')); 
 
-				if ($result == true) {
+			if ($result == true) 
+			{
 
-					// Aggiornamento dei dati andato a buon fine 
-					$data['messaggio'] = 'Le modifiche all\'utente sono state salvate correttamente!';
-					$data['users'] = $this->Utenti_model->elenco_utenti();
-					$data['content'] = 'members_area/admin/update_form';
+				// Aggiornamento dei dati andato a buon fine 
+				$data['messaggio'] = 'Le modifiche all\'utente sono state salvate correttamente!';
+				$data['users'] = $this->Utenti_model->elenco_utenti();
+				$data['content'] = 'members_area/admin/update_form';
 
-					$this->load->view('includes/template', $data);
-				}
-				else {
+				$this->load->view('includes/template', $data);
+			}
 
-					$data['messaggioerrore'] = 'Attenzione! Errore nel salvataggio dei dati';
-					$data['content'] = 'members_area/admin/pagina_utente';
-					$this->load->view('includes/template', $data);	
+			else 
+			{
 
-				}
+				$data['messaggioerrore'] = 'Attenzione! Errore nel salvataggio dei dati';
+				$data['content'] = 'members_area/admin/pagina_utente';
+				$this->load->view('includes/template', $data);	
+
+			}
 		}
 	}
 
 	function elimina ($id = NULL)
 	{
 		// Eliminazione dell'utente selezionato
-        if($id == null)
-        {
+    if($id == null)
+    {
 			// Se l'id non è stato passato correttamente ricarico tutta la view con l'elenco degli utenti
 			$data['users'] = $this->Utenti_model->elenco_utenti();
 			$data['content'] = 'members_area/admin/update_form';
 
 			$this->load->view('includes/template', $data);
-        }
+    }
 
-        $this->Utenti_model->elimina_utente($id);
+    $this->Utenti_model->elimina_utente($id);
 
-        $data['messaggio'] = 'Cancellazione dell\'utente andata a buon fine.';
-        $data['users'] = $this->Utenti_model->elenco_utenti();
+    $data['messaggio'] = 'Cancellazione dell\'utente andata a buon fine.';
+    $data['users'] = $this->Utenti_model->elenco_utenti();
 		$data['content'] = 'members_area/admin/update_form';
 		$this->load->view('includes/template', $data);
 
@@ -157,7 +163,8 @@ class Gestioneutenti extends CI_Controller
 			$data['content'] = 'members_area/admin/signup_form';
 			$this->load->view('includes/template', $data);	
 		}
-		else {
+		else 
+		{
 
 			// Se la validazione è andata a buon fine si inserisce il nuovo utente nel DB
 
@@ -169,9 +176,10 @@ class Gestioneutenti extends CI_Controller
 				$data['messaggio'] = "La creazione del nuovo utente è andata a buon fine.";
 				$this->load->view('includes/template', $data);
 			}
-			else {
+			else 
+			{
 
-				// TODO messaggio errore DB
+				$data['messaggioerrore'] = "Errore nella creazione del nuovo utente.";
 				$data['content'] = 'members_area/admin/signup_form';
 				$this->load->view('includes/template', $data);	
 			}

@@ -6,18 +6,20 @@
           <div class="title_left">
             <?php 
               if(isset($messaggio))  {
-              	echo '<div class="row">';
-                echo '<div class="col-md-9 alert alert-success" role="alert"> <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> <span class="sr-only"></span>';
+                echo '<div class="alert alert-success alert-dismissible fade in" role="alert">
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>';
                 echo $messaggio;
                 echo '</div></div>';
               } 
-            ?>    
-          </div>
-        </div>
-        <div class ="col-md-3">
-          <div class="pull-right">
-            <?php setlocale(LC_TIME, 'ita', 'it_IT');?>
-            <h3><?php echo strftime("%a %d %B %Y"); ?></h3>
+            ?> 
+            <?php 
+              if(isset($messaggioerrore))  {
+                echo '<div class="alert alert-danger alert-dismissible fade in" role="alert">
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>';
+                echo $messaggioerrore;
+                echo '</div></div>';
+              } 
+            ?>             
           </div>
         </div>
       </div>
@@ -36,10 +38,8 @@
                 </li>
               </ul>
             </div>
-            <h3 class="name">Home</h3>
-            <p>
-              Torna alla homepage.
-            </p>
+            <h3 class="name"> Home </h3>
+            <p> Torna alla homepage. </p>
           </div>
         </div>
       </div>

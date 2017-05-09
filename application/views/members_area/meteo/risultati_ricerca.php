@@ -7,9 +7,11 @@
             <h3>Risultati della ricerca</h3>
             <?php 
               if(!isset($result))  {
-                echo '<div class="alert alert-warning" role="alert"> <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> <span class="sr-only">Error:</span>';
-                echo "La ricerca non ha prodotto risultati. ";
-              } ?>            
+                echo '<div class="alert alert-warning alert-dismissible fade in" role="alert">
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>';
+                echo 'La tua ricerca non ha prodotto risultati.</div>';
+              } 
+            ?> 
           </div>
         </div>
       </div>

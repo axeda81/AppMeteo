@@ -7,10 +7,12 @@
         				<h3>Visualizza il tuo profilo</h3>
 			            <?php 
 			              if(isset($messaggio))  {
-			                echo '<div class="alert alert-success" role="alert"> <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> <span class="sr-only"></span>';
+			                echo '<div class="alert alert-success alert-dismissible fade in" role="alert">
+                    				<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>';
 			                echo $messaggio;
+			                echo '</div>';
 			              } 
-			            ?>         				
+			            ?>  
       				</div>
       			</div>
     		</div>
