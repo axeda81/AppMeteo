@@ -61,10 +61,10 @@ class Site extends CI_Controller
 
 		$id_utente = $this->Utenti_model->id_da_username($this->session->userdata('username'));
 		$var =  $this->Previsionieffettuate_model->prevgiaeffettuate($id_utente);
+		
 		$sess = array(
-
-				'prev_fatte' => $var,
-				'prev_confermate' => $var
+			'prev_fatte' => $var,
+			'prev_confermate' => $var
 		);
 		$this->session->set_userdata($sess);
 	}
@@ -244,14 +244,6 @@ class Site extends CI_Controller
 		$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie();
 		$data['content'] = 'members_area/meteo/rivedidati'; // Devo poter rivedere i dati per confermare 
 		$data['turno'] = $this->session->userdata('inTurno');
-		$this->load->view('includes/template', $data);
-	}
-
-	function conferma_annullamento_previsioni()
-	{
-		// Chiedo conferma della cancellazione delle previsioni dopo che è 
-		// stato cliccato "annulla previsioni" nella view rivedidati
-		$data['content'] = 'members_area/meteo/conferma_cancellazione'; 
 		$this->load->view('includes/template', $data);
 	}
 
