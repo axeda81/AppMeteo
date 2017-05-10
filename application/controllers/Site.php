@@ -63,9 +63,9 @@ class Site extends CI_Controller
 		$var =  $this->Previsionieffettuate_model->prevgiaeffettuate($id_utente);
 		
 		$sess = array(
-			'prev_fatte' => $var,
-			'prev_confermate' => $var
+			'prev_fatte' => $var
 		);
+
 		$this->session->set_userdata($sess);
 	}
 
@@ -74,7 +74,7 @@ class Site extends CI_Controller
 		// Prima cosa: controllare se l'utente ha già effettuato le previsioni
 		// in data odierna. In tal caso non può rifarle ma solo rivederle.
 		
-		if ($this->session->userdata('prev_confermate') == true)
+		if ($this->session->userdata('prev_fatte') == true)
 		{
 			// Carico la view dove si avverte l'utente che ha già effettuato le previsioni
 			$data['content'] = 'members_area/meteo/prevgiaeffettuate';
@@ -168,6 +168,10 @@ class Site extends CI_Controller
 
 			$data['content'] = 'members_area/meteo/da_compilare';
 			$data['messaggioerrore'] = 'Errore nell\'inserimento dei dati nel DB. Per favore compila nuovamente le tue previsioni.'; // TODO - usare questo messaggio nella view
+			$prev = array(
+				'prev_fatte' => true
+			);
+			$this->session->set_userdata($prev);
 			$this->load->view('includes/template', $data);
 		}
 	}
@@ -176,6 +180,7 @@ class Site extends CI_Controller
 	{
 		// Viene chiamata quando, dopo aver rivisto i dati compilati, si da ok per salvarli definitivamente
 		$data = array(
+			'prev_fatte' => true,
 			'prev_confermate' => true
 		);
 
@@ -202,6 +207,14 @@ class Site extends CI_Controller
 		$data['inTurno'] = $res[0]->inTurno;
 
 		$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie();
+
+		$prev = array(
+			'prev_fatte' => true,
+			'prev_confermate' => false
+		);
+
+		// Inserisco nella sessione il dato relativo al fatto che le previsioni non sono ancora confermate
+		$this->session->set_userdata($prev);
 
 		$data['content'] = 'members_area/meteo/compilato';  
 		
@@ -253,6 +266,15 @@ class Site extends CI_Controller
 		$id_preveff = $this->session->userdata('id_preveff');
 		$this->Previsionieffettuate_model->elimina_riga($id_preveff);
 		$this->Dettaglioprevisioni_model->elimina_dati($id_preveff);
+		
+		$prev = array(
+			'prev_fatte' => false,
+			'prev_confermate' => false
+		);
+
+		// Aggiorno la sessione
+		$this->session->set_userdata($prev);
+
 		// Torno alla home
 		$data['content'] = 'members_area/meteo/home'; 
 		$this->load->view('includes/template', $data);
