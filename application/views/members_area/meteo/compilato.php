@@ -52,7 +52,7 @@
     ?>
 
     <div class = "row">
-      <div class ="col-md-8">
+      <div class ="col-md-9">
 
         <!-- ZONA 60 -->
         <div class="row">
@@ -1156,10 +1156,10 @@
 
       </div>
 
-      <div class = "col-md-4">
+      <div class = "col-md-3">
         <div class = "x_panel">
           <div class = "x_title">
-            <h3> <small> Zone di vigilanza </small></h3>
+            <h3> <small> Mappa zone di vigilanza </small></h3>
           </div>
           <div class = "x_content">
             <img src="<?php echo base_url();?>images/Immagine.jpg">

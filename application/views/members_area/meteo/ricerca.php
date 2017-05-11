@@ -19,7 +19,7 @@
   <div class="clearfix"></div>
   <?php echo form_open('archivio/esegui_ricerca', array('class' => 'form-horizontal form-label-left')); ?>
   <div class = "row">
-    <div class ="col-md-8">
+    <div class ="col-md-9">
       <div class="x_panel">
         <div class="x_content">    
           <div class = "row">
@@ -72,10 +72,10 @@
         </div>
       </div>
     </div>
-    <div class = "col-md-4">
+    <div class = "col-md-3">
       <div class = "x_panel">
         <div class = "x_title">
-          <h3><small> Zone di vigilanza </small></h3>
+          <h3><small> Mappa zone di vigilanza </small></h3>
         </div>
         <div class = "x_content">
           <img src="../../images/Immagine.jpg">

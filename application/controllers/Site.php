@@ -251,7 +251,7 @@ class Site extends CI_Controller
 		$id_preveff = $this->session->userdata('id_preveff');
 		// Carico la view 
 		// Tutti gli inserimenti nel DB sono andati a buon fine
-		$data['messaggioerrore'] = 'Attenzione! Conferma i tuoi dati prima di fare logout.'; 
+		$data['messaggioerrore'] = 'Attenzione! Conferma o annulla i tuoi dati prima di fare logout.'; 
 		$data['previsioni'] = $this->Dettaglioprevisioni_model->elenco_previsioni($id_preveff);
 		$data['dati_previsione'] = $this->Previsionieffettuate_model->dati_previsione($id_preveff);
 		$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie();
