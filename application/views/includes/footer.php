@@ -12,10 +12,12 @@
 <script src="<?php echo base_url();?>vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
 <script src="<?php echo base_url();?>vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
 <script src="<?php echo base_url();?>vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
-<script src="<?php echo base_url();?>vendors/datatables.net-scroller/js/datatables.scroller.min.js"></script>
+<script src="<?php echo base_url();?>vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
 <script src="<?php echo base_url();?>vendors/jszip/dist/jszip.min.js"></script>
 <script src="<?php echo base_url();?>vendors/pdfmake/build/pdfmake.min.js"></script>
 <script src="<?php echo base_url();?>vendors/pdfmake/build/vfs_fonts.js"></script>
+
+
 <!-- Custom Theme Scripts -->
 <script src="<?php echo base_url();?>build/js/custom.min.js"></script>
 <!-- iCheck -->

@@ -8,7 +8,7 @@
     </div>
     <div class="clearfix"></div>
     <div class="row">
-      <div class="col-md-4 col-xs-12 widget widget_tally_box">
+      <div class="col-md-3 col-xs-12 widget widget_tally_box">
         <div class="x_panel">
           <div class="x_content">
             <div class="flex">
@@ -27,13 +27,13 @@
           </div>
         </div>
       </div>
-      <div class="col-md-4 col-xs-12 widget widget_tally_box">
+      <div class="col-md-3 col-xs-12 widget widget_tally_box">
         <div class="x_panel">
           <div class="x_content">
             <div class="flex">
               <ul class="list-inline widget_profile_box text-center">
                 <li class="text-center" style="float: none;">
-                  <a style="float: none;" id="rivediPrevisioni">
+                  <a style="float: none;" id="archivioPrevisioni">
                     <i class="fa fa-archive"></i>
                   </a>
                 </li>
@@ -41,14 +41,12 @@
             </div>
             <h3 class="name">Archivio previsioni</h3>
             <p>
-              Rivedi tutte le previsioni che hai fatto.
+              Rivedi tutte le previsioni o inserisci dati storici.
             </p>
           </div>
         </div>
       </div>      
-    </div>
-    <div class="row">
-      <div class="col-md-4 col-xs-12 widget widget_tally_box">
+      <div class="col-md-3 col-xs-12 widget widget_tally_box">
         <div class="x_panel">
           <div class="x_content">
             <div class="flex">
@@ -66,24 +64,7 @@
             </p>
           </div>
         </div>
-      </div>  
-      <div class="col-md-4 col-xs-12 widget widget_tally_box">
-        <div class="x_panel">
-          <div class="x_content">
-            <div class="flex">
-              <ul class="list-inline widget_profile_box text-center">
-                <li class="text-center" style="float: none;">
-                  <a style="float: none;" id="previsioniTutti">
-                    <i class="fa fa-folder-o"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <h3 class="name">Confronto previsioni</h3>
-            <p> Vedi le previsioni di tutti gli utenti, in forma anonima.</p>
-          </div>
-        </div>
-      </div>        
+      </div>    
     </div>
   </div>
 </div>
@@ -98,8 +79,8 @@
 
 <script type="text/javascript">
   $(document).ready(function() {
-    $('#rivediPrevisioni').on('click', function() {
-      window.location.replace("<?php echo base_url();?>index.php/archivio/ricercaperutente");
+    $('#archivioPrevisioni').on('click', function() {
+      window.location.replace("<?php echo base_url();?>index.php/archivio/mostra_menu_archivio");
     })
   });
 </script>
