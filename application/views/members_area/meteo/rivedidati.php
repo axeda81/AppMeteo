@@ -137,29 +137,27 @@
   <div class="row">
     <div class ="col-md-12">                 
       <button type="submit" class="btn btn-success submit pull-right">Conferma previsioni</button>
-        <?php echo anchor('site/ricompila_previsioni', 'Indietro', array('class' => 'btn btn-primary pull-right')); ?>
-        <!-- <?php echo anchor('site/conferma_annullamento_previsioni', 'Annulla previsioni', 
-        array('class' => 'btn btn-danger pull-right', 'data-toggle' => 'modal', 'data-target' => '.bs-example-modal-sm')); ?> -->
-        <button type="button" class="btn btn-danger pull-right" data-toggle="modal" data-target=".bs-example-modal-sm">Annulla previsioni</button>    
-        <!-- Modal che appare per chiedere conferma dell'annullamento delle previsioni -->
-        <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
-          <div class="modal-dialog modal-sm">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
-                </button>
-                <h4 class="modal-title" id="myModalLabel2">Conferma annullamento</h4>
-              </div>
-              <div class="modal-body">
-                <p>Vuoi davvero annullare le tue previsioni di oggi? L'operazione non è reversibile. </p>
-              </div>
-              <div class="modal-footer">           
-                <button type="button" class="btn btn-default" data-dismiss="modal">NO</button>
-                <?php echo anchor('site/annulla_previsioni', 'SI', array('class' => 'btn btn-primary')); ?>
-              </div>
+      <?php echo anchor('site/ricompila_previsioni', 'Indietro', array('class' => 'btn btn-primary pull-right')); ?>
+      <button type="button" class="btn btn-danger pull-right" data-toggle="modal" data-target=".bs-example-modal-sm">Annulla previsioni</button> 
+      <!-- Modal che appare per chiedere conferma dell'annullamento delle previsioni -->
+      <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+              </button>
+              <h4 class="modal-title" id="myModalLabel2">Conferma annullamento</h4>
+            </div>
+            <div class="modal-body">
+              <p>Vuoi davvero annullare le tue previsioni di oggi? L'operazione non è reversibile. </p>
+            </div>
+            <div class="modal-footer">           
+              <button type="button" class="btn btn-default" data-dismiss="modal">NO</button>
+              <?php echo anchor('site/annulla_previsioni', 'SI', array('class' => 'btn btn-primary')); ?>
             </div>
           </div>
         </div>
+      </div>
       <?php echo form_close(); ?>
     </div>
   </div>

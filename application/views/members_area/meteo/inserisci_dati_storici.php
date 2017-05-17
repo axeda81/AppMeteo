@@ -1139,8 +1139,8 @@
             <div class="col-md-4">
               <div class="x_panel">
                 <div class="form-group">
-                  <button type="submit" class="btn btn-success submit ">Rivedi e conferma dati</button>
-                  <button type="reset" class="btn btn-primary ">Clear</button>
+                  <?php echo form_submit('submit', 'Rivedi e conferma dati', array('class' => 'btn btn-success submit pull-right')); ?>
+                  <?php echo anchor('archivio/inserisciDati', 'Clear', array('class' => 'btn btn-primary pull-right')); ?>
                   <?php echo form_close(); ?>
                 </div> 
               </div>     

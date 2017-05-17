@@ -15,7 +15,7 @@
               <ul class="list-inline widget_profile_box text-center">
                 <li class="text-center" style="float: none;">
                   <a style="float: none;" id="rivediPrevisioni">
-                    <i class="fa fa-sun-o"></i>
+                    <i class="fa fa-database"></i>
                   </a>
                 </li>
               </ul>
@@ -34,7 +34,7 @@
               <ul class="list-inline widget_profile_box text-center">
                 <li class="text-center" style="float: none;">
                   <a style="float: none;" id="previsioniTutti">
-                    <i class="fa fa-archive"></i>
+                    <i class="fa fa-book"></i>
                   </a>
                 </li>
               </ul>
@@ -53,7 +53,7 @@
               <ul class="list-inline widget_profile_box text-center">
                 <li class="text-center" style="float: none;">
                   <a style="float: none;" id="inserisciDati">
-                    <i class="fa fa-user"></i>
+                    <i class="fa fa-plus-square"></i>
                   </a>
                 </li>
               </ul>

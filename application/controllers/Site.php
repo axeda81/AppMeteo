@@ -222,6 +222,7 @@ class Site extends CI_Controller
 
 	}
 
+
 	function aggiorna_dati() 
 	{
 		// Aggiorno tutti i dati delle previsioni (modificati o meno, li sovrascrivo tutti)
@@ -242,6 +243,28 @@ class Site extends CI_Controller
 		}
 
 		// TODO - gestire il caso in cui $result = false
+	}
+
+	function reset_dati_compilati () {
+
+		// Devo resettare la view compilato.php: ricarico semplicemente quella di partenza delle previsioni
+		$data['content'] = 'members_area/meteo/da_compilare';
+		
+		$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie();
+			 	
+		$data['fuoriorario'] = $this->fuoriorariomax();
+
+		$prev = array(
+			'prev_fatte' => false,
+			'prev_confermate' => false
+		);
+
+		// Inserisco nella sessione il dato relativo al fatto che le previsioni non sono ancora confermate
+		$this->session->set_userdata($prev);		
+
+		// Carico la view 
+		$this->load->view('includes/template', $data);
+
 	}
 
 	function dati_non_confermati() 
