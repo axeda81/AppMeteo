@@ -30,6 +30,13 @@
 <link href="<?php echo base_url();?>vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
 <!-- bootstrap-daterangepicker -->
 <link href="<?php echo base_url();?>vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+
+<!-- bootstrap-datetimepicker -->
+<link href="<?php echo base_url();?>vendors/bootstrap-datetimepicker-master/css/bootstrap-datetimepicker.css" rel="stylesheet">
+<link href="<?php echo base_url();?>vendors/bootstrap-datetimepicker-master/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+
+
+
 <!-- Ion.RangeSlider -->
 <link href="<?php echo base_url();?>vendors/normalize-css/normalize.css" rel="stylesheet">
 <link href="<?php echo base_url();?>vendors/ion.rangeSlider/css/ion.rangeSlider.css" rel="stylesheet">

@@ -1180,7 +1180,7 @@
             <div class="col-md-4">
               <div class="x_panel">
                 <div class="form-group">
-                  <h5>Sei di turno oggi?  
+                  <h5>Sei di turno oggi? </h5>
                   <?php 
                     if(isset($inTurno)) : 
                   ?>
@@ -1189,8 +1189,7 @@
                   <?php 
                     endif;
                   ?>
-                  </h5>
-                </div>
+                </div>             
               </div>
             </div>
             <div class="col-md-8">
