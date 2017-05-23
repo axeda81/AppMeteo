@@ -1126,14 +1126,15 @@
               <div class="col-md-4">
                 <h5>Data e ora delle previsioni: </h5>
                 <div class="input-append date form_datetime">
-                    <input size="25" type="text" value="Seleziona data e ora..." readonly>
-                    <span class="add-on"><i class="icon-th"></i></span>
+                  <input size="20" type="text" value="Seleziona data e ora..." name="dataeora" readonly>
+                  <span class="add-on"><i class="icon-th"></i></span>
+                  <span class="add-on"><i class="icon-remove"></i></span>
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="form-group">
                   <?php echo form_submit('submit', 'Rivedi e conferma dati', array('class' => 'btn btn-success submit pull-right')); ?>
-                  <?php echo anchor('archivio/inserisciDati', 'Clear', array('class' => 'btn btn-primary pull-right')); ?>
+                  <?php echo anchor('Archivio/inserisciDati', 'Clear', array('class' => 'btn btn-primary pull-right')); ?>
                   <?php echo form_close(); ?>
                 </div> 
               </div>
@@ -1159,16 +1160,16 @@
 
 <script src="<?php echo base_url();?>vendors/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.js"></script>
 <script src="<?php echo base_url();?>vendors/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.min.js"></script>
-<script src="<?php echo base_url();?>vendors/bootstrap-datetimepicker-master/js/locales/bootstrap-datetimepicker.it.js"></script>
-               
+<script src="<?php echo base_url();?>vendors/bootstrap-datetimepicker-master/js/locales/bootstrap-datetimepicker.it.js"></script>   
  
 <script type="text/javascript">
     $(".form_datetime").datetimepicker({
-        format: "dd MM yyyy - hh:ii",
+        format: "dd/mm/yyyy - hh:ii",
         autoclose: true,
-        todayBtn: true,
-        pickerPosition: "bottom-left",
-        startDate: "2017-01-01 10:00",
+        language: "it",
+        forceParse: false,
+        initialDate: "2017-01-01 00:00",
+        startDate: "2016-01-01 00:00",
         minuteStep: 15        
     });
 </script>  

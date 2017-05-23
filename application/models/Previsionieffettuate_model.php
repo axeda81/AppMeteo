@@ -21,7 +21,7 @@ class Previsionieffettuate_model extends CI_Model {
 
 	function inserisci_riga () {
 
-		$data = array(
+		$riga = array(
 
 			'ID_utente' => $this->session->userdata('id_utente'),
 			'Data' => date("Y-m-d"),
@@ -29,21 +29,38 @@ class Previsionieffettuate_model extends CI_Model {
 			'inTurno' => $this->input->post('turno')
 		);
 
-		$this->db->insert('previsionieffettuate', $data);
+		$this->db->insert('previsionieffettuate', $riga);
 
 		return $this->db->insert_id();
 	}
 
+	function inserisci_riga_storico ($data, $ora) {
+
+		// Data e ora della riga da inserire vengono passati come parametro, già nel formato che va bene per il DB
+
+		$riga = array(
+
+			'ID_utente' => $this->session->userdata('id_utente'),
+			'Data' => $data,
+			'Ora' => $ora,
+			'inTurno' => $this->input->post('turno')
+		);
+
+		$this->db->insert('previsionieffettuate', $riga);
+
+		return $this->db->insert_id();
+	}	
+
 	function aggiorna_dati($id) {
 
-		$data = array(
+		$dati = array(
 
 			'Ora' => date("H:i"),
 			'inTurno' => $this->input->post('turno')
 		);
 
 		$this->db->where('ID', $id);
-		$this->db->update('previsionieffettuate', $data);
+		$this->db->update('previsionieffettuate', $dati);
 	}
 
 	function elimina_riga ($id) {

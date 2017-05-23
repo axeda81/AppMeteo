@@ -119,7 +119,7 @@ class Site extends CI_Controller
 	{
 
 		// Prima cosa, bisogna salvare l'informazione relativa al fatto che l'utente che è loggato sta facendo le previsioni,
-		// va inserita quindi una riga nella tabella previsionieffettuate facendosi restituire l'ID 
+		// va inserita quindi una riga nella tabella previsionieffettuate facendosi restituire l'ID della riga stessa 
 		$id_preveff = $this->Previsionieffettuate_model->inserisci_riga();
 
 		$data = array(
@@ -128,14 +128,14 @@ class Site extends CI_Controller
 			'inTurno' => $this->input->post('turno')
 		);
 
-		// Salvo l'ID della previsione nella sessione così posso utilizzarlo anche in altre funzioni
+		// Salvo l'ID della previsione e l'info sul turno nella sessione così posso utilizzarli anche in altre funzioni
 		$this->session->set_userdata($data); 
 
 //		if (non può creare la nuova riga) {
 			// Gestire questo errore 
 //		}
 
-		// Salvo nella tabella dettaglioprevisioni tutte le previsioni fatte (20 righe se sono già passate le 12, 30 altrimenti)
+		// Salvo nella tabella dettaglioprevisioni tutte le previsioni fatte (40 righe se sono già passate le 12, 60 altrimenti)
 		$result = $this->Dettaglioprevisioni_model->inserisci_dati($id_preveff, $this->fuoriorariomax());
 
 		if ($result = true) {

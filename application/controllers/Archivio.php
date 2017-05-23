@@ -130,26 +130,27 @@ class Archivio extends CI_Controller
 
 	function salva_dati_storici() {
 
-/*		// Prima cosa, bisogna salvare l'informazione relativa al fatto che l'utente che è loggato sta facendo le previsioni,
-		// va inserita quindi una riga nella tabella previsionieffettuate facendosi restituire l'ID 
-		$id_preveff = $this->Previsionieffettuate_model->inserisci_riga();
+		// Prima cosa, bisogna inserire una riga nella tabella previsionieffettuate facendosi restituire l'ID della riga stessa 
+		
+		$dataeora = $this->input->post('dataeora');
 
-		$data = array(
+		$dataeora_array = explode("-", $dataeora);
+		$dataeora_array[0] = str_replace("/","-", $dataeora_array[0]); 
 
-			'id_preveff' => $id_preveff,
-			'inTurno' => $this->input->post('turno')
-		);
+		$dataformattata = date_create($dataeora_array[0]);
+		$dataformattata = date_format($dataformattata,"Y-m-d"); 
 
-		// Salvo l'ID della previsione nella sessione così posso utilizzarlo anche in altre funzioni
-		$this->session->set_userdata($data); 
+		$id_preveff = $this->Previsionieffettuate_model->inserisci_riga_storico($dataformattata, $dataeora_array[1]);
 
 //		if (non può creare la nuova riga) {
 			// Gestire questo errore 
 //		}
-
-		// Salvo nella tabella dettaglioprevisioni tutte le previsioni fatte (20 righe se sono già passate le 12, 30 altrimenti)
+		
+		// Salvo nella tabella dettaglioprevisioni tutte le previsioni fatte (40 righe se sono già passate le 12, 60 altrimenti)
 		$result = $this->Dettaglioprevisioni_model->inserisci_dati($id_preveff, $this->fuoriorariomax());
 
+
+/*
 		if ($result = true) {
 
 			// Tutti gli inserimenti nel DB sono andati a buon fine, riempio la view di riepilogo 
@@ -186,16 +187,22 @@ class Archivio extends CI_Controller
 			$this->session->set_userdata($prev);
 			$this->load->view('includes/template', $data);
 		}*/
-
-
-
-
-
-
-
 	}
 
 
+	function fuoriorariomax()
+	{
+
+		$max = 43200; // orario massimo espresso in secondi (12:00 = 43200)
+		$ora_attuale = date('H.i', time()); // estraggo l'ora attuale
+		$ora = explode(".", $ora_attuale); // ricavo ora e minuti separati
+		$ore = $ora[0];
+		$minuti = $ora[1];
+		$tempo = ($ore*3600) + ($minuti*60); // trasformo ora e minuti attuali in secondi
+
+		if ($tempo > $max) return true;
+		else return false;
+	}
 
 	function is_logged_in()
 	{
