@@ -140,55 +140,102 @@ class Archivio extends CI_Controller
 		$dataformattata = date_create($dataeora_array[0]);
 		$dataformattata = date_format($dataformattata,"Y-m-d"); 
 
-		$id_preveff = $this->Previsionieffettuate_model->inserisci_riga_storico($dataformattata, $dataeora_array[1]);
+		$id_prev_storico = $this->Previsionieffettuate_model->inserisci_riga_storico($dataformattata, $dataeora_array[1]);
 
 //		if (non può creare la nuova riga) {
 			// Gestire questo errore 
 //		}
+
+		$data = array(
+
+			'id_prev_storico' => $id_prev_storico
+		);
+
+		// Salvo l'ID della previsione nella sessione così posso utilizzarli anche in altre funzioni
+		$this->session->set_userdata($data); 
+
 		
-		// Salvo nella tabella dettaglioprevisioni tutte le previsioni fatte (40 righe se sono già passate le 12, 60 altrimenti)
-		$result = $this->Dettaglioprevisioni_model->inserisci_dati($id_preveff, $this->fuoriorariomax());
+		// Salvo nella tabella dettaglioprevisioni tutte le previsioni fatte 
+		// (40 righe se quando son state fatte le previsioni erano già passate le 12, 60 altrimenti)
 
+		$fuoriorario = 0;
+		$orario = explode(":", $dataeora_array[1]);
+		if ($orario[0] > 12) $fuoriorario = 1;
+		else $fuoriorario = 0;
 
-/*
+		$result = $this->Dettaglioprevisioni_model->inserisci_dati($id_prev_storico, $fuoriorario);
+
 		if ($result = true) {
 
 			// Tutti gli inserimenti nel DB sono andati a buon fine, riempio la view di riepilogo 
-			$data['previsioni'] = $this->Dettaglioprevisioni_model->elenco_previsioni($id_preveff);
-			$data['dati_previsione'] = $this->Previsionieffettuate_model->dati_previsione($id_preveff);
+			$data['previsioni'] = $this->Dettaglioprevisioni_model->elenco_previsioni($id_prev_storico);
+			$data['dati_previsione'] = $this->Previsionieffettuate_model->dati_previsione($id_prev_storico);
 			$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie();
 			$data['turno'] = $this->input->post('turno');
 
-			$data['content'] = 'members_area/meteo/rivedidati'; // Devo poter rivedere i dati per confermare 
+			$data['content'] = 'members_area/meteo/rivedi_dati_storici'; // Devo poter rivedere i dati per confermare 
 			$this->load->view('includes/template', $data);
-
-			// Inserisco nella sessione il flag che mi dice che le previsioni son state fatte (ma sono ancora da confermare)
-			$data = array(
-				'prev_fatte' => true
-			);
-			$this->session->set_userdata($data);
-
 		}
+
 		else {
 
 			// ERRORE
 			// Deve eliminare le righe inserite in previsionieffettuate e dettaglioprevisioni e ricaricare la view meteo così viene ricompilata
 
-			$this->Previsionieffettuate_model->elimina_riga($id_preveff);
-			$this->Dettaglioprevisioni_model->elimina_dati($id_preveff);
+			$this->Previsionieffettuate_model->elimina_riga($id_prev_storico);
+			$this->Dettaglioprevisioni_model->elimina_dati($id_prev_storico);
 
 			$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie();
 
-			$data['content'] = 'members_area/meteo/da_compilare';
-			$data['messaggioerrore'] = 'Errore nell\'inserimento dei dati nel DB. Per favore compila nuovamente le tue previsioni.'; // TODO - usare questo messaggio nella view
-			$prev = array(
-				'prev_fatte' => true
-			);
-			$this->session->set_userdata($prev);
+			$data['content'] = 'members_area/meteo/inserisci_dati_storici';
+			$data['messaggioerrore'] = 'Errore nell\'inserimento dei dati nel DB. Per favore compila nuovamente le tue previsioni.'; 
+
 			$this->load->view('includes/template', $data);
-		}*/
+		}
 	}
 
+	function conferma_dati ()
+	{
+		// Viene chiamata quando, dopo aver rivisto i dati compilati, si da ok per salvarli definitivamente
+
+		// Carico semplicemente la view in cui confermo che le previsioni sono andate a buon fine
+		$data['content'] = 'members_area/meteo/fine';
+		$this->load->view('includes/template', $data);
+	}
+
+	function ricompila_dati_storici() 
+	{
+		$id_prev_storico = $this->session->userdata('id_prev_storico');
+		
+		// Devo caricare la view meteo_compilato, che è uguale a meteo/da_compilare ma con i dati ripresi dal db 
+		$data['previsioni'] = $this->Dettaglioprevisioni_model->elenco_previsioni($id_prev_storico);
+		
+		// Questa query su dettaglioprevisioni tornerà un numero variabile di righe, lo so chiamando $this->fuoriorariomax()
+		$data['fuoriorario'] = $this->fuoriorariomax(); // ???
+		
+		// Passo alla view anche l'informazione sul turno 
+		$res = $this->Previsionieffettuate_model->prev_in_turno($id_prev_storico);
+		$data['inTurno'] = $res[0]->inTurno;
+
+		$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie();
+
+		$data['content'] = 'members_area/meteo/dati_storici_compilato';  // ???
+		
+		$this->load->view('includes/template', $data);
+
+	}
+
+	function annulla_inserimento_dati () 
+	{
+		// Cancello tutte le righe del DB relative alle previsioni effettuate 
+		$id_prev_storico = $this->session->userdata('id_prev_storico');
+		$this->Previsionieffettuate_model->elimina_riga($id_prev_storico);
+		$this->Dettaglioprevisioni_model->elimina_dati($id_prev_storico);
+
+		// Torno alla home
+		$data['content'] = 'members_area/meteo/home'; 
+		$this->load->view('includes/template', $data);
+	}
 
 	function fuoriorariomax()
 	{
