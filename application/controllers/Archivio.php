@@ -40,7 +40,7 @@ class Archivio extends CI_Controller
 		$this->load->view('includes/template', $data);	
 	}
 
-	function ricerca_tutti() 
+	function ricerca_tutto() 
 	{
 
 		// Carico una view in cui il meteorologo loggato può visualizzare le previsioni presenti nel DB, fare ricerche, ma solo

@@ -1,13 +1,11 @@
 <div class="right_col" role="main">
 	<div class="">
 		<div class="row">
-    		<div class="page-title">
-    			<div class ="col-md-12">
-      				<div class="title_left">
-        				<h3>Cambia la tua password</h3>        				
-      				</div>
-      			</div>
-    		</div>
+			<div class ="col-md-6">
+				<div class="x_panel">
+  				<h3>Cambia la tua password</h3>        				
+				</div>
+  		</div>
     </div>
   	<div class="row">
       <div class="col-md-6 col-xs-12">

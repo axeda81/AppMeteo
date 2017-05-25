@@ -1,9 +1,11 @@
 <!-- page content -->
 <div class="right_col" role="main">
   <div class="">
-    <div class="page-title">
-      <div class="title_left">
-        <h3>Archivio previsioni</h3>
+    <div class="row">
+      <div class="col-md-9">
+        <div class="x_panel">
+          <h3>Archivio previsioni</h3>
+        </div>
       </div>
     </div>
     <div class="clearfix"></div>
@@ -80,7 +82,7 @@
 <script type="text/javascript">
   $(document).ready(function() {
     $('#previsioniTutti').on('click', function() {
-      window.location.replace("<?php echo base_url();?>index.php/archivio/ricerca_tutti");
+      window.location.replace("<?php echo base_url();?>index.php/archivio/ricerca_tutto");
     })
   });
 </script>

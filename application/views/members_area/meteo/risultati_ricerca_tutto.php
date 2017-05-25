@@ -1,22 +1,17 @@
 <div class="right_col" role="main">
   <div class="">
     <div class="row">
-      <div class="page-title">
-        <div class ="col-md-9">
-          <div class="title_left">
-            <h3>Risultati della ricerca</h3>
-            <?php 
-              if(!isset($result))  {
-                echo '<div class="alert alert-warning" role="alert"> <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> <span class="sr-only">Error:</span>';
-                echo "La ricerca non ha prodotto risultati. ";
-              } ?>            
-          </div>
-        </div>
-      </div>
-      <div class ="col-md-3">
-        <div class="pull-right">
-          <?php setlocale(LC_TIME, 'ita', 'it_IT');?>
-          <h3><?php echo strftime("%a %d %B %Y"); ?></h3>
+      <div class ="col-md-9">
+        <div class="x_panel">
+          <h3>Risultati della ricerca</h3>
+          <?php 
+            if(!isset($result))  {
+              echo '<div class="row"><div class="col-md-4">';
+              echo '<div class="alert alert-warning alert-dismissible fade in" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>';
+              echo 'La tua ricerca non ha prodotto risultati.</div></div></div>';
+            } 
+          ?>           
         </div>
       </div>
     </div>
@@ -114,8 +109,8 @@
     </div>
     <!-- Pulsanti per confermare le previsioni o tornare indietro alla compilazione -->
     <div class="row">
-      <div class ="col-md-8">                 
-        <?php echo anchor('archivio/ricerca_tutti', 'Nuova ricerca', array('class' => 'btn btn-success pull-right')); ?>
+      <div class ="col-md-9">                 
+        <?php echo anchor('archivio/ricerca_tutto', 'Nuova ricerca', array('class' => 'btn btn-success pull-right')); ?>
         <?php echo anchor('site/members_area', 'Torna alla home', array('class' => 'btn btn-primary pull-right')); ?>
       </div>
     </div>

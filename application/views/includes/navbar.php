@@ -1,9 +1,13 @@
 <!-- top navigation -->
+<?php setlocale(LC_TIME, 'ita', 'it_IT');?>
 <div class="top_nav">
   <div class="nav_menu">
     <nav>
       <div class="nav toggle">
         <a href="<?php echo base_url();?>index.php/site/members_area"><i class="fa fa-home"></i></a>
+      </div>
+      <div class="nav navbar-nav">
+        <h4><?php echo strftime("%a %d %B %Y"); ?></h4>
       </div>
       <ul class="nav navbar-nav navbar-right">
         <li class="">

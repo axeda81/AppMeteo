@@ -1,20 +1,18 @@
 <div class="right_col" role="main">
 	<div class="">
 		<div class="row">
-  		<div class="page-title">
-  			<div class ="col-md-12">
-					<div class="title_left">
-	  				<h3>Visualizza il tuo profilo</h3>
-	            <?php 
-	              if(isset($messaggio))  {
-	                echo '<div class="alert alert-success alert-dismissible fade in" role="alert">
-	              				<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>';
-	                echo $messaggio;
-	                echo '</div>';
-	              } 
-	            ?>  
-					</div>
-    		</div>
+			<div class ="col-md-6">
+				<div class="x_panel">
+  				<h3>Visualizza il tuo profilo</h3>
+            <?php 
+              if(isset($messaggio))  {
+                echo '<div class="alert alert-success alert-dismissible fade in" role="alert">
+              				<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>';
+                echo $messaggio;
+                echo '</div>';
+              } 
+            ?>  
+				</div>
   		</div>
     </div>
     <div class="clearfix"></div>

@@ -7,17 +7,9 @@
 <div class="right_col" role="main">
   <div class="">
     <div class="row">
-      <div class="page-title">
-        <div class ="col-md-9">
-          <div class="title_left">
-            <h3>Compilazione dati storici previsioni</h3>
-          </div>
-        </div>
-        <div class ="col-md-3">
-          <div class="pull-right">
-            <?php setlocale(LC_TIME, 'ita', 'it_IT');?>
-            <h3><?php echo strftime("%a %d %B %Y"); ?></h3>
-          </div>
+      <div class ="col-md-9">
+        <div class="x_panel">
+          <h3>Compilazione dati storici previsioni</h3>
         </div>
       </div>
     </div>

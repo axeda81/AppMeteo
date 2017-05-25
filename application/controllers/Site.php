@@ -188,7 +188,8 @@ class Site extends CI_Controller
 		$this->session->set_userdata($data);
 
 		// Carico la view in cui confermo che le previsioni sono andate a buon fine
-		$data['content'] = 'members_area/meteo/fine';
+		$data['content'] = 'members_area/meteo/home';
+		$data['messaggio'] = "L'inserimento delle previsioni è andato a buon fine.";
 		$this->load->view('includes/template', $data);
 	}
 

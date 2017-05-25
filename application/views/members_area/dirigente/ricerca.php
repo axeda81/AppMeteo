@@ -1,25 +1,11 @@
 <div class="right_col" role="main">
-  <div class="">
-    <div class="row">
-      <div class="page-title">
-        <div class ="col-md-9">
-          <div class="title_left">
-            <h3>Cerca tra le previsioni effettuate</h3>
-          </div>
-        </div>
-      </div>
-      <div class ="col-md-3">
-        <div class="pull-right">
-          <?php setlocale(LC_TIME, 'ita', 'it_IT');?>
-          <h3><?php echo strftime("%a %d %B %Y"); ?></h3>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="clearfix"></div>
-  <?php echo form_open('archivio/esegui_ricerca', array('class' => 'form-horizontal form-label-left')); ?>
-  <div class = "row">
+  <div class="row">
     <div class ="col-md-8">
+      <div class="x_panel">
+        <h3>Cerca tra le previsioni effettuate</h3>
+      </div>
+      <div class="clearfix"></div>
+        <?php echo form_open('archivio/esegui_ricerca', array('class' => 'form-horizontal form-label-left')); ?>
       <div class="x_panel">
         <div class="x_content">    
           <div class = "row">
@@ -83,6 +69,7 @@
             <div class ="col-md-12">                 
               <?php echo form_submit('submit', 'Cerca', array('class' => 'btn btn-success submit pull-right')); ?>
               <?php echo anchor('archivio/ricercadirigente', 'Clear', array('class' => 'btn btn-primary pull-right')); ?>
+              <?php echo anchor('site/members_area', 'Indietro', array('class' => 'btn btn-default pull-right')); ?>
               <?php echo form_close(); ?>
             </div>
           </div>
@@ -101,6 +88,7 @@
     </div>
   </div>    
 </div>
+
 
 <!-- bootstrap-daterangepicker -->
 <script src="<?php echo base_url();?>vendors/moment/min/moment.min.js"></script>

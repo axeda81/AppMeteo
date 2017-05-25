@@ -16,12 +16,6 @@
           </div>
         </div>
       </div>
-      <div class ="col-md-3">
-        <div class="pull-right">
-          <?php setlocale(LC_TIME, 'ita', 'it_IT');?>
-          <h3><?php echo strftime("%a %d %B %Y"); ?></h3>
-        </div>
-      </div>
     </div>
   </div>
   <div class="clearfix"></div>

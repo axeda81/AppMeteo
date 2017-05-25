@@ -1,14 +1,15 @@
-<!-- page content -->
 <div class="right_col" role="main">
   <div class="">
-    <div class="page-title">
-      <div class="title_left">
-        <h3>Gestione Utenti</h3>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="x_panel">
+          <h3>Gestione utenti</h3>
+        </div>
       </div>
     </div>
     <div class="clearfix"></div>
     <div class="row">
-      <div class="col-md-4 col-xs-12 widget widget_tally_box">
+      <div class="col-md-3 col-xs-12 widget widget_tally_box">
         <div class="x_panel">
           <div class="x_content">
             <div class="flex">
@@ -21,13 +22,13 @@
               </ul>
             </div>
             <h3 class="name">Crea nuovo utente</h3>
-            <p>
-              Aggiungi un nuovo utente al sistema.
-            </p>
+              <p>
+                Aggiungi un nuovo utente al sistema.
+              </p>
           </div>
         </div>
       </div>
-      <div class="col-md-4 col-xs-12 widget widget_tally_box">
+      <div class="col-md-3 col-xs-12 widget widget_tally_box">
         <div class="x_panel">
           <div class="x_content">
             <div class="flex">

@@ -1,11 +1,9 @@
 <div class="right_col" role="main">
 	<div class="">
 		<div class="row">
-			<div class="page-title">
-				<div class ="col-md-12">
-					<div class="title_left">
-	  				<h3>Modifica profilo utente </h3>        				
-					</div>
+			<div class ="col-md-6">
+				<div class="x_panel">
+  				<h3>Modifica profilo utente </h3>        				
 				</div>
 			</div>
 		</div>

@@ -6,6 +6,28 @@
         <div class="x_panel">
           <h3>Home page meteorologo</h3>
         </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="title_left">
+              <?php 
+                if(isset($messaggio))  {
+                  echo '<div class="alert alert-success alert-dismissible fade in" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>';
+                  echo $messaggio;
+                  echo '</div></div>';
+                } 
+              ?> 
+              <?php 
+                if(isset($messaggioerrore))  {
+                  echo '<div class="alert alert-danger alert-dismissible fade in" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>';
+                  echo $messaggioerrore;
+                  echo '</div></div>';
+                } 
+              ?>             
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="clearfix"></div>
@@ -98,7 +120,7 @@
 <script type="text/javascript">
   $(document).ready(function() {
     $('#previsioniTutti').on('click', function() {
-      window.location.replace("<?php echo base_url();?>index.php/archivio/ricerca_tutti");
+      window.location.replace("<?php echo base_url();?>index.php/archivio/ricerca_tutto");
     })
   });
 </script>
