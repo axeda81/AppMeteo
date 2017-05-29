@@ -76,8 +76,10 @@ class Site extends CI_Controller
 		
 		if ($this->session->userdata('prev_fatte') == true)
 		{
-			// Carico la view dove si avverte l'utente che ha già effettuato le previsioni
-			$data['content'] = 'members_area/meteo/prevgiaeffettuate';
+			// Previsioni già fatte per quel giorno: Carico la view home e avviso dell'errore 
+			$data['content'] = 'members_area/meteo/home';
+			$data['messaggioerrore'] = "Hai già effettuato le tue previsioni per oggi! \nTorna domani, preferibilmente entro le ore 12:00.";
+			$this->load->view('includes/template', $data);
 		}
 		else 
 		{
@@ -189,7 +191,7 @@ class Site extends CI_Controller
 
 		// Carico la view in cui confermo che le previsioni sono andate a buon fine
 		$data['content'] = 'members_area/meteo/home';
-		$data['messaggio'] = "L'inserimento delle previsioni è andato a buon fine.";
+		$data['messaggio'] = "L'inserimento delle tue previsioni è andato a buon fine.";
 		$this->load->view('includes/template', $data);
 	}
 

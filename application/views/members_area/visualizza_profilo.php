@@ -54,7 +54,7 @@
 	          <div class="form-group">
 	            <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
 	            <?php echo form_submit('submit', 'Cambia password', array('class' => 'btn btn-success submit pull-right')); ?>
-	 						<?php echo anchor('site/members_area', 'Torna alla home', array('class' => 'btn btn-primary pull-right')); ?>
+	 						<?php echo anchor('site/members_area', 'Indietro', array('class' => 'btn btn-default pull-right')); ?>
 	            <?php echo form_close(); ?>
 	            </div>
 	          </div>

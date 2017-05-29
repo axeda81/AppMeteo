@@ -4,7 +4,7 @@
       <div class="page-title">
         <div class ="col-md-9">
           <div class="title_left">
-            <h3>Ricontrolla le tue previsioni</h3>
+            <h3>Ricontrolla i dati che hai inserito</h3>
              <?php 
               if(isset($messaggioerrore))  {
                 echo '<div class="alert alert-danger alert-dismissible fade in" role="alert">
@@ -100,11 +100,11 @@
             <?php if(isset($turno)) : ?>
               <div class = "row">
                 <div class = "x_title"></div>
-                <div class = "col-md-3">
+                <div class = "col-md-4">
                   <p class = "text-muted well well-sm no-shadow">
                     <?php
-                      if ($turno == "1") echo "Oggi sei di turno";
-                      else if ($turno == "0") echo "Oggi non sei di turno";
+                      if ($turno == "1") echo "Eri di turno.";
+                      else if ($turno == "0") echo "Non eri di turno.";
                     ?>
                   </p>
                 </div>
@@ -130,9 +130,9 @@
   <!-- Pulsanti per confermare le previsioni, annullarle o tornare indietro alla compilazione -->
   <div class="row">
     <div class ="col-md-12">                 
-      <button type="submit" class="btn btn-success submit pull-right">Conferma previsioni</button>
+      <button type="submit" class="btn btn-success submit pull-right">Conferma dati</button>
       <?php echo anchor('Archivio/ricompila_dati_storici', 'Indietro', array('class' => 'btn btn-primary pull-right')); ?>
-      <button type="button" class="btn btn-danger pull-right" data-toggle="modal" data-target=".bs-example-modal-sm">Annulla previsioni</button> 
+      <button type="button" class="btn btn-danger pull-right" data-toggle="modal" data-target=".bs-example-modal-sm">Annulla inserimento</button> 
       <!-- Modal che appare per chiedere conferma dell'annullamento delle previsioni -->
       <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-sm">
@@ -143,7 +143,7 @@
               <h4 class="modal-title" id="myModalLabel2">Conferma annullamento</h4>
             </div>
             <div class="modal-body">
-              <p>Vuoi davvero annullare le tue previsioni di oggi? L'operazione non è reversibile. </p>
+              <p>Vuoi davvero annullare l'inserimento di questi dati? L'operazione non è reversibile. </p>
             </div>
             <div class="modal-footer">           
               <button type="button" class="btn btn-default" data-dismiss="modal">NO</button>

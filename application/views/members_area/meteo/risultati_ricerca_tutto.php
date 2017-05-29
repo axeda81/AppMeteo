@@ -1,9 +1,8 @@
 <div class="right_col" role="main">
-  <div class="">
-    <div class="row">
-      <div class ="col-md-9">
-        <div class="x_panel">
-          <h3>Risultati della ricerca</h3>
+  <div class="row">
+    <div class ="col-md-8">
+      <div class="x_panel">
+        <h3>Risultati della ricerca</h3>
           <?php 
             if(!isset($result))  {
               echo '<div class="row"><div class="col-md-4">';
@@ -11,14 +10,9 @@
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>';
               echo 'La tua ricerca non ha prodotto risultati.</div></div></div>';
             } 
-          ?>           
-        </div>
+          ?>            
       </div>
-    </div>
-  </div>
-  <div class="clearfix"></div>
-  <div class = "row">
-    <div class ="col-md-9">
+      <div class="clearfix"></div>
       <div class="x_panel">
         <div class="x_title">
           <h2> <small>Puoi salvare i tuoi dati nei seguenti formati: </small></h2>
@@ -48,10 +42,10 @@
                 <td><?php 
                     if($row->inTurno == "0") echo "NO";
                     else echo "SI";
-                ?> </td>                
+                ?> </td>
                 <td><?php echo $row->zona; ?></td>
                 <td>
-                   <?php 
+                  <?php 
                     switch ($row->ID_fasciaoraria) {
                       case "1": echo "Dalle 12:00 alle 15:00 del "; echo $oggi; break;
                       case "2": echo "Dalle 15:00 alle 18:00 del "; echo $oggi; break;
@@ -72,12 +66,12 @@
                 <td>
                   <?php 
                     switch ($row->ID_tipoprevisione) {
-                      case "0": echo "No temporali"; break;
-                      case "1": echo "Temporali sparsi"; break;
-                      case "2": echo "Temporali diffusi"; break;
+                      case "0": echo "Nessuna Precipitazione"; break;
+                      case "1": echo "FS"; break;
+                      case "2": echo "FD"; break;
                       default: break;
                     }
-                  ?>
+                  ?>                    
                 </td>
                 <td>
                   <?php 
@@ -95,27 +89,27 @@
             </tbody>
           </table>
         </div>
-      </div>  
-    </div>
-    <div class = "col-md-3">
+    <!-- Pulsanti per confermare le previsioni o tornare indietro alla compilazione -->
+        <div class="row">
+          <div class ="col-md-12">             
+            <?php echo anchor('archivio/ricerca_tutto', 'Nuova ricerca', array('class' => 'btn btn-primary pull-right')); ?>
+            <?php echo anchor('site/members_area', 'Torna alla home', array('class' => 'btn btn-default pull-right')); ?>  
+          </div>
+        </div>  
+      </div> 
+    </div> 
+    <div class = "col-md-4">
       <div class = "x_panel">
         <div class = "x_title">
-          <h3> <small> Mappa zone di vigilanza </small></h3>
+          <h3> <small> Zone di vigilanza </small></h3>
         </div>
         <div class = "x_content">
           <img src="<?php echo base_url();?>images/Immagine.jpg">
         </div>
       </div>
     </div>
-    <!-- Pulsanti per confermare le previsioni o tornare indietro alla compilazione -->
-    <div class="row">
-      <div class ="col-md-9">                 
-        <?php echo anchor('archivio/ricerca_tutto', 'Nuova ricerca', array('class' => 'btn btn-success pull-right')); ?>
-        <?php echo anchor('site/members_area', 'Torna alla home', array('class' => 'btn btn-primary pull-right')); ?>
-      </div>
-    </div>
-  </div>       
-</div> 
+  </div> 
+</div>
 
 <!-- Datatables -->
 <script>

@@ -1,10 +1,9 @@
 <div class="right_col" role="main">
   <div class="">
     <div class="row">
-      <div class="page-title">
-        <div class ="col-md-9">
-          <div class="title_left">
-            <h3>Ricontrolla le tue previsioni</h3>
+      <div class ="col-md-9">
+        <div class="x_panel">
+          <h3>Compilazione previsioni</h3>
              <?php 
               if(isset($messaggioerrore))  {
                 echo '<div class="alert alert-danger alert-dismissible fade in" role="alert">
@@ -13,7 +12,6 @@
                 echo '</div>';
               } 
             ?>  
-          </div>
         </div>
       </div>
     </div>

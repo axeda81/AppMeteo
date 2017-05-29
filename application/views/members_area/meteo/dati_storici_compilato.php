@@ -7,11 +7,9 @@
 <div class="right_col" role="main">
   <div class="">
     <div class="row">
-      <div class="page-title">
-        <div class ="col-md-9">
-          <div class="title_left">
-            <h3>Compilazione previsioni</h3>
-          </div>
+      <div class ="col-md-9">
+        <div class="x_panel">
+          <h3>Compilazione dati storici previsioni</h3>
         </div>
       </div>
     </div>
@@ -1189,8 +1187,10 @@
             <div class="col-md-8">
               <div class="x_panel">
                 <div class="form-group">
-                  <?php echo form_submit('submit', 'Rivedi e conferma previsioni', array('class' => 'btn btn-success submit pull-right')); ?>
-                  <?php echo anchor('Site/reset_dati_compilati', 'Reset', array('class' => 'btn btn-primary pull-right')); ?>
+                  <?php echo form_submit('submit', 'Rivedi e conferma dati', array('class' => 'btn btn-success submit pull-right')); ?>
+                  <?php echo anchor('archivio/inserisciDati', 'Reset', array('class' => 'btn btn-primary pull-right')); ?>
+                  <?php echo anchor('Archivio/mostra_menu_archivio', 'Indietro', array('class' => 'btn btn-default pull-right')); ?>
+
                   <?php echo form_close(); ?>
                 </div> 
               </div>     

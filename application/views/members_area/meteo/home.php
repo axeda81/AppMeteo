@@ -7,7 +7,7 @@
           <h3>Home page meteorologo</h3>
         </div>
         <div class="row">
-          <div class="col-md-4">
+          <div class="col-md-6">
             <div class="title_left">
               <?php 
                 if(isset($messaggio))  {

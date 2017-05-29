@@ -1,19 +1,11 @@
 <div class="right_col" role="main">
-  <div class="">
-    <div class="row">
-      <div class="page-title">
-        <div class ="col-md-9">
-          <div class="title_left">
-            <h3>Cerca tra le tue previsioni</h3>
-          </div>
-        </div>
+  <div class="row">
+    <div class ="col-md-8">
+      <div class="x_panel">
+        <h3>Cerca tra le previsioni effettuate</h3>
       </div>
-    </div>
-  </div>
-  <div class="clearfix"></div>
-  <?php echo form_open('archivio/esegui_ricerca', array('class' => 'form-horizontal form-label-left')); ?>
-  <div class = "row">
-    <div class ="col-md-9">
+      <div class="clearfix"></div>
+        <?php echo form_open('archivio/esegui_ricerca', array('class' => 'form-horizontal form-label-left')); ?>
       <div class="x_panel">
         <div class="x_content">    
           <div class = "row">
@@ -54,7 +46,7 @@
               </div>
             </div>
           </div>
-
+         
           <!-- Pulsanti per confermare le previsioni o tornare indietro alla compilazione -->
           <div class="row">
             <div class ="col-md-12">                 
@@ -67,10 +59,10 @@
         </div>
       </div>
     </div>
-    <div class = "col-md-3">
+    <div class = "col-md-4">
       <div class = "x_panel">
         <div class = "x_title">
-          <h3><small> Mappa zone di vigilanza </small></h3>
+          <h3><small> Zone di vigilanza </small></h3>
         </div>
         <div class = "x_content">
           <img src="<?php echo base_url();?>images/Immagine.jpg">
@@ -80,17 +72,11 @@
   </div>    
 </div>
 
+
 <!-- bootstrap-daterangepicker -->
 <script src="<?php echo base_url();?>vendors/moment/min/moment.min.js"></script>
 <script src="<?php echo base_url();?>vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
 <!-- bootstrap-daterangepicker -->
-
-<!-- <script type="text/javascript">
-$(function() {
-    $('input[name="daterange"]').daterangepicker();
-});
-</script> -->
-
 <script type="text/javascript">
 $(function() {
 

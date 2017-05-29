@@ -44,19 +44,17 @@ class Archivio extends CI_Controller
 	{
 
 		// Carico una view in cui il meteorologo loggato può visualizzare le previsioni presenti nel DB, fare ricerche, ma solo
-		// se ha già compilato le sue previsioni 
+		// se ha già compilato le sue previsioni per quel giorno
 
-		//if (($this->session->userdata('fuoriorario') == true) || ($this->session->userdata('prev_confermate') == true)){
 		if ($this->session->userdata('prev_confermate') == true){
 			$data['content'] = 'members_area/meteo/ricerca_tutto'; 
 			$this->load->view('includes/template', $data);	
 		}
 		else {
 
-			// Non sono ancora passate le 12:00 quindi non può rivedere le previsioni degli altri
-			$data['content'] = 'members_area/meteo/ricerca_non_disponibile'; 
-			$this->load->view('includes/template', $data);	
-			
+			$data['content'] = 'members_area/meteo/archivio';
+			$data['messaggioerrore'] = "Ricerca non disponibile. \nTorna dopo aver compilato le tue previsioni per oggi.";
+			$this->load->view('includes/template', $data);			
 		}
 
 	}
