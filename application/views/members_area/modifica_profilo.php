@@ -62,7 +62,7 @@
 			        <?php 
 			          if(isset($messaggioerrore)) {
 			          	echo '<div class="row">';
-			            echo '<div class="col-md-9 alert alert-danger" role="alert"> <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> ';
+			            echo '<div class="col-md-6 alert alert-danger" role="alert"> <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> ';
 			            echo $messaggioerrore;
 			            echo validation_errors('<p class="error">');
 			            echo '</p></div></div>';
@@ -84,21 +84,3 @@
 		</div>
 	</div>
 </div>
-
-
-            <?php 
-              if(isset($messaggio))  {
-                echo '<div class="alert alert-success alert-dismissible fade in" role="alert">
-                      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>';
-                echo $messaggio;
-                echo '</div></div>';
-              } 
-            ?> 
-            <?php 
-              if(isset($messaggioerrore))  {
-                echo '<div class="alert alert-danger alert-dismissible fade in" role="alert">
-                      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>';
-                echo $messaggioerrore;
-                echo '</div></div>';
-              } 
-            ?> 

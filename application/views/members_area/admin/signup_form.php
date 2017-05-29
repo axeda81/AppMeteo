@@ -60,7 +60,7 @@
 		        <?php 
 		          if(isset($messaggioerrore)) {
 		          	echo '<div class="row">';
-		            echo '<div class="col-md-9 alert alert-danger" role="alert"> <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> ';
+		            echo '<div class="col-md-6 alert alert-danger" role="alert"> <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> ';
 		            echo $messaggioerrore;
 		            echo validation_errors('<p class="error">');
 		            echo '</p></div></div>';

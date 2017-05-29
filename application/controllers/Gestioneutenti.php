@@ -99,7 +99,7 @@ class Gestioneutenti extends CI_Controller
 			{
 
 				// Aggiornamento dei dati andato a buon fine 
-				$data['messaggio'] = 'Le modifiche all\'utente sono state salvate correttamente!';
+				$data['messaggio'] = 'Le modifiche sono state salvate correttamente!';
 				$data['users'] = $this->Utenti_model->elenco_utenti();
 				$data['content'] = 'members_area/admin/update_form';
 
@@ -172,7 +172,7 @@ class Gestioneutenti extends CI_Controller
 
 			if ($result = true){
 
-				$data['content'] = 'members_area/admin/signup_ok';
+				$data['content'] = 'members_area/admin/home';
 				$data['messaggio'] = "La creazione del nuovo utente è andata a buon fine.";
 				$this->load->view('includes/template', $data);
 			}

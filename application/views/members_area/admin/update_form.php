@@ -7,7 +7,7 @@
             <?php 
             if(isset($messaggio))  {
                 echo '<div class="row">';
-                echo '<div class="col-md-9 alert alert-success fade in" role="alert"> 
+                echo '<div class="col-md-6 alert alert-success fade in" role="alert"> 
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                           <span aria-hidden="true">×</span>
                         </button>';

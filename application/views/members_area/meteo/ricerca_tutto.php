@@ -79,7 +79,7 @@
           <h3><small> Mappa zone di vigilanza </small></h3>
         </div>
         <div class = "x_content">
-          <img src="../../images/Immagine.jpg">
+          <img src="<?php echo base_url();?>images/Immagine.jpg">
         </div>
       </div>
     </div>

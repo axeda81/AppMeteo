@@ -4,14 +4,15 @@
 			<div class ="col-md-6">
 				<div class="x_panel">
   				<h3>Visualizza il tuo profilo</h3>
-            <?php 
-              if(isset($messaggio))  {
-                echo '<div class="alert alert-success alert-dismissible fade in" role="alert">
-              				<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>';
-                echo $messaggio;
-                echo '</div>';
-              } 
-            ?>  
+          <?php 
+            if(isset($messaggio))  {
+              echo '<div class="row"><div class="col-md-6">';
+              echo '<div class="alert alert-success alert-dismissible fade in" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>';
+              echo $messaggio;
+              echo '</div></div></div>';
+            } 
+          ?> 
 				</div>
   		</div>
     </div>

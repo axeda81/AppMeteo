@@ -10,9 +10,9 @@
     <title>Precipitazioni | Login</title>
 
     <!-- Bootstrap -->
-    <link href="<?php echo base_url();?>css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo base_url();?>vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
-    <link href="<?php echo base_url();?>css/font-awesome.min.css" rel="stylesheet">
+    <link href="<?php echo base_url();?>vendors/font-awesome/css/font-awesome.css" rel="stylesheet">
     <!-- Custom Theme Style -->
     <link href="<?php echo base_url();?>css/custom.min.css" rel="stylesheet">
   </head>
