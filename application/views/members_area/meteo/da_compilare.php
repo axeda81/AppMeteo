@@ -1079,8 +1079,8 @@
             <div class="x_panel">
               <div class="form-group">
                 <h5>Sei di turno oggi? </h5>
-                  SI <input type="radio" name="turno" id="turnoS" value="1" required /> 
-                  NO <input type="radio" name="turno" id="turnoN" value="0" />
+                  SI <input type="radio" name="inTurno" id="turnoS" value="1" required /> 
+                  NO <input type="radio" name="inTurno" id="turnoN" value="0" />
               </div>
             </div>
           </div>

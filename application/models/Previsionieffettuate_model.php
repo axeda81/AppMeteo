@@ -26,7 +26,7 @@ class Previsionieffettuate_model extends CI_Model {
 			'ID_utente' => $this->session->userdata('id_utente'),
 			'Data' => date("Y-m-d"),
 			'Ora' => date("H:i"),
-			'inTurno' => $this->input->post('turno')
+			'inTurno' => $this->input->post('inTurno')
 		);
 
 		$this->db->insert('previsionieffettuate', $riga);
@@ -43,7 +43,7 @@ class Previsionieffettuate_model extends CI_Model {
 			'ID_utente' => $this->session->userdata('id_utente'),
 			'Data' => $data,
 			'Ora' => $ora,
-			'inTurno' => $this->input->post('turno')
+			'inTurno' => $this->input->post('inTurno')
 		);
 
 		$this->db->insert('previsionieffettuate', $riga);
@@ -53,14 +53,14 @@ class Previsionieffettuate_model extends CI_Model {
 
 	function aggiorna_dati($id) {
 
-		$dati = array(
+		$riga = array(
 
 			'Ora' => date("H:i"),
-			'inTurno' => $this->input->post('turno')
+			'inTurno' => $this->input->post('inTurno')
 		);
 
 		$this->db->where('ID', $id);
-		$this->db->update('previsionieffettuate', $dati);
+		$this->db->update('previsionieffettuate', $riga);
 	}
 
 	function elimina_riga ($id) {
@@ -101,7 +101,6 @@ class Previsionieffettuate_model extends CI_Model {
 
 			return $q->result();
 		}
-
 	}
 
 	function prev_in_turno($id){

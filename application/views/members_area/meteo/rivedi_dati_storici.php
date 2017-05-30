@@ -19,7 +19,7 @@
     </div>
   </div>
   <div class="clearfix"></div>
-    <?php echo form_open('Archivio/conferma_dati', array('class' => 'form-horizontal form-label-left')); ?>
+    <?php echo form_open('Archivio/conferma_dati_storici', array('class' => 'form-horizontal form-label-left')); ?>
   <div class = "row">
     <div class ="col-md-9">
       <div class="x_panel">

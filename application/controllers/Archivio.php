@@ -192,13 +192,49 @@ class Archivio extends CI_Controller
 		}
 	}
 
-	function conferma_dati ()
+	function aggiorna_dati_storici() 
+	{
+		// // Aggiorno tutti i dati (modificati o meno, li sovrascrivo tutti)
+		// $id_prev_storico = $this->session->userdata('id_prev_storico'); 
+
+		// // Aggiorno l'orario di modifica della riga con ID = id_prev_storico e l'informazione sul turno
+		// $this->Previsionieffettuate_model->aggiorna_dati($id_prev_storico); 
+		// $result = $this->Dettaglioprevisioni_model->aggiorna_dati($id_prev_storico, $this->fuoriorariomax());
+
+		// if ($result = true) {
+
+		// 	// Tutti gli aggiornamenti nel DB sono andati a buon fine 
+		// 	$data['previsioni'] = $this->Dettaglioprevisioni_model->elenco_previsioni($id_preveff);
+		// 	$data['dati_previsione'] = $this->Previsionieffettuate_model->dati_previsione($id_preveff);
+		// 	$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie();
+		// 	$data['turno'] = $this->session->userdata('inTurno');
+		// 	$data['content'] = 'members_area/meteo/rivedidati'; // Devo poter rivedere i dati per confermare 
+		// 	$this->load->view('includes/template', $data);
+		// }
+
+		// // TODO - gestire il caso in cui $result = false
+	}
+
+
+
+	function conferma_dati_storici ()
 	{
 		// Viene chiamata quando, dopo aver rivisto i dati compilati, si da ok per salvarli definitivamente
+		// $data = array(
+		// 	'prev_fatte' => true,
+		// 	'prev_confermate' => true
+		// );
 
-		// Carico semplicemente la view in cui confermo che le previsioni sono andate a buon fine
-		$data['content'] = 'members_area/meteo/fine';
+		// Inserisco nella sessione il dato relativo al fatto che son stati confermati i dati
+		//$this->session->set_userdata($data);
+
+		// Carico la view in cui confermo che le previsioni sono andate a buon fine
+		$data['content'] = 'members_area/meteo/home';
+		$data['messaggio'] = "L'inserimento dei dati è andato a buon fine.";
 		$this->load->view('includes/template', $data);
+
+
+
 	}
 
 	function ricompila_dati_storici() 
@@ -228,11 +264,28 @@ class Archivio extends CI_Controller
 		// Cancello tutte le righe del DB relative alle previsioni effettuate 
 		$id_prev_storico = $this->session->userdata('id_prev_storico');
 		$this->Previsionieffettuate_model->elimina_riga($id_prev_storico);
-		$this->Dettaglioprevisioni_model->elimina_dati($id_prev_storico);
 
 		// Torno alla home
 		$data['content'] = 'members_area/meteo/home'; 
 		$this->load->view('includes/template', $data);
+	}
+
+
+	function reset_dati_storici_compilati () {
+
+		// Elimino dal DB eventuali dati relativi alla compilazione precedente
+		$id_preveff_old = $this->session->userdata('id_preveff'); 
+		$this->Previsionieffettuate_model->elimina_riga($id_preveff_old); 
+
+		// Devo resettare la view compilato.php: ricarico semplicemente quella di partenza delle previsioni
+		$data['content'] = 'members_area/meteo/inserisci_dati_storici';
+		
+		$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie();
+		$data['fuoriorario'] = 0;
+
+		// Carico la view 
+		$this->load->view('includes/template', $data);
+
 	}
 
 	function fuoriorariomax()

@@ -34,7 +34,7 @@
 
       ?>
 
-      <?php echo form_open('Site/salva_dati', array('class' => 'form-horizontal form-label-left')); ?>
+      <?php echo form_open('Site/aggiorna_dati', array('class' => 'form-horizontal form-label-left')); ?>
 
       <div class="x_content">
         <div class="row">
@@ -1144,8 +1144,8 @@
               <div class="form-group">
                 <h5>Sei di turno oggi? </h5>
                 <?php if(isset($inTurno)) : ?>
-                  SI <input type="radio" name="turno" <?php if ($inTurno[0] == "1") echo "checked "; ?> value = "1" />
-                  NO <input type="radio" name="turno" <?php if ($inTurno[0] == "0") echo "checked "; ?> value = "0" />
+                  SI <input type="radio" name="inTurno" <?php if ($inTurno[0] == "1") echo "checked "; ?> value = "1" />
+                  NO <input type="radio" name="inTurno" <?php if ($inTurno[0] == "0") echo "checked "; ?> value = "0" />
                 <?php endif; ?>
               </div>  
             </div>

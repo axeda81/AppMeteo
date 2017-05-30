@@ -95,14 +95,14 @@
           </table>
           <div class="clearfix"></div>
           <?php if(isset($previsioni)) : ?>
-            <?php if(isset($turno)) : ?>
+            <?php if(isset($inTurno)) : ?>
               <div class = "row">
                 <div class = "x_title"></div>
                 <div class = "col-md-3">
                   <p class = "text-muted well well-sm no-shadow">
                     <?php
-                      if ($turno == "1") echo "Oggi sei di turno";
-                      else if ($turno == "0") echo "Oggi non sei di turno";
+                      if ($inTurno[0] == "1") {echo "Oggi sei di turno"; echo $inTurno;}
+                      else if ($inTurno[0] == "0") {echo "Oggi non sei di turno"; echo $inTurno;}
                     ?>
                   </p>
                 </div>

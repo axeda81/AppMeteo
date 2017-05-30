@@ -127,7 +127,7 @@ class Site extends CI_Controller
 		$data = array(
 
 			'id_preveff' => $id_preveff,
-			'inTurno' => $this->input->post('turno')
+			'inTurno' => $this->input->post('inTurno')
 		);
 
 		// Salvo l'ID della previsione e l'info sul turno nella sessione così posso utilizzarli anche in altre funzioni
@@ -146,7 +146,7 @@ class Site extends CI_Controller
 			$data['previsioni'] = $this->Dettaglioprevisioni_model->elenco_previsioni($id_preveff);
 			$data['dati_previsione'] = $this->Previsionieffettuate_model->dati_previsione($id_preveff);
 			$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie();
-			$data['turno'] = $this->input->post('turno');
+			$data['inTurno'] = $this->input->post('inTurno');
 
 			$data['content'] = 'members_area/meteo/rivedidati'; // Devo poter rivedere i dati per confermare 
 			$this->load->view('includes/template', $data);
@@ -240,7 +240,7 @@ class Site extends CI_Controller
 			$data['previsioni'] = $this->Dettaglioprevisioni_model->elenco_previsioni($id_preveff);
 			$data['dati_previsione'] = $this->Previsionieffettuate_model->dati_previsione($id_preveff);
 			$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie();
-			$data['turno'] = $this->session->userdata('inTurno');
+			$data['inTurno'] = $this->session->userdata('inTurno');
 			$data['content'] = 'members_area/meteo/rivedidati'; // Devo poter rivedere i dati per confermare 
 			$this->load->view('includes/template', $data);
 		}
@@ -250,11 +250,14 @@ class Site extends CI_Controller
 
 	function reset_dati_compilati () {
 
+		// Elimino dal DB eventuali dati relativi alla compilazione precedente
+		$id_preveff_old = $this->session->userdata('id_preveff'); 
+		$this->Previsionieffettuate_model->elimina_riga($id_preveff_old); 
+
 		// Devo resettare la view compilato.php: ricarico semplicemente quella di partenza delle previsioni
 		$data['content'] = 'members_area/meteo/da_compilare';
 		
 		$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie();
-			 	
 		$data['fuoriorario'] = $this->fuoriorariomax();
 
 		$prev = array(
@@ -282,7 +285,7 @@ class Site extends CI_Controller
 		$data['dati_previsione'] = $this->Previsionieffettuate_model->dati_previsione($id_preveff);
 		$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie();
 		$data['content'] = 'members_area/meteo/rivedidati'; // Devo poter rivedere i dati per confermare 
-		$data['turno'] = $this->session->userdata('inTurno');
+		$data['inTurno'] = $this->session->userdata('inTurno');
 		$this->load->view('includes/template', $data);
 	}
 
