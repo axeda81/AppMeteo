@@ -1144,8 +1144,8 @@
               <div class="form-group">
                 <h5>Eri di turno? </h5>
                 <?php if(isset($inTurno)) : ?>
-                  SI <input type="radio" name="turno" <?php if ($inTurno[0] == "1") echo "checked "; ?> value = "1" />
-                  NO <input type="radio" name="turno" <?php if ($inTurno[0] == "0") echo "checked "; ?> value = "0" />
+                  SI <input type="radio" name="inTurno" <?php if ($inTurno[0] == "1") echo "checked "; ?> value = "1" />
+                  NO <input type="radio" name="inTurno" <?php if ($inTurno[0] == "0") echo "checked "; ?> value = "0" />
                 <?php endif; ?>
               </div>  
             </div>

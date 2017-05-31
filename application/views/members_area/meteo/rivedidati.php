@@ -101,8 +101,8 @@
                 <div class = "col-md-3">
                   <p class = "text-muted well well-sm no-shadow">
                     <?php
-                      if ($inTurno[0] == "1") {echo "Oggi sei di turno"; echo $inTurno;}
-                      else if ($inTurno[0] == "0") {echo "Oggi non sei di turno"; echo $inTurno;}
+                      if ($inTurno == 1) {echo "Oggi sei di turno"; }
+                      else if ($inTurno == 0) {echo "Oggi non sei di turno"; }
                     ?>
                   </p>
                 </div>

@@ -112,7 +112,7 @@
 <script type="text/javascript">
   $(document).ready(function() {
     $('#inserisciDati').on('click', function() {
-      window.location.replace("<?php echo base_url();?>index.php/archivio/inserisciDati");
+      window.location.replace("<?php echo base_url();?>index.php/archivio/inserisci_dati_storici");
     })
   });
 </script>

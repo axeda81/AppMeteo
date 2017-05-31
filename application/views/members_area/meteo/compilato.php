@@ -1141,19 +1141,25 @@
         <div class="row">
           <div class="col-md-4">
             <div class="x_panel">
-              <div class="form-group">
-                <h5>Sei di turno oggi? </h5>
-                <?php if(isset($inTurno)) : ?>
-                  SI <input type="radio" name="inTurno" <?php if ($inTurno[0] == "1") echo "checked "; ?> value = "1" />
-                  NO <input type="radio" name="inTurno" <?php if ($inTurno[0] == "0") echo "checked "; ?> value = "0" />
-                <?php endif; ?>
-              </div>  
+              <h5>Sei di turno oggi? </h5>
+              <?php if(isset($inTurno)) : ?>
+              <div class="radio">
+                <label>
+                  <input type="radio" value="1" id="turnoS" name="inTurno" <?php if ($inTurno[0] == "1") echo "checked "; ?>> SI
+                </label>
+              </div>
+              <div class="radio">
+                <label>
+                  <input type="radio" value="0" id="turnoN" name="inTurno" <?php if ($inTurno[0] == "0") echo "checked "; ?>> NO
+                </label>
+              </div>
+              <?php endif; ?>
             </div>
           </div>
           <div class="col-md-8">
             <div class="x_panel">
               <div class="form-group">
-                <?php echo form_submit('submit', 'Rivedi e conferma previsioni', array('class' => 'btn btn-success submit pull-right')); ?>
+                <?php echo form_submit('submit', 'Rivedi, conferma o annulla previsioni', array('class' => 'btn btn-success submit pull-right')); ?>
                 <?php echo anchor('Site/reset_dati_compilati', 'Reset', array('class' => 'btn btn-primary pull-right')); ?>
                 <?php echo anchor('Site/members_area', 'Indietro', array('class' => 'btn btn-default pull-right')); ?>  
                 <?php echo form_close(); ?>

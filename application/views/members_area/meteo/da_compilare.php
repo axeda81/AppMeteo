@@ -1077,17 +1077,23 @@
         <div class="row">
           <div class="col-md-4">
             <div class="x_panel">
-              <div class="form-group">
-                <h5>Sei di turno oggi? </h5>
-                  SI <input type="radio" name="inTurno" id="turnoS" value="1" required /> 
-                  NO <input type="radio" name="inTurno" id="turnoN" value="0" />
+              <h5>Sei di turno oggi? </h5>
+              <div class="radio">
+                <label>
+                  <input type="radio" required value="1" id="turnoS" name="inTurno"> SI
+                </label>
+              </div>
+              <div class="radio">
+                <label>
+                  <input type="radio" value="0" id="turnoN" name="inTurno"> NO
+                </label>
               </div>
             </div>
           </div>
           <div class="col-md-8">
             <div class="x_panel">
               <div class="form-group">
-                <?php echo form_submit('submit', 'Rivedi e conferma previsioni', array('class' => 'btn btn-success submit pull-right')); ?>
+                <?php echo form_submit('submit', 'Rivedi, conferma o annulla previsioni', array('class' => 'btn btn-success submit pull-right')); ?>
                 <?php echo anchor('Site/meteorologo', 'Reset', array('class' => 'btn btn-primary pull-right')); ?> 
                 <?php echo anchor('Site/members_area', 'Indietro', array('class' => 'btn btn-default pull-right')); ?>          
                 <?php echo form_close(); ?>

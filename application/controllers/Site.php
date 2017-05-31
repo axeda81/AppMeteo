@@ -206,8 +206,9 @@ class Site extends CI_Controller
 		$data['fuoriorario'] = $this->fuoriorariomax();
 		
 		// Passo alla view anche l'informazione sul turno 
-		$res = $this->Previsionieffettuate_model->prev_in_turno($id_preveff);
-		$data['inTurno'] = $res[0]->inTurno;
+		//$res = $this->Previsionieffettuate_model->prev_in_turno($id_preveff);
+		//$data['inTurno'] = $res[0]->inTurno;
+		$data['inTurno'] = $this->session->userdata('inTurno');
 
 		$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie();
 
@@ -233,6 +234,13 @@ class Site extends CI_Controller
 		// Aggiorno l'orario di modifica della riga con ID = id_preveff e l'informazione sul turno
 		$this->Previsionieffettuate_model->aggiorna_dati($id_preveff); 
 		$result = $this->Dettaglioprevisioni_model->aggiorna_dati($id_preveff, $this->fuoriorariomax());
+
+		$prev = array(
+			'inTurno' => $this->input->post('inTurno')
+		);
+
+		// Inserisco nella sessione il dato relativo al fatto che le previsioni non sono ancora confermate
+		$this->session->set_userdata($prev);	
 
 		if ($result = true) {
 

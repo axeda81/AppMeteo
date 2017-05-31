@@ -116,11 +116,10 @@ class Archivio extends CI_Controller
 		$this->load->view('includes/template', $data);	
 	}
 
-	function inserisciDati() {
+	function inserisci_dati_storici() {
 
 		// Carico la view per inserire dati storici relativi alle previsioni fatte dall'utente loggato
-		$data['content'] = 'members_area/meteo/inserisci_dati_storici';
-		$data['fuoriorario'] = 0;
+		$data['content'] = 'members_area/meteo/dati_storici_passo1';
 		$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie(); 
 		$this->load->view('includes/template', $data);	
 
@@ -169,7 +168,7 @@ class Archivio extends CI_Controller
 			$data['previsioni'] = $this->Dettaglioprevisioni_model->elenco_previsioni($id_prev_storico);
 			$data['dati_previsione'] = $this->Previsionieffettuate_model->dati_previsione($id_prev_storico);
 			$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie();
-			$data['turno'] = $this->input->post('turno');
+			$data['turno'] = $this->input->post('inTurno');
 
 			$data['content'] = 'members_area/meteo/rivedi_dati_storici'; // Devo poter rivedere i dati per confermare 
 			$this->load->view('includes/template', $data);
@@ -191,6 +190,77 @@ class Archivio extends CI_Controller
 			$this->load->view('includes/template', $data);
 		}
 	}
+
+	function salva_dati_storici_passo1 (){
+
+		// Creo solo la riga in Previsionieffettuate perchè a questo punto sono state inserite
+		// data e ora della previsione che si vuole salvare e l'info sul turno 
+
+		// Prima cosa, bisogna inserire una riga nella tabella previsionieffettuate facendosi restituire l'ID della riga stessa 
+		
+		$dataeora = $this->input->post('dataeora');
+
+		$dataeora_array = explode("-", $dataeora);
+		$dataeora_array[0] = str_replace("/","-", $dataeora_array[0]); 
+
+		$dataformattata = date_create($dataeora_array[0]);
+		$dataformattata = date_format($dataformattata,"Y-m-d"); 
+
+		$id_prev_storico = $this->Previsionieffettuate_model->inserisci_riga_storico($dataformattata, $dataeora_array[1]);
+
+		// TODO: gestire eventuale errore DB
+
+		// Controllo se le previsioni che sto inserendo son state fatte oltre le 12:00. In tal caso
+		// nella view del passo2 le fasce orarie della giornata di oggi saranno disabilitate
+		$fuoriorario = 0;
+		$orario = explode(":", $dataeora_array[1]);
+		if ($orario[0] > 12) $fuoriorario = 1;
+		else $fuoriorario = 0;
+
+		$info = array(
+
+			'id_prev_storico' => $id_prev_storico, 
+			'fuoriorario_storico' => $fuoriorario,
+			'numFasceOrarie' => $this->input->post('numFasceOrarie'),
+			'inTurno_storico' => $this->input->post('inTurno')
+		);
+
+		// Salvo queste tre informazioni nella sessione così le posso usare anche in altre funzioni e altre view
+		$this->session->set_userdata($info); 
+
+		$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie();
+		$data['inTurno'] = $this->input->post('inTurno');
+		$data['numFasceOrarie'] = $this->input->post('numFasceOrarie');
+		$data['fuoriOrario'] = $this->input->post('fuoriorario_storico');
+
+		$data['content'] = 'members_area/meteo/dati_storici_passo2'; // Devo andare avanti con la compilazione
+		$this->load->view('includes/template', $data);		
+	}
+
+	function dati_storici_passo1(){
+
+		// Chiamata quando premo "indietro" nella view del passo2
+
+		// TODO inserire dati nella view
+		$data['inTurno'] = $this->session->userdata('inTurno_storico');
+
+		$data['content'] = 'members_area/meteo/dati_storici_passo1_compilato';  
+		$this->load->view('includes/template', $data);	
+
+	}
+
+
+	function conferma_dati_storici ()
+	{
+		// Viene chiamata quando, dopo aver rivisto i dati compilati, si da ok per salvarli definitivamente:
+		// non bisogna fare niente, solo dire che è andato tutto bene, i dati sono già nel DB
+
+		// Carico la view in cui confermo che le previsioni sono andate a buon fine
+		$data['content'] = 'members_area/meteo/home';
+		$data['messaggio'] = "L'inserimento dei dati è andato a buon fine.";
+		$this->load->view('includes/template', $data);
+	}
+
 
 	function aggiorna_dati_storici() 
 	{
@@ -217,25 +287,7 @@ class Archivio extends CI_Controller
 
 
 
-	function conferma_dati_storici ()
-	{
-		// Viene chiamata quando, dopo aver rivisto i dati compilati, si da ok per salvarli definitivamente
-		// $data = array(
-		// 	'prev_fatte' => true,
-		// 	'prev_confermate' => true
-		// );
 
-		// Inserisco nella sessione il dato relativo al fatto che son stati confermati i dati
-		//$this->session->set_userdata($data);
-
-		// Carico la view in cui confermo che le previsioni sono andate a buon fine
-		$data['content'] = 'members_area/meteo/home';
-		$data['messaggio'] = "L'inserimento dei dati è andato a buon fine.";
-		$this->load->view('includes/template', $data);
-
-
-
-	}
 
 	function ricompila_dati_storici() 
 	{

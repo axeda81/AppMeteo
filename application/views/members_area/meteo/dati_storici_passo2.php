@@ -1,13 +1,10 @@
-<!-- page content 
+<!-- page content -->
 
-  Codifica dei nomi dei gruppi di radio button: ogni gruppo avrà name = "foXzY"
-  con X = da 1 a 12, le varie fasce orarie: 1 = "Oggi 12-15", ... , 12 = "Domani 21-24"
-  e Y = da 1 a ...? le diverse zone nell'ordine in cui sono presentate nella view -->
 <div class="right_col" role="main">
   <div class="row">
     <div class ="col-md-8">
       <div class="x_panel">
-        <h3>Compilazione dati storici previsioni - <small><i> N.B.: Se i dati inseriti sono relativi a previsioni effettuate dopo le ore 12:00, i dati delle quattro fasce orarie relative a "oggi" non verranno salvate. </i></small></h3>
+        <h3>Compilazione dati storici previsioni </h3><h4><small class="pull-left"><i> Passo 2 - inserisci le previsioni. </i></small></h4>
       </div>
       <div class="clearfix"></div>
 
@@ -36,11 +33,11 @@
           $fascia11 = $fasceorarie[10]->fasciaoraria;
           $fascia12 = $fasceorarie[11]->fasciaoraria;
         endif;
-      ?>
+				
+				echo form_open('Archivio/conferma_dati_storici', array('class' => 'form-horizontal form-label-left')); 
+			?>
 
-      <?php echo form_open('Archivio/salva_dati_storici', array('class' => 'form-horizontal form-label-left')); ?>
-
-      <div class="x_content">
+ 			<div class="x_content">
         <div class="row">
           <div class="col-xs-2">
             <!-- Nav tabs - uno per ogni zona -->
@@ -1080,32 +1077,15 @@
         </div>
         <div class="clearfix"></div>
         <div class="row">
-          <div class="col-md-4">
-            <div class="x_panel">
-              <div class="form-group">
-                <h5>Eri di turno? </h5>
-                  SI <input type="radio" name="inTurno" id="turnoS" value="1" required /> 
-                  NO <input type="radio" name="inTurno" id="turnoN" value="0" />
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="x_panel">
-              <h5>Data e ora delle previsioni: </h5>
-              <div class="input-append date form_datetime">
-                <input size="20" type="text" placeholder="Seleziona data e ora..." name="dataeora" required />
-                <span class="add-on"><i class="icon-th"></i></span>
-                <span class="add-on"><i class="icon-remove"></i></span>
-              </div>
-            </div>
-          </div>          
-          <div class="col-md-4">
-            <div class="form-group">
-              <?php echo form_submit('submit', 'Rivedi e conferma dati', array('class' => 'btn btn-success submit pull-right')); ?>
-              <?php echo anchor('archivio/inserisciDati', 'Reset', array('class' => 'btn btn-primary pull-right')); ?>
-              <?php echo anchor('Archivio/mostra_menu_archivio', 'Indietro', array('class' => 'btn btn-default pull-right')); ?>          
-              <?php echo form_close(); ?>
-            </div> 
+          <div class="col-md-12">
+          	<div class="x_panel">
+            	<div class="form-group">
+              	<?php echo form_submit('submit', 'Rivedi e conferma dati', array('class' => 'btn btn-success submit pull-right')); ?>
+              	<?php echo anchor('archivio/inserisciDati', 'Reset', array('class' => 'btn btn-primary pull-right')); ?>
+              	<?php echo anchor('Archivio/dati_storici_passo1', 'Indietro', array('class' => 'btn btn-default pull-right')); ?>          
+              	<?php echo form_close(); ?>
+            	</div> 
+          	</div>
           </div>
         </div>
       </div>
@@ -1120,21 +1100,5 @@
         </div>
       </div>
     </div>
-  </div>    
+	</div>
 </div>
-
-<script src="<?php echo base_url();?>vendors/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.js"></script>
-<script src="<?php echo base_url();?>vendors/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.min.js"></script>
-<script src="<?php echo base_url();?>vendors/bootstrap-datetimepicker-master/js/locales/bootstrap-datetimepicker.it.js"></script>   
- 
-<script type="text/javascript">
-  $(".form_datetime").datetimepicker({
-      format: "dd/mm/yyyy - hh:ii",
-      autoclose: true,
-      language: "it",
-      forceParse: false,
-      startDate: "2016-01-01 00:00",
-      initialDate: "2016-01-01 00:00",
-      minuteStep: 15        
-  });
-</script>  
