@@ -264,7 +264,6 @@ class Archivio extends CI_Controller
 
 	}
 
-
 	function conferma_dati_storici ()
 	{
 		// Viene chiamata quando, dopo aver rivisto i dati compilati, si da ok per salvarli definitivamente:
@@ -300,8 +299,15 @@ class Archivio extends CI_Controller
 		// // TODO - gestire il caso in cui $result = false
 	}
 
+	function reset_dati_storici () {
 
+		// Elimino dal DB eventuali dati relativi alla compilazione precedente
+		$id_preveff_old = $this->session->userdata('id_prev_storico'); 
+		$this->Previsionieffettuate_model->elimina_riga($id_preveff_old); 
 
+		// Devo resettare la view dati_storici_passo1_compilato.php: ricarico semplicemente quella di partenza dell'inserimento dati
+		$this->inserisci_dati_storici();
+	}
 
 
 	function ricompila_dati_storici() 

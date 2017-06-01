@@ -66,7 +66,7 @@
             <div class="x_panel">
               <div class="form-group">
                 <?php echo form_submit('submit', 'Avanti', array('class' => 'btn btn-success submit pull-right')); ?>
-                <?php echo anchor('Archivio/inserisci_dati_storici', 'Reset', array('class' => 'btn btn-primary pull-right')); ?>
+                <?php echo anchor('Archivio/reset_dati_storici', 'Reset', array('class' => 'btn btn-primary pull-right')); ?>
                 <?php echo anchor('Archivio/mostra_menu_archivio', 'Indietro', array('class' => 'btn btn-default pull-right')); ?>          
                 <?php echo form_close(); ?>
               </div> 

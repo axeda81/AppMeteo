@@ -63,7 +63,8 @@ class Site extends CI_Controller
 		$var =  $this->Previsionieffettuate_model->prevgiaeffettuate($id_utente);
 		
 		$sess = array(
-			'prev_fatte' => $var
+			'prev_fatte' => $var, 
+			'prev_confermate' => $var
 		);
 
 		$this->session->set_userdata($sess);
