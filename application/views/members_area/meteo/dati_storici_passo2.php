@@ -34,6 +34,7 @@
           $fascia12 = $fasceorarie[11]->fasciaoraria;
         endif;
 				
+				// $fuoriOrario $numFasceOrarie
 				echo form_open('Archivio/conferma_dati_storici', array('class' => 'form-horizontal form-label-left')); 
 			?>
 

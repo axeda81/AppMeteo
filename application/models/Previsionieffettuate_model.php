@@ -63,6 +63,19 @@ class Previsionieffettuate_model extends CI_Model {
 		$this->db->update('previsionieffettuate', $riga);
 	}
 
+	function aggiorna_dati_storico($id, $data, $ora, $turno) {
+
+		$riga = array(
+
+			'Data' => $data,
+			'Ora' => $ora,
+			'inTurno' => $turno
+		);
+
+		$this->db->where('ID', $id);
+		$this->db->update('previsionieffettuate', $riga);
+	}
+
 	function elimina_riga ($id) {
 
 		$this->db->where('ID', $id);

@@ -206,7 +206,19 @@ class Archivio extends CI_Controller
 		$dataformattata = date_create($dataeora_array[0]);
 		$dataformattata = date_format($dataformattata,"Y-m-d"); 
 
-		$id_prev_storico = $this->Previsionieffettuate_model->inserisci_riga_storico($dataformattata, $dataeora_array[1]);
+		if ($this->session->has_userdata('id_prev_storico')) {
+
+			// Se nella sessione esiste già questo valore, vuol dire che sto già inserendo dati,
+			// quindi non devo creare una nuova riga in Previsionieffettuate ma aggiornarla
+
+			$id_prev_storico = $this->session->userdata('id_prev_storico');
+			$this->Previsionieffettuate_model->aggiorna_dati_storico($id_prev_storico, $dataformattata, $dataeora_array[1], $this->input->post('inTurno'));
+		}
+		else 
+		{
+			// Altrimenti, creo una nuova riga 
+			$id_prev_storico = $this->Previsionieffettuate_model->inserisci_riga_storico($dataformattata, $dataeora_array[1]);
+		}
 
 		// TODO: gestire eventuale errore DB
 
@@ -222,7 +234,8 @@ class Archivio extends CI_Controller
 			'id_prev_storico' => $id_prev_storico, 
 			'fuoriorario_storico' => $fuoriorario,
 			'numFasceOrarie' => $this->input->post('numFasceOrarie'),
-			'inTurno_storico' => $this->input->post('inTurno')
+			'inTurno_storico' => $this->input->post('inTurno'),
+			'dataeora' => $this->input->post('dataeora') 
 		);
 
 		// Salvo queste tre informazioni nella sessione così le posso usare anche in altre funzioni e altre view
@@ -241,8 +254,10 @@ class Archivio extends CI_Controller
 
 		// Chiamata quando premo "indietro" nella view del passo2
 
-		// TODO inserire dati nella view
+		// Inserisco i dati nella view
 		$data['inTurno'] = $this->session->userdata('inTurno_storico');
+		$data['numFasceOrarie'] = $this->session->userdata('numFasceOrarie');
+		$data['dataeora'] = $this->session->userdata('dataeora');
 
 		$data['content'] = 'members_area/meteo/dati_storici_passo1_compilato';  
 		$this->load->view('includes/template', $data);	

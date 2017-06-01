@@ -18,12 +18,12 @@
               <?php if(isset($inTurno)) : ?>
               <div class="radio">
                 <label>
-                  <input type="radio" value="1" id="turnoS" name="inTurno" <?php if ($inTurno[0] == "1") echo "checked "; ?>> SI
+                  <input type="radio" value="1" id="turnoS" name="inTurno" <?php if ($inTurno[0] == "1") echo "checked "; ?> /> SI
                 </label>
               </div>
               <div class="radio">
                 <label>
-                  <input type="radio" value="0" id="turnoN" name="inTurno" <?php if ($inTurno[0] == "0") echo "checked "; ?>> NO
+                  <input type="radio" value="0" id="turnoN" name="inTurno" <?php if ($inTurno[0] == "0") echo "checked "; ?> /> NO
                 </label>
               </div>
               <?php endif; ?>
@@ -34,9 +34,11 @@
               <div class="form-group">
                 <h5>Data e ora delle previsioni: </h5></br>
                 <div class="input-append date form_datetime">
-                  <input size="20" type="text" placeholder="Seleziona data e ora..." name="dataeora" required />
+                  <?php if(isset($dataeora)) : ?>
+                  <input size="20" type="text" value= "<?php echo $dataeora; ?>" name="dataeora" />
                   <span class="add-on"><i class="icon-th"></i></span>
                   <span class="add-on"><i class="icon-remove"></i></span>
+                  <?php endif; ?>
                 </div>
               </div>
             </div>
@@ -44,16 +46,18 @@
           <div class="col-md-4">
             <div class="x_panel">
               <h5>Previsioni a 6 o a 12 fasce orarie? </h5>
+              <?php if(isset($numFasceOrarie)) : ?>
               <div class="radio">
-                <label>
-                  <input type="radio" required value="6" id="12fasceorarie" name="numFasceOrarie"> 6 fasce orarie
+                <label> 
+                  <input type="radio" value="6" id="6fasceorarie" name="numFasceOrarie" <?php if ($numFasceOrarie == "6") echo "checked"; ?> /> 6 fasce orarie
                 </label>
               </div>
               <div class="radio">
                 <label>
-                  <input type="radio" value="12" id="6fasceorarie" name="numFasceOrarie"> 12 fasce orarie
+                  <input type="radio" value="12" id="12fasceorarie" name="numFasceOrarie" <?php if ($numFasceOrarie == "12") echo "checked"; ?> /> 12 fasce orarie
                 </label>
               </div>
+              <?php endif; ?>
             </div>
           </div>
         </div>

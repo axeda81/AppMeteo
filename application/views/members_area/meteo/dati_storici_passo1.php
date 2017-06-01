@@ -44,12 +44,12 @@
               <h5>Previsioni a 6 o a 12 fasce orarie? </h5>
               <div class="radio">
                 <label>
-                  <input type="radio" required value="6" id="12fasceorarie" name="numFasceOrarie"> 6 fasce orarie
+                  <input type="radio" required value="6" id="12fasceorarie" name="numFasceOrarie" /> 6 fasce orarie
                 </label>
               </div>
               <div class="radio">
                 <label>
-                  <input type="radio" value="12" id="6fasceorarie" name="numFasceOrarie"> 12 fasce orarie
+                  <input type="radio" value="12" id="6fasceorarie" name="numFasceOrarie" /> 12 fasce orarie
                 </label>
               </div>
             </div>
