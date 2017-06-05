@@ -79,8 +79,7 @@ class Site extends CI_Controller
 		{
 			// Previsioni già fatte per quel giorno: Carico la view home e avviso dell'errore 
 			$data['content'] = 'members_area/meteo/home';
-			$data['messaggioerrore'] = "Hai già effettuato le tue previsioni per oggi! \nTorna domani, preferibilmente entro le ore 12:00.";
-			$this->load->view('includes/template', $data);
+			$data['messaggioerrore'] = "Hai già effettuato le tue previsioni per oggi! Torna domani, preferibilmente entro le ore 12:00.";
 		}
 		else 
 		{

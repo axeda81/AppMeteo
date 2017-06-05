@@ -233,17 +233,15 @@ class Archivio extends CI_Controller
 
 			'id_prev_storico' => $id_prev_storico, 
 			'fuoriorario_storico' => $fuoriorario,
-			'numFasceOrarie' => $this->input->post('numFasceOrarie'),
 			'inTurno_storico' => $this->input->post('inTurno'),
 			'dataeora' => $this->input->post('dataeora') 
 		);
 
-		// Salvo queste tre informazioni nella sessione così le posso usare anche in altre funzioni e altre view
+		// Salvo queste informazioni nella sessione così le posso usare anche in altre funzioni e altre view
 		$this->session->set_userdata($info); 
 
 		$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie();
 		$data['inTurno'] = $this->input->post('inTurno');
-		$data['numFasceOrarie'] = $this->input->post('numFasceOrarie');
 		$data['fuoriOrario'] = $this->input->post('fuoriorario_storico');
 
 		$data['content'] = 'members_area/meteo/dati_storici_passo2'; // Devo andare avanti con la compilazione
@@ -256,7 +254,6 @@ class Archivio extends CI_Controller
 
 		// Inserisco i dati nella view
 		$data['inTurno'] = $this->session->userdata('inTurno_storico');
-		$data['numFasceOrarie'] = $this->session->userdata('numFasceOrarie');
 		$data['dataeora'] = $this->session->userdata('dataeora');
 
 		$data['content'] = 'members_area/meteo/dati_storici_passo1_compilato';  

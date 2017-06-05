@@ -4,7 +4,7 @@
   <div class="row">
     <div class ="col-md-8">
       <div class="x_panel">
-        <h3>Compilazione dati storici previsioni </h3><h4><small class="pull-left"><i> Passo 1 - inserisci data e ora della previsione, indica se eri di turno o no e qual è il numero di fasce orarie. </i></small></h4>
+        <h3>Compilazione dati storici previsioni </h3><h4><small class="pull-left"><i> Passo 1 - inserisci data e ora della previsione ed indica se eri di turno o no. </i></small></h4>
       </div>
       <div class="clearfix"></div>
 
@@ -12,7 +12,7 @@
 
       <div class="x_content">
         <div class="row">
-          <div class="col-md-4">
+          <div class="col-md-6">
             <div class="x_panel">
               <h5>Eri di turno? </h5>
               <div class="radio">
@@ -27,7 +27,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-6">
             <div class="x_panel">
               <div class="form-group">
                 <h5>Data e ora delle previsioni: </h5></br>
@@ -39,21 +39,6 @@
               </div>
             </div>
           </div> 
-          <div class="col-md-4">
-            <div class="x_panel">
-              <h5>Previsioni a 6 o a 12 fasce orarie? </h5>
-              <div class="radio">
-                <label>
-                  <input type="radio" required value="6" id="12fasceorarie" name="numFasceOrarie" /> 6 fasce orarie
-                </label>
-              </div>
-              <div class="radio">
-                <label>
-                  <input type="radio" value="12" id="6fasceorarie" name="numFasceOrarie" /> 12 fasce orarie
-                </label>
-              </div>
-            </div>
-          </div>
         </div>
         <div class="row">
           <div class="col-md-12">

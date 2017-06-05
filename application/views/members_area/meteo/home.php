@@ -5,24 +5,19 @@
       <div class="col-md-9">
         <div class="x_panel">
           <h3>Home page meteorologo</h3>
-           <?php 
-            if(isset($messaggio))  {
-              echo '<div class="row"><div class="col-md-6">';
-              echo '<div class="alert alert-success alert-dismissible fade in" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>';
-              echo $messaggio;
-              echo '</div></div></div>';
-            } 
-          ?> 
-           <?php 
-            if(isset($messaggioerrore))  {
-              echo '<div class="row"><div class="col-md-6">';
-              echo '<div class="alert alert-danger alert-dismissible fade in" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>';
-              echo $messaggioerrore;
-              echo '</div></div></div>';
-            } 
-          ?> 
+          <div class="bs-example-popovers">
+            <?php 
+              if(isset($messaggio))  {
+                echo '<div class="row"><div class="col-md-6"><div class="alert alert-success alert-dismissible fade in" role="alert">
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>'.$messaggio.'</div></div></div>';
+              } 
+              else if(isset($messaggioerrore))  {
+                echo '<div class="row"><div class="col-md-6"><div class="alert alert-danger alert-dismissible fade in" role="alert">
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>'.$messaggioerrore.'</div></div></div>';
+   
+              }     
+            ?> 
+          </div>
         </div>
       </div>
     </div>
