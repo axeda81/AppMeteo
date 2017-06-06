@@ -4,18 +4,23 @@ class Previsionieffettuate_model extends CI_Model {
 
 	function prevgiaeffettuate ($id) {
 
-		// Vado a controllare se è presente una riga per quell'utente
-		// nella data di oggi, se è così torno true		
-		$this->db->select('ID_utente');
+		// Vado a controllare se è presente una riga per quell'utente nella data di oggi		
+		$this->db->select('*');
 		$this->db->from('previsionieffettuate');
 		$this->db->where('ID_utente', $id);
 		$this->db->where('Data', date("Y-m-d"));
 
 		$q = $this->db->get();
 
-		if($q->num_rows() == 0)
-			return false;
-		else return true;
+		if($q->num_rows() == 0) return -1; // Se non c'è nessuna riga, ok, previsioni da fare
+		// Se c'è una riga per quel giorno, bisogna vedere se il campo Confermata contiene "SI": in tal caso vuol dire che 
+		// le previsioni sono state salvate correttamente. Altrimenti ("NO") significa che, per qualche motivo, il salvataggio
+		// delle previsioni non si era concluso in modo corretto. 
+		else if($q->num_rows() == 1) {
+			
+			$row = $q->row(0);
+			return $row->Confermata;
+		}
 
 	}
 
@@ -26,12 +31,35 @@ class Previsionieffettuate_model extends CI_Model {
 			'ID_utente' => $this->session->userdata('id_utente'),
 			'Data' => date("Y-m-d"),
 			'Ora' => date("H:i"),
-			'inTurno' => $this->input->post('inTurno')
+			'inTurno' => $this->input->post('inTurno'), 
+			'Confermata' => 0
 		);
 
 		$this->db->insert('previsionieffettuate', $riga);
 
 		return $this->db->insert_id();
+	}
+
+	function conferma_previsione ($id) {
+
+		$riga = array(
+
+			'Confermata' => 1
+		);
+
+		$this->db->where('ID', $id);
+		$this->db->update('previsionieffettuate', $riga);
+	}
+
+	function indietro_previsione ($id) {
+
+		$riga = array(
+
+			'Confermata' => 0
+		);
+
+		$this->db->where('ID', $id);
+		$this->db->update('previsionieffettuate', $riga);
 	}
 
 	function inserisci_riga_storico ($data, $ora) {

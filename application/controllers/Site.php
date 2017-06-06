@@ -62,12 +62,15 @@ class Site extends CI_Controller
 		$id_utente = $this->Utenti_model->id_da_username($this->session->userdata('username'));
 		$var =  $this->Previsionieffettuate_model->prevgiaeffettuate($id_utente);
 		
-		$sess = array(
-			'prev_fatte' => $var, 
-			'prev_confermate' => $var
-		);
+		if ($var == -1)
+			$sess = array('prev_fatte' => false, 'prev_confermate' => false);
+		else if ($var == 1)
+			$sess = array('prev_fatte' => true, 'prev_confermate' => true);
+		else if ($var == 0)
+			$sess = array('prev_fatte' => true, 'prev_confermate' => false);
 
 		$this->session->set_userdata($sess);
+
 	}
 
 	function meteorologo()
@@ -75,17 +78,22 @@ class Site extends CI_Controller
 		// Prima cosa: controllare se l'utente ha già effettuato le previsioni
 		// in data odierna. In tal caso non può rifarle ma solo rivederle.
 		
-		if ($this->session->userdata('prev_fatte') == true)
+		if ($this->session->userdata('prev_confermate') == true)
 		{
 			// Previsioni già fatte per quel giorno: Carico la view home e avviso dell'errore 
 			$data['content'] = 'members_area/meteo/home';
 			$data['messaggioerrore'] = "Hai già effettuato le tue previsioni per oggi! Torna domani, preferibilmente entro le ore 12:00.";
 		}
+		else if (($this->session->userdata('prev_confermate') == false) && ($this->session->userdata('prev_fatte') == true)){
+
+			// Qualcosa è andato storto nell'inserimento delle previsioni 
+			$data['content'] = 'members_area/meteo/home';
+			$data['messaggioerrore'] = "Le ultime previsioni non risultano confermate. Prova a cliccare Logout per scegliere se confermarle o annullarle.";			
+		}
 		else 
 		{
 			// Se le previsioni non son già state fatte da quell'utente, carico la view per farle 
 			$data['content'] = 'members_area/meteo/da_compilare';
-			
 			$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie();
 			 	
 		}
@@ -97,6 +105,7 @@ class Site extends CI_Controller
 
 			'fuoriorario' => $data['fuoriorario']
 		);
+
 		$this->session->set_userdata($sess); 
 
 		// Carico la view 
@@ -121,7 +130,8 @@ class Site extends CI_Controller
 	{
 
 		// Prima cosa, bisogna salvare l'informazione relativa al fatto che l'utente che è loggato sta facendo le previsioni,
-		// va inserita quindi una riga nella tabella previsionieffettuate facendosi restituire l'ID della riga stessa 
+		// va inserita quindi una riga nella tabella previsionieffettuate facendosi restituire l'ID della riga stessa. 
+		// Il campo "Confermata" verrà messo a "NO" e sarà modificato a "SI" solo una volta che si confermano le previsioni.
 		$id_preveff = $this->Previsionieffettuate_model->inserisci_riga();
 
 		$data = array(
@@ -142,6 +152,13 @@ class Site extends CI_Controller
 
 		if ($result = true) {
 
+			// Inserisco nella sessione il flag che mi dice che le previsioni son state fatte (ma sono ancora da confermare)
+			$prev = array(
+				'prev_fatte' => true, 
+				'prev_confermate' => false
+			);
+			$this->session->set_userdata($prev);
+
 			// Tutti gli inserimenti nel DB sono andati a buon fine, riempio la view di riepilogo 
 			$data['previsioni'] = $this->Dettaglioprevisioni_model->elenco_previsioni($id_preveff);
 			$data['dati_previsione'] = $this->Previsionieffettuate_model->dati_previsione($id_preveff);
@@ -150,14 +167,8 @@ class Site extends CI_Controller
 
 			$data['content'] = 'members_area/meteo/rivedidati'; // Devo poter rivedere i dati per confermare 
 			$this->load->view('includes/template', $data);
-
-			// Inserisco nella sessione il flag che mi dice che le previsioni son state fatte (ma sono ancora da confermare)
-			$data = array(
-				'prev_fatte' => true
-			);
-			$this->session->set_userdata($data);
-
 		}
+		
 		else {
 
 			// ERRORE
@@ -171,7 +182,8 @@ class Site extends CI_Controller
 			$data['content'] = 'members_area/meteo/da_compilare';
 			$data['messaggioerrore'] = 'Errore nell\'inserimento dei dati nel DB. Per favore compila nuovamente le tue previsioni.'; // TODO - usare questo messaggio nella view
 			$prev = array(
-				'prev_fatte' => true
+				'prev_fatte' => false, 
+				'prev_confermate' => false
 			);
 			$this->session->set_userdata($prev);
 			$this->load->view('includes/template', $data);
@@ -181,13 +193,16 @@ class Site extends CI_Controller
 	function conferma_dati ()
 	{
 		// Viene chiamata quando, dopo aver rivisto i dati compilati, si da ok per salvarli definitivamente
-		$data = array(
+		$prev = array(
 			'prev_fatte' => true,
 			'prev_confermate' => true
 		);
 
 		// Inserisco nella sessione il dato relativo al fatto che son stati confermati i dati
-		$this->session->set_userdata($data);
+		$this->session->set_userdata($prev);
+
+		$id_preveff = $this->session->userdata('id_preveff');
+		$this->Previsionieffettuate_model->conferma_previsione($id_preveff);
 
 		// Carico la view in cui confermo che le previsioni sono andate a buon fine
 		$data['content'] = 'members_area/meteo/home';
@@ -198,7 +213,8 @@ class Site extends CI_Controller
 	function ricompila_previsioni() 
 	{
 		$id_preveff = $this->session->userdata('id_preveff');
-		
+		$this->Previsionieffettuate_model->indietro_previsione($id_preveff);
+
 		// Devo caricare la view meteo_compilato, che è uguale a meteo/da_compilare ma con i dati ripresi dal db 
 		$data['previsioni'] = $this->Dettaglioprevisioni_model->elenco_previsioni($id_preveff);
 		
@@ -226,17 +242,19 @@ class Site extends CI_Controller
 
 	}
 
-
 	function aggiorna_dati() 
 	{
 		// Aggiorno tutti i dati delle previsioni (modificati o meno, li sovrascrivo tutti)
 		$id_preveff = $this->session->userdata('id_preveff'); 
 		// Aggiorno l'orario di modifica della riga con ID = id_preveff e l'informazione sul turno
 		$this->Previsionieffettuate_model->aggiorna_dati($id_preveff); 
+		$this->Previsionieffettuate_model->indietro_previsione($id_preveff);
 		$result = $this->Dettaglioprevisioni_model->aggiorna_dati($id_preveff, $this->fuoriorariomax());
 
 		$prev = array(
-			'inTurno' => $this->input->post('inTurno')
+			'inTurno' => $this->input->post('inTurno'),
+			'prev_fatte' => true,
+			'prev_confermate' => false
 		);
 
 		// Inserisco nella sessione il dato relativo al fatto che le previsioni non sono ancora confermate
