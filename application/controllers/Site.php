@@ -5,24 +5,33 @@ class Site extends CI_Controller
 
 	function __construct()
 	{
-
 		parent::__construct();
 		$this->is_logged_in();
 	}
 
 	function members_area () 
 	{
+		if ($this->Utenti_model->tipo_utente($this->session->userdata('username')) == 2) {
 
+			$data['content'] = 'members_area/admin/home'; 
+		}
+		else $data['content'] = 'members_area/pagina_iniziale';
+
+		$this->load->view('includes/template', $data);
+	}
+
+	function members_area_temporali () 
+	{
 		//Carico la view dell'area riservata agli utenti registrati, in funzione del tipo di utente
 
 		switch ($this->Utenti_model->tipo_utente($this->session->userdata('username'))) {
 
 			case 0: // meteorologo: fa le previsioni e può rivedere solo le sue
-				$data['content'] = 'members_area/meteo/home';
+				$data['content'] = 'members_area/appTemporali/meteo/home';
 				$this->verificaPrevEffettuate();
 				break;
 			case 1: // dirigente: può rivedere le previsioni di tutti
-				$data['content'] = 'members_area/dirigente/home'; 
+				$data['content'] = 'members_area/appTemporali/dirigente/home'; 
 				$data['fuoriorario'] = false;
 				break;
 			case 2: // amministratore: crea/elimina/modifica utenti
@@ -37,7 +46,8 @@ class Site extends CI_Controller
 
 	}
 
-	function istruzioni() {
+	function istruzioni() 
+	{
 
 		$data['content'] = 'members_area/istruzioni'; 
 		$this->load->view('includes/template', $data);
@@ -57,8 +67,8 @@ class Site extends CI_Controller
 		else return false;
 	}
 
-	function verificaPrevEffettuate() {
-
+	function verificaPrevEffettuate() 
+	{
 		$id_utente = $this->Utenti_model->id_da_username($this->session->userdata('username'));
 		$var =  $this->Previsionieffettuate_model->prevgiaeffettuate($id_utente);
 		
@@ -81,19 +91,19 @@ class Site extends CI_Controller
 		if ($this->session->userdata('prev_confermate') == true)
 		{
 			// Previsioni già fatte per quel giorno: Carico la view home e avviso dell'errore 
-			$data['content'] = 'members_area/meteo/home';
+			$data['content'] = 'members_area/appTemporali/meteo/home';
 			$data['messaggioerrore'] = "Hai già effettuato le tue previsioni per oggi! Torna domani, preferibilmente entro le ore 12:00.";
 		}
 		else if (($this->session->userdata('prev_confermate') == false) && ($this->session->userdata('prev_fatte') == true)){
 
 			// Qualcosa è andato storto nell'inserimento delle previsioni 
-			$data['content'] = 'members_area/meteo/home';
+			$data['content'] = 'members_area/appTemporali/meteo/home';
 			$data['messaggioerrore'] = "Le ultime previsioni non risultano confermate. Prova a cliccare Logout per scegliere se confermarle o annullarle.";			
 		}
 		else 
 		{
 			// Se le previsioni non son già state fatte da quell'utente, carico la view per farle 
-			$data['content'] = 'members_area/meteo/da_compilare';
+			$data['content'] = 'members_area/appTemporali/meteo/da_compilare';
 			$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie();
 			 	
 		}
@@ -128,7 +138,6 @@ class Site extends CI_Controller
 
 	function salva_dati() 
 	{
-
 		// Prima cosa, bisogna salvare l'informazione relativa al fatto che l'utente che è loggato sta facendo le previsioni,
 		// va inserita quindi una riga nella tabella previsionieffettuate facendosi restituire l'ID della riga stessa. 
 		// Il campo "Confermata" verrà messo a "NO" e sarà modificato a "SI" solo una volta che si confermano le previsioni.
@@ -165,7 +174,7 @@ class Site extends CI_Controller
 			$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie();
 			$data['inTurno'] = $this->input->post('inTurno');
 
-			$data['content'] = 'members_area/meteo/rivedidati'; // Devo poter rivedere i dati per confermare 
+			$data['content'] = 'members_area/appTemporali/meteo/rivedidati'; // Devo poter rivedere i dati per confermare 
 			$this->load->view('includes/template', $data);
 		}
 		
@@ -179,7 +188,7 @@ class Site extends CI_Controller
 
 			$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie();
 
-			$data['content'] = 'members_area/meteo/da_compilare';
+			$data['content'] = 'members_area/appTemporali/meteo/da_compilare';
 			$data['messaggioerrore'] = 'Errore nell\'inserimento dei dati nel DB. Per favore compila nuovamente le tue previsioni.'; // TODO - usare questo messaggio nella view
 			$prev = array(
 				'prev_fatte' => false, 
@@ -205,7 +214,7 @@ class Site extends CI_Controller
 		$this->Previsionieffettuate_model->conferma_previsione($id_preveff);
 
 		// Carico la view in cui confermo che le previsioni sono andate a buon fine
-		$data['content'] = 'members_area/meteo/home';
+		$data['content'] = 'members_area/appTemporali/meteo/home';
 		$data['messaggio'] = "L'inserimento delle tue previsioni è andato a buon fine.";
 		$this->load->view('includes/template', $data);
 	}
@@ -236,7 +245,7 @@ class Site extends CI_Controller
 		// Inserisco nella sessione il dato relativo al fatto che le previsioni non sono ancora confermate
 		$this->session->set_userdata($prev);
 
-		$data['content'] = 'members_area/meteo/compilato';  
+		$data['content'] = 'members_area/appTemporali/meteo/compilato';  
 		
 		$this->load->view('includes/template', $data);		
 
@@ -267,21 +276,21 @@ class Site extends CI_Controller
 			$data['dati_previsione'] = $this->Previsionieffettuate_model->dati_previsione($id_preveff);
 			$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie();
 			$data['inTurno'] = $this->session->userdata('inTurno');
-			$data['content'] = 'members_area/meteo/rivedidati'; // Devo poter rivedere i dati per confermare 
+			$data['content'] = 'members_area/appTemporali/meteo/rivedidati'; // Devo poter rivedere i dati per confermare 
 			$this->load->view('includes/template', $data);
 		}
 
 		// TODO - gestire il caso in cui $result = false
 	}
 
-	function reset_dati_compilati () {
-
+	function reset_dati_compilati () 
+	{
 		// Elimino dal DB eventuali dati relativi alla compilazione precedente
 		$id_preveff_old = $this->session->userdata('id_preveff'); 
 		$this->Previsionieffettuate_model->elimina_riga($id_preveff_old); 
 
 		// Devo resettare la view compilato.php: ricarico semplicemente quella di partenza delle previsioni
-		$data['content'] = 'members_area/meteo/da_compilare';
+		$data['content'] = 'members_area/appTemporali/meteo/da_compilare';
 		
 		$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie();
 		$data['fuoriorario'] = $this->fuoriorariomax();
@@ -310,7 +319,7 @@ class Site extends CI_Controller
 		$data['previsioni'] = $this->Dettaglioprevisioni_model->elenco_previsioni($id_preveff);
 		$data['dati_previsione'] = $this->Previsionieffettuate_model->dati_previsione($id_preveff);
 		$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie();
-		$data['content'] = 'members_area/meteo/rivedidati'; // Devo poter rivedere i dati per confermare 
+		$data['content'] = 'members_area/appTemporali/meteo/rivedidati'; // Devo poter rivedere i dati per confermare 
 		$data['inTurno'] = $this->session->userdata('inTurno');
 		$this->load->view('includes/template', $data);
 	}
@@ -331,7 +340,7 @@ class Site extends CI_Controller
 		$this->session->set_userdata($prev);
 
 		// Torno alla home
-		$data['content'] = 'members_area/meteo/home'; 
+		$data['content'] = 'members_area/appTemporali/meteo/home'; 
 		$this->load->view('includes/template', $data);
 	}
 }

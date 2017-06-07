@@ -1,7 +1,7 @@
 <div class="right_col" role="main">
   <div class="">
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-6 col-xs-12">
         <div class="x_panel">
           <h3>Home page amministrazione</h3>
           <?php 

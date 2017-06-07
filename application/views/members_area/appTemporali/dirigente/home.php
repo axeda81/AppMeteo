@@ -2,7 +2,7 @@
 <div class="right_col" role="main">
   <div class="">
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-6 col-xs-12">
         <div class="x_panel">
           <h3>Home page dirigente</h3>
         </div>
@@ -29,25 +29,6 @@
           </div>
         </div>
       </div>  
-      <div class="col-md-3 col-xs-12 widget widget_tally_box">
-        <div class="x_panel">
-          <div class="x_content">
-            <div class="flex">
-              <ul class="list-inline widget_profile_box text-center">
-                <li class="text-center" style="float: none;">
-                  <a style="float: none;" id="profilo">
-                    <i class="fa fa-user"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <h3 class="name">Il tuo profilo </h3>
-            <p>
-              Vedi o modifica i tuoi dati personali.
-            </p>
-          </div>
-        </div>
-      </div>           
     </div>
   </div>
 </div>
@@ -60,10 +41,3 @@
   });
 </script>
 
-<script type="text/javascript">
-  $(document).ready(function() {
-    $('#profilo').on('click', function() {
-      window.location.replace("<?php echo base_url();?>index.php/gestioneutenti/mostra_profilo");
-    })
-  });
-</script>

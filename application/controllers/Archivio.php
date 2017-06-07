@@ -16,7 +16,7 @@ class Archivio extends CI_Controller
 		// Carico una view in cui siano disponibili come opzioni di ricerca la zona, la data e il tipo di allerta. 
 		// L'utente non è un'opzione disponibile perchè cerco solo le previsioni per l'utente loggato in questo momento. 
 		// $id_utente = $this->session->userdata('id_utente');
-		$data['content'] = 'members_area/meteo/ricerca';  
+		$data['content'] = 'members_area/appTemporali/meteo/ricerca';  
 		$this->load->view('includes/template', $data);	
 	}
 
@@ -24,7 +24,7 @@ class Archivio extends CI_Controller
 
 		// Carico una view dove ho due possibilità: fare una ricerca tra le previsioni fatte dall'utente loggato
 		// oppure inserire dati relativi a previsioni già fatte 
-		$data['content'] = 'members_area/meteo/archivio';  
+		$data['content'] = 'members_area/appTemporali/meteo/archivio';  
 		$this->load->view('includes/template', $data);
 
 	}
@@ -35,7 +35,7 @@ class Archivio extends CI_Controller
 
 		// Carico una view in cui siano disponibili come opzioni di ricerca la zona, la data, il tipo di allerta e l'utente. 
 		// Queto tipo di ricerca può essere fatta solo dal dirigente 
-		$data['content'] = 'members_area/dirigente/ricerca';  
+		$data['content'] = 'members_area/appTemporali/dirigente/ricerca';  
 		$data['elenco_meteo'] = $this->Utenti_model->elenco_meteo();
 		$this->load->view('includes/template', $data);	
 	}
@@ -47,12 +47,12 @@ class Archivio extends CI_Controller
 		// se ha già compilato le sue previsioni per quel giorno
 
 		if ($this->session->userdata('prev_confermate') == true){
-			$data['content'] = 'members_area/meteo/ricerca_tutto'; 
+			$data['content'] = 'members_area/appTemporali/meteo/ricerca_tutto'; 
 			$this->load->view('includes/template', $data);	
 		}
 		else {
 
-			$data['content'] = 'members_area/meteo/archivio';
+			$data['content'] = 'members_area/appTemporali/meteo/archivio';
 			$data['messaggioerrore'] = "Ricerca non disponibile. \nTorna dopo aver compilato le tue previsioni per oggi.";
 			$this->load->view('includes/template', $data);			
 		}
@@ -86,8 +86,8 @@ class Archivio extends CI_Controller
 		
 
 		// Chiamo una view passandole i risultati della ricerca 
-		if ($tipo != 0) $data['content'] = 'members_area/dirigente/risultati_ricerca'; 
-		else $data['content'] = 'members_area/meteo/risultati_ricerca'; 
+		if ($tipo != 0) $data['content'] = 'members_area/appTemporali/dirigente/risultati_ricerca'; 
+		else $data['content'] = 'members_area/appTemporali/meteo/risultati_ricerca'; 
 		$data['result'] = $result; 
 		$this->load->view('includes/template', $data);	
 	}
@@ -110,7 +110,7 @@ class Archivio extends CI_Controller
 
 		$result = $this->Dettaglioprevisioni_model->ricerca_tutto($id_utente, $zona, $allerta, $datainizio, $datafine, $prev_utente_loggato);
 
-		$data['content'] = 'members_area/meteo/risultati_ricerca_tutto'; 
+		$data['content'] = 'members_area/appTemporali/meteo/risultati_ricerca_tutto'; 
 		$data['result'] = $result; 
 
 		$this->load->view('includes/template', $data);	
@@ -119,7 +119,7 @@ class Archivio extends CI_Controller
 	function inserisci_dati_storici() {
 
 		// Carico la view per inserire dati storici relativi alle previsioni fatte dall'utente loggato
-		$data['content'] = 'members_area/meteo/dati_storici_passo1';
+		$data['content'] = 'members_area/appTemporali/meteo/dati_storici_passo1';
 		$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie(); 
 		$this->load->view('includes/template', $data);	
 
@@ -170,7 +170,7 @@ class Archivio extends CI_Controller
 			$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie();
 			$data['turno'] = $this->input->post('inTurno');
 
-			$data['content'] = 'members_area/meteo/rivedi_dati_storici'; // Devo poter rivedere i dati per confermare 
+			$data['content'] = 'members_area/appTemporali/meteo/rivedi_dati_storici'; // Devo poter rivedere i dati per confermare 
 			$this->load->view('includes/template', $data);
 		}
 
@@ -184,7 +184,7 @@ class Archivio extends CI_Controller
 
 			$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie();
 
-			$data['content'] = 'members_area/meteo/inserisci_dati_storici';
+			$data['content'] = 'members_area/appTemporali/meteo/inserisci_dati_storici';
 			$data['messaggioerrore'] = 'Errore nell\'inserimento dei dati nel DB. Per favore compila nuovamente le tue previsioni.'; 
 
 			$this->load->view('includes/template', $data);
@@ -244,7 +244,7 @@ class Archivio extends CI_Controller
 		$data['inTurno'] = $this->input->post('inTurno');
 		$data['fuoriOrario'] = $this->input->post('fuoriorario_storico');
 
-		$data['content'] = 'members_area/meteo/dati_storici_passo2'; // Devo andare avanti con la compilazione
+		$data['content'] = 'members_area/appTemporali/meteo/dati_storici_passo2'; // Devo andare avanti con la compilazione
 		$this->load->view('includes/template', $data);		
 	}
 
@@ -256,7 +256,7 @@ class Archivio extends CI_Controller
 		$data['inTurno'] = $this->session->userdata('inTurno_storico');
 		$data['dataeora'] = $this->session->userdata('dataeora');
 
-		$data['content'] = 'members_area/meteo/dati_storici_passo1_compilato';  
+		$data['content'] = 'members_area/appTemporali/meteo/dati_storici_passo1_compilato';  
 		$this->load->view('includes/template', $data);	
 
 	}
@@ -267,7 +267,7 @@ class Archivio extends CI_Controller
 		// non bisogna fare niente, solo dire che è andato tutto bene, i dati sono già nel DB
 
 		// Carico la view in cui confermo che le previsioni sono andate a buon fine
-		$data['content'] = 'members_area/meteo/home';
+		$data['content'] = 'members_area/appTemporali/meteo/home';
 		$data['messaggio'] = "L'inserimento dei dati è andato a buon fine.";
 		$this->load->view('includes/template', $data);
 	}
@@ -289,7 +289,7 @@ class Archivio extends CI_Controller
 		// 	$data['dati_previsione'] = $this->Previsionieffettuate_model->dati_previsione($id_preveff);
 		// 	$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie();
 		// 	$data['turno'] = $this->session->userdata('inTurno');
-		// 	$data['content'] = 'members_area/meteo/rivedidati'; // Devo poter rivedere i dati per confermare 
+		// 	$data['content'] = 'members_area/appTemporali/meteo/rivedidati'; // Devo poter rivedere i dati per confermare 
 		// 	$this->load->view('includes/template', $data);
 		// }
 
@@ -323,7 +323,7 @@ class Archivio extends CI_Controller
 
 		$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie();
 
-		$data['content'] = 'members_area/meteo/dati_storici_compilato';  // ???
+		$data['content'] = 'members_area/appTemporali/meteo/dati_storici_compilato';  // ???
 		
 		$this->load->view('includes/template', $data);
 
@@ -336,7 +336,7 @@ class Archivio extends CI_Controller
 		$this->Previsionieffettuate_model->elimina_riga($id_prev_storico);
 
 		// Torno alla home
-		$data['content'] = 'members_area/meteo/home'; 
+		$data['content'] = 'members_area/appTemporali/meteo/home'; 
 		$this->load->view('includes/template', $data);
 	}
 
@@ -348,7 +348,7 @@ class Archivio extends CI_Controller
 		$this->Previsionieffettuate_model->elimina_riga($id_preveff_old); 
 
 		// Devo resettare la view compilato.php: ricarico semplicemente quella di partenza delle previsioni
-		$data['content'] = 'members_area/meteo/inserisci_dati_storici';
+		$data['content'] = 'members_area/appTemporali/meteo/inserisci_dati_storici';
 		
 		$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie();
 		$data['fuoriorario'] = 0;

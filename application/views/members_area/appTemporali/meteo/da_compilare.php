@@ -1095,7 +1095,7 @@
               <div class="form-group">
                 <?php echo form_submit('submit', 'Rivedi, conferma o annulla previsioni', array('class' => 'btn btn-success submit pull-right')); ?>
                 <?php echo anchor('Site/meteorologo', 'Reset', array('class' => 'btn btn-primary pull-right')); ?> 
-                <?php echo anchor('Site/members_area', 'Indietro', array('class' => 'btn btn-default pull-right')); ?>          
+                <?php echo anchor('Site/members_area_temporali', 'Indietro', array('class' => 'btn btn-default pull-right')); ?>          
                 <?php echo form_close(); ?>
               </div> 
             </div>     

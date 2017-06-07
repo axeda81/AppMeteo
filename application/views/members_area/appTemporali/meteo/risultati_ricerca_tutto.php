@@ -93,7 +93,7 @@
         <div class="row">
           <div class ="col-md-12">             
             <?php echo anchor('archivio/ricerca_tutto', 'Nuova ricerca', array('class' => 'btn btn-primary pull-right')); ?>
-            <?php echo anchor('site/members_area', 'Torna alla home', array('class' => 'btn btn-default pull-right')); ?>  
+            <?php echo anchor('site/members_area_temporali', 'Torna alla home', array('class' => 'btn btn-default pull-right')); ?>  
           </div>
         </div>  
       </div> 

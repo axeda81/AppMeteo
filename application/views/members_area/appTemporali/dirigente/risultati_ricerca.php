@@ -29,6 +29,7 @@
                 <th>Fascia Oraria</th>
                 <th>Previsione</th>
                 <th>Allerta</th>
+                <th>Utente</th>
               </tr>
             </thead>
             <tbody>        
@@ -83,6 +84,12 @@
                     }
                   ?>
                 </td>
+                <td>
+                  <?php
+                    $utente = $this->Utenti_model->nome_da_id($row->ID_utente); 
+                    echo "$utente->Nome $utente->Cognome";
+                   ?>
+                </td>
               </tr> 
               <?php endforeach; ?>
               <?php endif; ?>
@@ -92,8 +99,8 @@
     <!-- Pulsanti per confermare le previsioni o tornare indietro alla compilazione -->
         <div class="row">
           <div class ="col-md-12">             
-            <?php echo anchor('archivio/ricercaperutente', 'Nuova ricerca', array('class' => 'btn btn-primary pull-right')); ?>
-            <?php echo anchor('site/members_area', 'Torna alla home', array('class' => 'btn btn-default pull-right')); ?>   
+            <?php echo anchor('archivio/ricercadirigente', 'Nuova ricerca', array('class' => 'btn btn-success pull-right')); ?>
+            <?php echo anchor('site/members_area_temporali', 'Torna alla home', array('class' => 'btn btn-primary pull-right')); ?>     
           </div>
         </div>  
       </div> 

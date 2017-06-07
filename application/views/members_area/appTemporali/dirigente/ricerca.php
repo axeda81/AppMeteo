@@ -69,7 +69,7 @@
             <div class ="col-md-12">                 
               <?php echo form_submit('submit', 'Cerca', array('class' => 'btn btn-success submit pull-right')); ?>
               <?php echo anchor('archivio/ricercadirigente', 'Clear', array('class' => 'btn btn-primary pull-right')); ?>
-              <?php echo anchor('site/members_area', 'Indietro', array('class' => 'btn btn-default pull-right')); ?>
+              <?php echo anchor('site/members_area_temporali', 'Indietro', array('class' => 'btn btn-default pull-right')); ?>
               <?php echo form_close(); ?>
             </div>
           </div>
