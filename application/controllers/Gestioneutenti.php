@@ -205,6 +205,10 @@ class Gestioneutenti extends CI_Controller
 		$data['dati_utente'] = $this->Utenti_model->dati_utente($this->session->userdata('id_utente'));
 		$data['content'] = 'members_area/visualizza_profilo';
 
+		// Aggiorno nella sessione l'informazione sulla app che sto usando 
+		$app = array('app_attiva' => 'principale');
+		$this->session->set_userdata($app); 
+
 		$this->load->view('includes/template', $data);		
 	}
 
@@ -214,6 +218,10 @@ class Gestioneutenti extends CI_Controller
 		// Carico una view dove sia modificabile solo la password dell'utente loggato
 		$data['dati_utente'] = $this->Utenti_model->dati_utente($this->session->userdata('id_utente'));
 		$data['content'] = 'members_area/modifica_profilo';
+
+		// Aggiorno nella sessione l'informazione sulla app che sto usando 
+		$app = array('app_attiva' => 'principale');
+		$this->session->set_userdata($app); 
 
 		$this->load->view('includes/template', $data);			
 	}
@@ -244,7 +252,6 @@ class Gestioneutenti extends CI_Controller
 
 		else 
 		{
-
 			// Validazione OK, ma devo controllare se la vecchia password inserita è giusta
 			if ($this->Utenti_model->validate($this->session->userdata('username'), md5($this->input->post('oldPassword'))) == false)
 			{

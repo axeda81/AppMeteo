@@ -26,7 +26,8 @@ class Login extends CI_Controller {
 				'nome' => $this->Utenti_model->nome_da_username($this->input->post('username')),
 				'tipo_utente' => $this->Utenti_model->tipo_utente($this->input->post('username')),
 				'id_utente' => $this->Utenti_model->id_da_username($this->input->post('username')),
-				'is_logged_in' => true
+				'is_logged_in' => true, 
+				'app_attiva' => 'principale'
 			);
 
 			$this->session->set_userdata($data);

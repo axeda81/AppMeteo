@@ -17,6 +17,10 @@ class Site extends CI_Controller
 		}
 		else $data['content'] = 'members_area/pagina_iniziale';
 
+		// Aggiorno nella sessione l'informazione sulla app che sto usando 
+		$app = array('app_attiva' => 'principale');
+		$this->session->set_userdata($app); 
+
 		$this->load->view('includes/template', $data);
 	}
 
@@ -41,15 +45,31 @@ class Site extends CI_Controller
 			default: break;
 		}
 
+		// Aggiorno nella sessione l'informazione sulla app che sto usando 
+		$app = array('app_attiva' => 'bollettinotemporali');
+		$this->session->set_userdata($app); 
+
 		// Alla fine carico la view corrispondente al caso in cui ci troviamo 
 		$this->load->view('includes/template', $data);
 
 	}
 
+
 	function istruzioni() 
 	{
+		// Carico la pagina di istruzioni corretta a seconda dell'applicazione in cui mi trovo
 
-		$data['content'] = 'members_area/istruzioni'; 
+		if ($this->session->userdata('app_attiva') == 'principale') 
+		{
+			$data['content'] = 'members_area/istruzioni'; 
+		}
+		else if ($this->session->userdata('app_attiva') == 'bollettinotemporali') 
+		{
+			$data['content'] = 'members_area/appTemporali/istruzioni'; 
+		}
+		
+		else $data['content'] = 'members_area/istruzioni'; 
+
 		$this->load->view('includes/template', $data);
 	}
 
