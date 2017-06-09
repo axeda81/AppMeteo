@@ -29,7 +29,7 @@
         endif;
 				
 				// $fuoriOrario $numFasceOrarie
-				echo form_open('Archivio/conferma_dati_storici', array('class' => 'form-horizontal form-label-left')); 
+				echo form_open('Archivio/salva_dati_storici_passo2', array('class' => 'form-horizontal form-label-left')); 
 			?>
 
  			<div class="x_content">
@@ -580,8 +580,8 @@
           <div class="col-md-12 col-xs-12">
           	<div class="x_panel">
             	<div class="form-group">
-              	<?php echo form_submit('submit', 'Rivedi e conferma dati', array('class' => 'btn btn-success submit pull-right')); ?>
-              	<?php echo anchor('archivio/inserisciDati', 'Reset', array('class' => 'btn btn-primary pull-right')); ?>
+              	<?php echo form_submit('submit', 'Rivedi, conferma o annulla dati', array('class' => 'btn btn-success submit pull-right')); ?>
+              	<?php echo anchor('Archivio/reset_dati_storici_passo2', 'Reset', array('class' => 'btn btn-primary pull-right')); ?>
               	<?php echo anchor('Archivio/dati_storici_passo1', 'Indietro', array('class' => 'btn btn-default pull-right')); ?>          
               	<?php echo form_close(); ?>
             	</div> 

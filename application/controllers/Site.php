@@ -124,7 +124,7 @@ class Site extends CI_Controller
 		{
 			// Se le previsioni non son già state fatte da quell'utente, carico la view per farle 
 			$data['content'] = 'members_area/appTemporali/meteo/da_compilare';
-			$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie();
+			$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie_3ore_3ore();
 			 	
 		}
 
@@ -191,7 +191,7 @@ class Site extends CI_Controller
 			// Tutti gli inserimenti nel DB sono andati a buon fine, riempio la view di riepilogo 
 			$data['previsioni'] = $this->Dettaglioprevisioni_model->elenco_previsioni($id_preveff);
 			$data['dati_previsione'] = $this->Previsionieffettuate_model->dati_previsione($id_preveff);
-			$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie();
+			$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie_3ore();
 			$data['inTurno'] = $this->input->post('inTurno');
 
 			$data['content'] = 'members_area/appTemporali/meteo/rivedidati'; // Devo poter rivedere i dati per confermare 
@@ -206,7 +206,7 @@ class Site extends CI_Controller
 			$this->Previsionieffettuate_model->elimina_riga($id_preveff);
 			$this->Dettaglioprevisioni_model->elimina_dati($id_preveff);
 
-			$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie();
+			$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie_3ore();
 
 			$data['content'] = 'members_area/appTemporali/meteo/da_compilare';
 			$data['messaggioerrore'] = 'Errore nell\'inserimento dei dati nel DB. Per favore compila nuovamente le tue previsioni.'; // TODO - usare questo messaggio nella view
@@ -255,7 +255,7 @@ class Site extends CI_Controller
 		//$data['inTurno'] = $res[0]->inTurno;
 		$data['inTurno'] = $this->session->userdata('inTurno');
 
-		$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie();
+		$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie_3ore();
 
 		$prev = array(
 			'prev_fatte' => true,
@@ -294,7 +294,7 @@ class Site extends CI_Controller
 			// Tutti gli aggiornamenti nel DB sono andati a buon fine 
 			$data['previsioni'] = $this->Dettaglioprevisioni_model->elenco_previsioni($id_preveff);
 			$data['dati_previsione'] = $this->Previsionieffettuate_model->dati_previsione($id_preveff);
-			$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie();
+			$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie_3ore();
 			$data['inTurno'] = $this->session->userdata('inTurno');
 			$data['content'] = 'members_area/appTemporali/meteo/rivedidati'; // Devo poter rivedere i dati per confermare 
 			$this->load->view('includes/template', $data);
@@ -312,7 +312,7 @@ class Site extends CI_Controller
 		// Devo resettare la view compilato.php: ricarico semplicemente quella di partenza delle previsioni
 		$data['content'] = 'members_area/appTemporali/meteo/da_compilare';
 		
-		$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie();
+		$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie_3ore();
 		$data['fuoriorario'] = $this->fuoriorariomax();
 
 		$prev = array(
@@ -338,7 +338,7 @@ class Site extends CI_Controller
 		$data['messaggioerrore'] = 'Attenzione! Conferma o annulla i tuoi dati prima di fare logout.'; 
 		$data['previsioni'] = $this->Dettaglioprevisioni_model->elenco_previsioni($id_preveff);
 		$data['dati_previsione'] = $this->Previsionieffettuate_model->dati_previsione($id_preveff);
-		$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie();
+		$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie_3ore();
 		$data['content'] = 'members_area/appTemporali/meteo/rivedidati'; // Devo poter rivedere i dati per confermare 
 		$data['inTurno'] = $this->session->userdata('inTurno');
 		$this->load->view('includes/template', $data);
@@ -361,6 +361,7 @@ class Site extends CI_Controller
 
 		// Torno alla home
 		$data['content'] = 'members_area/appTemporali/meteo/home'; 
+		$data['messaggio'] = 'Previsioni annullate. ';
 		$this->load->view('includes/template', $data);
 	}
 }

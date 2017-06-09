@@ -71,7 +71,8 @@ class Previsionieffettuate_model extends CI_Model {
 			'ID_utente' => $this->session->userdata('id_utente'),
 			'Data' => $data,
 			'Ora' => $ora,
-			'inTurno' => $this->input->post('inTurno')
+			'inTurno' => $this->input->post('inTurno'),
+			'Confermata' => 0
 		);
 
 		$this->db->insert('previsionieffettuate', $riga);
@@ -91,7 +92,7 @@ class Previsionieffettuate_model extends CI_Model {
 		$this->db->update('previsionieffettuate', $riga);
 	}
 
-	function aggiorna_dati_storico($id, $data, $ora, $turno) {
+	function aggiorna_dati_storici($id, $data, $ora, $turno) {
 
 		$riga = array(
 

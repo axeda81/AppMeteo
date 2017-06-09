@@ -8,7 +8,7 @@
       </div>
       <div class="clearfix"></div>
 
-      <?php echo form_open('Archivio/salva_dati_storici_passo1', array('class' => 'form-horizontal form-label-left')); ?>
+      <?php echo form_open('Archivio/aggiorna_dati_storici_passo1', array('class' => 'form-horizontal form-label-left')); ?>
 
       <div class="x_content">
         <div class="row">

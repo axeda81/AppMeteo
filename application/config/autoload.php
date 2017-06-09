@@ -132,4 +132,4 @@ $autoload['language'] = array();
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
-$autoload['model'] = array('Previsionieffettuate_model', 'Dettaglioprevisioni_model', 'Utenti_model', 'Fasciaorariaprevisione_model', 'Fasciaorariaprevisione_old_model');
+$autoload['model'] = array('Previsionieffettuate_model', 'Dettaglioprevisioni_model', 'Utenti_model', 'Fasciaorariaprevisione_model');
