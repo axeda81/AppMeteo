@@ -38,18 +38,18 @@
 
       <div class="x_content">
         <div class="row">
-          <div class="col-xs-2">
+          <div class="col-md-2 col-xs-2">
             <!-- Nav tabs - uno per ogni zona -->
             <ul class="nav nav-tabs tabs-left">
-              <li class="active"><a href="#tab60" data-toggle="tab"><h3> <small> <?php echo $zona60; ?> </small></h3></a>
+              <li class="active"><a href="#tab60" data-toggle="tab"><h4> <?php echo $zona60; ?> </h4></a>
               </li>
-              <li><a href="#tab61" data-toggle="tab"><h3> <small> <?php echo $zona61; ?> </small></h3></a>
+              <li><a href="#tab61" data-toggle="tab"><h4> <?php echo $zona61; ?> </h4></a>
               </li>
-              <li><a href="#tab62" data-toggle="tab"><h3> <small> <?php echo $zona62; ?> </small></h3></a>
+              <li><a href="#tab62" data-toggle="tab"><h4> <?php echo $zona62; ?> </h4></a>
               </li>
-              <li><a href="#tab63" data-toggle="tab"><h3> <small> <?php echo $zona63; ?> </small></h3></a>
+              <li><a href="#tab63" data-toggle="tab"><h4> <?php echo $zona63; ?> </h4></a>
               </li>
-              <li><a href="#tab64" data-toggle="tab"><h3> <small> <?php echo $zona64; ?> </small></h3></a>
+              <li><a href="#tab64" data-toggle="tab"><h4> <?php echo $zona64; ?> </h4></a>
               </li>          
             </ul>
           </div>
@@ -59,7 +59,6 @@
               <div class="tab-pane active" id="tab60">
                 <div class = "x_panel">
                   <div class = "row">
-                  </br>
                     <div class ="col-md-2">
                       <div class="form-group">
                         <label class="control-label text-navy"><?php echo $fascia1; ?></label>
@@ -163,8 +162,8 @@
                       </div>
                     </div>  
                   </div>  
+                  </br>
                   <div class = "row">
-                  </br></br>
                     <div class ="col-md-2">
                       <div class="form-group">
                         <label class="control-label text-navy"><?php echo $fascia7; ?></label>
@@ -268,14 +267,11 @@
                       </div>
                     </div>  
                   </div>
-                  </br></br></br>
                 </div>
               </div>
-
               <div class="tab-pane" id="tab61">
                 <div class = "x_panel">
                   <div class = "row">
-                  </br>
                     <div class ="col-md-2">
                       <div class="form-group">
                         <label class="control-label text-navy"><?php echo $fascia1; ?></label>
@@ -379,8 +375,8 @@
                       </div>
                     </div>  
                   </div>
+                  </br>
                   <div class = "row">
-                  </br></br>
                     <div class ="col-md-2">
                       <div class="form-group">
                         <label class="control-label text-navy"><?php echo $fascia7; ?></label>
@@ -484,14 +480,11 @@
                       </div>
                     </div>  
                   </div>
-                  </br></br></br>
                 </div> 
               </div>
-
               <div class="tab-pane" id="tab62">
                 <div class = "x_panel">
                   <div class = "row">
-                  </br>
                     <div class ="col-md-2">
                       <div class="form-group">
                         <label class="control-label text-navy"><?php echo $fascia1; ?></label>
@@ -595,8 +588,8 @@
                       </div>
                     </div>  
                   </div>
+                  </br>
                   <div class = "row">
-                  </br></br>
                     <div class ="col-md-2">
                       <div class="form-group">
                         <label class="control-label text-navy"><?php echo $fascia7; ?></label>
@@ -700,14 +693,11 @@
                       </div>
                     </div>  
                   </div>
-                  </br></br></br>
                 </div> 
               </div>
-
               <div class="tab-pane" id="tab63">
                 <div class = "x_panel">
                   <div class = "row">
-                  </br>
                     <div class ="col-md-2">
                       <div class="form-group">
                         <label class="control-label text-navy"><?php echo $fascia1; ?></label>
@@ -811,8 +801,8 @@
                       </div>
                     </div>  
                   </div>
+                  </br>
                   <div class = "row">
-                  </br></br>
                     <div class ="col-md-2">
                       <div class="form-group">
                         <label class="control-label text-navy"><?php echo $fascia7; ?></label>
@@ -916,13 +906,11 @@
                       </div>
                     </div>  
                   </div>
-                  </br></br></br>
                 </div> 
               </div>
               <div class="tab-pane" id="tab64">
                 <div class = "x_panel">
                   <div class = "row">
-                  </br>
                     <div class ="col-md-2">
                       <div class="form-group">
                         <label class="control-label text-navy"><?php echo $fascia1; ?></label>
@@ -1026,8 +1014,8 @@
                       </div>
                     </div>  
                   </div>
+                  </br>
                   <div class = "row">
-                  </br></br>
                     <div class ="col-md-2">
                       <div class="form-group">
                         <label class="control-label text-navy"><?php echo $fascia7; ?></label>
@@ -1130,8 +1118,7 @@
                         <?php $indice++; ?>
                       </div>
                     </div>  
-                  </div>
-                  </br></br></br>          
+                  </div>      
                 </div>
               </div>
             </div>

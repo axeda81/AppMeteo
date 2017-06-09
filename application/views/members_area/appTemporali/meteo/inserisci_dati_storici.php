@@ -5,7 +5,7 @@
   e Y = da 1 a ...? le diverse zone nell'ordine in cui sono presentate nella view -->
 <div class="right_col" role="main">
   <div class="row">
-    <div class ="col-md-8">
+    <div class ="col-md-8 col-xs-12">
       <div class="x_panel">
         <h3>Compilazione dati storici previsioni - <small><i> N.B.: Se i dati inseriti sono relativi a previsioni effettuate dopo le ore 12:00, i dati delle quattro fasce orarie relative a "oggi" non verranno salvate. </i></small></h3>
       </div>
@@ -1099,7 +1099,7 @@
               </div>
             </div>
           </div>          
-          <div class="col-md-4">
+          <div class="col-md-4 col-xs-12">
             <div class="form-group">
               <?php echo form_submit('submit', 'Rivedi e conferma dati', array('class' => 'btn btn-success submit pull-right')); ?>
               <?php echo anchor('archivio/inserisciDati', 'Reset', array('class' => 'btn btn-primary pull-right')); ?>

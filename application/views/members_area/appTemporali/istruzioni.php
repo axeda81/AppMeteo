@@ -3,7 +3,7 @@
 		<div class="row">
   		<div class ="col-md-6">
   			<div class="x_panel">
-  				<h3>Istruzioni per l'uso dell'applicazione</h3>        				
+  				<h3>Istruzioni per l'uso dell'applicazione Bollettino Temporali</h3>        				
   			</div>
   		</div>
     </div>

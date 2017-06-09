@@ -37,28 +37,27 @@
 
       <div class="x_content">
         <div class="row">
-          <div class="col-xs-2">
+          <div class="col-md-2 col-xs-2">
             <!-- Nav tabs - uno per ogni zona -->
             <ul class="nav nav-tabs tabs-left">
-              <li class="active"><a href="#tab60" data-toggle="tab"><h3> <small> <?php echo $zona60; ?> </small></h3></a>
+              <li class="active"><a href="#tab60" data-toggle="tab"><h4> <?php echo $zona60; ?> </h4></a>
               </li>
-              <li><a href="#tab61" data-toggle="tab"><h3> <small> <?php echo $zona61; ?> </small></h3></a>
+              <li><a href="#tab61" data-toggle="tab"><h4> <?php echo $zona61; ?> </h4></a>
               </li>
-              <li><a href="#tab62" data-toggle="tab"><h3> <small> <?php echo $zona62; ?> </small></h3></a>
+              <li><a href="#tab62" data-toggle="tab"><h4> <?php echo $zona62; ?> </h4></a>
               </li>
-              <li><a href="#tab63" data-toggle="tab"><h3> <small> <?php echo $zona63; ?> </small></h3></a>
+              <li><a href="#tab63" data-toggle="tab"><h4> <?php echo $zona63; ?> </h4></a>
               </li>
-              <li><a href="#tab64" data-toggle="tab"><h3> <small> <?php echo $zona64; ?> </small></h3></a>
+              <li><a href="#tab64" data-toggle="tab"><h4> <?php echo $zona64; ?> </h4></a>
               </li>          
             </ul>
           </div>
-          <div class="col-xs-10">
+          <div class="col-md-10 col-xs-10">
             <!-- Tab panes - uno per ogni zona -->
             <div class="tab-content">
               <div class="tab-pane active" id="tab60">
                 <div class="x_panel">
                   <div class = "row">
-                  </br>
                     <div class ="col-md-2">
                       <div class="form-group">
                         <label class="control-label text-navy"><?php echo $fascia1; ?></label>
@@ -156,7 +155,7 @@
                       </div>
                     </div>  
                   </div>
-                  </br></br>
+                  </br>
                   <div class = "row">
                     <div class ="col-md-2">
                       <div class="form-group">
@@ -255,13 +254,11 @@
                       </div>
                     </div>  
                   </div>
-                  </br></br></br>
                 </div>
               </div>
               <div class="tab-pane" id="tab61">
                 <div class="x_panel">
                   <div class="row">
-                  </br>
                     <div class ="col-md-2">
                       <div class="form-group">
                         <label class="control-label text-navy"><?php echo $fascia1; ?></label>
@@ -359,7 +356,7 @@
                       </div>
                     </div> 
                   </div>
-                  </br></br>
+                  </br>
                   <div class="row">
                     <div class ="col-md-2">
                       <div class="form-group">
@@ -458,13 +455,11 @@
                       </div>
                     </div> 
                   </div>
-                  </br></br></br>
                 </div>
               </div>
               <div class="tab-pane" id="tab62">
                 <div class="x_panel">
                   <div class="row">
-                  </br>
                     <div class ="col-md-2">
                       <div class="form-group">
                         <label class="control-label text-navy"><?php echo $fascia1; ?></label>
@@ -562,8 +557,8 @@
                       </div>
                     </div> 
                   </div> 
+                  </br>
                   <div class="row">
-                  </br></br>
                     <div class ="col-md-2">
                       <div class="form-group">
                         <label class="control-label text-navy"><?php echo $fascia7; ?></label>
@@ -661,13 +656,11 @@
                       </div>
                     </div> 
                   </div> 
-                  </br></br></br>
                 </div>
               </div>
               <div class="tab-pane" id="tab63">
                 <div class = "x_panel">
                   <div class="row">
-                  </br>
                     <div class ="col-md-2">
                       <div class="form-group">
                         <label class="control-label text-navy"><?php echo $fascia1; ?></label>
@@ -765,8 +758,8 @@
                       </div>
                     </div> 
                   </div> 
+                  </br>
                   <div class="row">
-                  </br></br>
                     <div class ="col-md-2">
                       <div class="form-group">
                         <label class="control-label text-navy"><?php echo $fascia7; ?></label>
@@ -864,13 +857,11 @@
                       </div>
                     </div> 
                   </div> 
-                  </br></br></br>
                 </div> 
               </div>
               <div class="tab-pane" id="tab64">
                 <div class = "x_panel">
                   <div class="row">
-                  </br>
                     <div class ="col-md-2">
                       <div class="form-group">
                         <label class="control-label text-navy"><?php echo $fascia1; ?></label>
@@ -967,9 +958,9 @@
                         </div> 
                       </div>
                     </div>  
-                  </div>  
+                  </div>
+                  </br>  
                   <div class="row">
-                  </br></br>
                     <div class ="col-md-2">
                       <div class="form-group">
                         <label class="control-label text-navy"><?php echo $fascia7; ?></label>
@@ -1066,8 +1057,7 @@
                         </div> 
                       </div>
                     </div>  
-                  </div>
-                  </br></br></br>            
+                  </div>        
                 </div>
               </div>
             </div>
@@ -1075,7 +1065,7 @@
         </div>
         <div class="clearfix"></div>
         <div class="row">
-          <div class="col-md-4">
+          <div class="col-md-4 col-xs-3">
             <div class="x_panel">
               <h5>Sei di turno oggi? </h5>
               <div class="radio">
@@ -1090,7 +1080,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-8">
+          <div class="col-md-8 col-xs-9">
             <div class="x_panel">
               <div class="form-group">
                 <?php echo form_submit('submit', 'Rivedi, conferma o annulla previsioni', array('class' => 'btn btn-success submit pull-right')); ?>

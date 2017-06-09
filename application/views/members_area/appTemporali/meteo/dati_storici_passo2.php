@@ -26,12 +26,6 @@
           $fascia4 = $fasceorarie[3]->fasciaoraria;
           $fascia5 = $fasceorarie[4]->fasciaoraria;
           $fascia6 = $fasceorarie[5]->fasciaoraria;
-          $fascia7 = $fasceorarie[6]->fasciaoraria;
-          $fascia8 = $fasceorarie[7]->fasciaoraria;
-          $fascia9 = $fasceorarie[8]->fasciaoraria;
-          $fascia10 = $fasceorarie[9]->fasciaoraria;
-          $fascia11 = $fasceorarie[10]->fasciaoraria;
-          $fascia12 = $fasceorarie[11]->fasciaoraria;
         endif;
 				
 				// $fuoriOrario $numFasceOrarie
@@ -40,18 +34,18 @@
 
  			<div class="x_content">
         <div class="row">
-          <div class="col-xs-2">
+          <div class="col-md-2 col-xs-2">
             <!-- Nav tabs - uno per ogni zona -->
             <ul class="nav nav-tabs tabs-left">
-              <li class="active"><a href="#tab60" data-toggle="tab"><h3> <small> <?php echo $zona60; ?> </small></h3></a>
+              <li class="active"><a href="#tab60" data-toggle="tab"><h4> <?php echo $zona60; ?> </h4></a>
               </li>
-              <li><a href="#tab61" data-toggle="tab"><h3> <small> <?php echo $zona61; ?> </small></h3></a>
+              <li><a href="#tab61" data-toggle="tab"><h4> <?php echo $zona61; ?> </h4></a>
               </li>
-              <li><a href="#tab62" data-toggle="tab"><h3> <small> <?php echo $zona62; ?> </small></h3></a>
+              <li><a href="#tab62" data-toggle="tab"><h4> <?php echo $zona62; ?> </h4></a>
               </li>
-              <li><a href="#tab63" data-toggle="tab"><h3> <small> <?php echo $zona63; ?> </small></h3></a>
+              <li><a href="#tab63" data-toggle="tab"><h4> <?php echo $zona63; ?> </h4></a>
               </li>
-              <li><a href="#tab64" data-toggle="tab"><h3> <small> <?php echo $zona64; ?> </small></h3></a>
+              <li><a href="#tab64" data-toggle="tab"><h4> <?php echo $zona64; ?> </h4></a>
               </li>          
             </ul>
           </div>
@@ -159,106 +153,7 @@
                       </div>
                     </div>  
                   </div>
-                  </br></br>
-                  <div class = "row">
-                    <div class ="col-md-2">
-                      <div class="form-group">
-                        <label class="control-label text-navy"><?php echo $fascia7; ?></label>
-                        <div class="">
-                          <div class="radio">
-                            <label><input type="radio" checked name="fo7z1" <?php if (isset($fo7z1) && $fo7z1=="0") echo "checked "; ?> value = "0"> <?php echo $prev0; ?> </label>
-                          </div>
-                          <div class="radio">
-                            <label><input type="radio" name="fo7z1" <?php if (isset($fo7z1) && $fo7z1=="1") echo "checked "; ;?> value = "1"> <?php echo $prev1; ?> </label>
-                          </div>
-                          <div class="radio">
-                            <label><input type="radio" name="fo7z1" <?php if (isset($fo7z1) && $fo7z1=="2") echo "checked "; ?> value = "2"> <?php echo $prev2; ?> </label>
-                          </div>
-                        </div> 
-                      </div>
-                    </div>
-                    <div class ="col-md-2">
-                      <div class="form-group">
-                        <label class="control-label text-navy"><?php echo $fascia8; ?></label>
-                        <div class="">
-                          <div class="radio">
-                            <label><input type="radio" checked name="fo8z1" <?php if (isset($fo8z1) && $fo8z1=="0") echo "checked "; ?> value = "0"> <?php echo $prev0; ?> </label>
-                          </div>
-                          <div class="radio">
-                            <label><input type="radio" name="fo8z1" <?php if (isset($fo8z1) && $fo8z1=="1") echo "checked "; ?> value = "1"> <?php echo $prev1; ?> </label>
-                          </div>
-                          <div class="radio">
-                            <label><input type="radio" name="fo8z1" <?php if (isset($fo8z1) && $fo8z1=="2") echo "checked "; ?> value = "2"> <?php echo $prev2; ?> </label>
-                          </div>
-                        </div> 
-                      </div>
-                    </div>
-                    <div class ="col-md-2">
-                      <div class="form-group">
-                        <label class="control-label text-navy"><?php echo $fascia9; ?></label>
-                        <div class="">
-                          <div class="radio">
-                            <label><input type="radio" checked name="fo9z1" <?php if (isset($fo9z1) && $fo9z1=="0") echo "checked ";?> value = "0"> <?php echo $prev0; ?> </label>
-                          </div>
-                          <div class="radio">
-                            <label><input type="radio" name="fo9z1" <?php if (isset($fo9z1) && $fo9z1=="1") echo "checked ";?> value = "1"> <?php echo $prev1; ?> </label>
-                          </div>
-                          <div class="radio">
-                            <label><input type="radio" name="fo9z1" <?php if (isset($fo9z1) && $fo9z1=="2") echo "checked ";?> value = "2"> <?php echo $prev2; ?> </label>
-                          </div>
-                        </div> 
-                      </div>
-                    </div>
-                    <div class ="col-md-2">
-                      <div class="form-group">
-                        <label class="control-label text-navy"><?php echo $fascia10; ?></label>
-                        <div class="">
-                          <div class="radio">
-                            <label><input type="radio" checked name="fo10z1" <?php if (isset($fo10z1) && $fo10z1=="0") echo "checked ";?> value = "0"> <?php echo $prev0; ?> </label>
-                          </div>
-                          <div class="radio">
-                            <label><input type="radio" name="fo10z1" <?php if (isset($fo10z1) && $fo10z1=="1") echo "checked ";?> value = "1"> <?php echo $prev1; ?> </label>
-                          </div>
-                          <div class="radio">
-                            <label><input type="radio" name="fo10z1" <?php if (isset($fo10z1) && $fo10z1=="2") echo "checked ";?> value = "2"> <?php echo $prev2; ?> </label>
-                          </div>
-                        </div> 
-                      </div>
-                    </div>
-                    <div class ="col-md-2">
-                      <div class="form-group">
-                        <label class="control-label text-navy"><?php echo $fascia11; ?></label>
-                        <div class="">
-                          <div class="radio">
-                            <label><input type="radio" checked name="fo11z1" <?php if (isset($fo11z1) && $fo11z1=="0") echo "checked ";?> value = "0"> <?php echo $prev0; ?> </label>
-                          </div>
-                          <div class="radio">
-                            <label><input type="radio" name="fo11z1" <?php if (isset($fo11z1) && $fo11z1=="1") echo "checked ";?> value = "1"> <?php echo $prev1; ?> </label>
-                          </div>
-                          <div class="radio">
-                            <label><input type="radio" name="fo11z1" <?php if (isset($fo11z1) && $fo11z1=="2") echo "checked ";?> value = "2"> <?php echo $prev2; ?> </label>
-                          </div>
-                        </div> 
-                      </div>
-                    </div>
-                    <div class ="col-md-2">
-                      <div class="form-group">
-                        <label class="control-label text-navy"><?php echo $fascia12; ?></label>
-                        <div class="">
-                          <div class="radio">
-                            <label><input type="radio" checked name="fo12z1" <?php if (isset($fo12z1) && $fo12z1=="0") echo "checked ";?> value = "0"> <?php echo $prev0; ?> </label>
-                          </div>
-                          <div class="radio">
-                            <label><input type="radio" name="fo12z1" <?php if (isset($fo12z1) && $fo12z1=="1") echo "checked ";?> value = "1"> <?php echo $prev1; ?> </label>
-                          </div>
-                          <div class="radio">
-                            <label><input type="radio" name="fo12z1" <?php if (isset($fo12z1) && $fo12z1=="2") echo "checked ";?> value = "2"> <?php echo $prev2; ?> </label>
-                          </div>
-                        </div> 
-                      </div>
-                    </div>  
-                  </div>
-                  </br></br></br>
+                  </br></br></br></br></br></br>
                 </div>
               </div>
               <div class="tab-pane" id="tab61">
@@ -362,106 +257,7 @@
                       </div>
                     </div> 
                   </div>
-                  </br></br>
-                  <div class="row">
-                    <div class ="col-md-2">
-                      <div class="form-group">
-                        <label class="control-label text-navy"><?php echo $fascia7; ?></label>
-                        <div class="">
-                          <div class="radio">
-                            <label><input type="radio" checked name="fo7z2" <?php if (isset($fo7z2) && $fo7z2=="0") echo "checked "; ?> value = "0"> <?php echo $prev0; ?> </label>
-                          </div>
-                          <div class="radio">
-                            <label><input type="radio" name="fo7z2" <?php if (isset($fo7z2) && $fo7z2=="1") echo "checked "; ?> value = "1"> <?php echo $prev1; ?> </label>
-                          </div>
-                          <div class="radio">
-                            <label><input type="radio" name="fo7z2" <?php if (isset($fo7z2) && $fo7z2=="2") echo "checked "; ?> value = "2"> <?php echo $prev2; ?> </label>
-                          </div>
-                        </div> 
-                      </div>
-                    </div>              
-                    <div class ="col-md-2">
-                      <div class="form-group">
-                        <label class="control-label text-navy"><?php echo $fascia8; ?></label>
-                        <div class="">
-                          <div class="radio">
-                            <label><input type="radio" checked name="fo8z2" <?php if (isset($fo8z2) && $fo8z2=="0") echo "checked "; ?> value = "0"> <?php echo $prev0; ?> </label>
-                          </div>
-                          <div class="radio">
-                            <label><input type="radio" name="fo8z2" <?php if (isset($fo8z2) && $fo8z2=="1") echo "checked "; ?> value = "1"> <?php echo $prev1; ?> </label>
-                          </div>
-                          <div class="radio">
-                            <label><input type="radio" name="fo8z2" <?php if (isset($fo8z2) && $fo8z2=="2") echo "checked "; ?> value = "2"> <?php echo $prev2; ?> </label>
-                          </div>
-                        </div> 
-                      </div>
-                    </div>
-                    <div class ="col-md-2">
-                      <div class="form-group">
-                        <label class="control-label text-navy"><?php echo $fascia9; ?></label>
-                        <div class="">
-                          <div class="radio">
-                            <label><input type="radio" checked name="fo9z2" <?php if (isset($fo9z2) && $fo9z2=="0") echo "checked ";?> value = "0"> <?php echo $prev0; ?> </label>
-                          </div>
-                          <div class="radio">
-                            <label><input type="radio" name="fo9z2" <?php if (isset($fo9z2) && $fo9z2=="1") echo "checked ";?> value = "1"> <?php echo $prev1; ?> </label>
-                          </div>
-                          <div class="radio">
-                            <label><input type="radio" name="fo9z2" <?php if (isset($fo9z2) && $fo9z2=="2") echo "checked ";?> value = "2"> <?php echo $prev2; ?> </label>
-                          </div>
-                        </div> 
-                      </div>
-                    </div>
-                    <div class ="col-md-2">
-                      <div class="form-group">
-                        <label class="control-label text-navy"><?php echo $fascia10; ?></label>
-                        <div class="">
-                          <div class="radio">
-                            <label><input type="radio" checked name="fo10z2" <?php if (isset($fo10z2) && $fo10z2=="0") echo "checked ";?> value = "0"> <?php echo $prev0; ?> </label>
-                          </div>
-                          <div class="radio">
-                            <label><input type="radio" name="fo10z2" <?php if (isset($fo10z2) && $fo10z2=="1") echo "checked ";?> value = "1"> <?php echo $prev1; ?> </label>
-                          </div>
-                          <div class="radio">
-                            <label><input type="radio" name="fo10z2" <?php if (isset($fo10z2) && $fo10z2=="2") echo "checked ";?> value = "2"> <?php echo $prev2; ?> </label>
-                          </div>
-                        </div> 
-                      </div>
-                    </div>
-                    <div class ="col-md-2">
-                      <div class="form-group">
-                        <label class="control-label text-navy"><?php echo $fascia11; ?></label>
-                        <div class="">
-                          <div class="radio">
-                            <label><input type="radio" checked name="fo11z2" <?php if (isset($fo11z2) && $fo11z2=="0") echo "checked ";?> value = "0"> <?php echo $prev0; ?></label>
-                          </div>
-                          <div class="radio">
-                            <label><input type="radio" name="fo11z2" <?php if (isset($fo11z2) && $fo11z2=="1") echo "checked ";?> value = "1"> <?php echo $prev1; ?> </label>
-                          </div>
-                          <div class="radio">
-                            <label><input type="radio" name="fo11z2" <?php if (isset($fo11z2) && $fo11z2=="2") echo "checked ";?> value = "2"> <?php echo $prev2; ?> </label>
-                          </div>
-                        </div> 
-                      </div>
-                    </div>
-                    <div class ="col-md-2">
-                      <div class="form-group">
-                        <label class="control-label text-navy"><?php echo $fascia12; ?></label>
-                        <div class="">
-                          <div class="radio">
-                            <label><input type="radio" checked name="fo12z2" <?php if (isset($fo12z2) && $fo12z2=="0") echo "checked ";?> value = "0"> <?php echo $prev0; ?> </label>
-                          </div>
-                          <div class="radio">
-                            <label><input type="radio" name="fo12z2" <?php if (isset($fo12z2) && $fo12z2=="1") echo "checked ";?> value = "1"> <?php echo $prev1; ?> </label>
-                          </div>
-                          <div class="radio">
-                            <label><input type="radio" name="fo12z2" <?php if (isset($fo12z2) && $fo12z2=="2") echo "checked ";?> value = "2"> <?php echo $prev2; ?> </label>
-                          </div>
-                        </div> 
-                      </div>
-                    </div> 
-                  </div>
-                  </br></br></br>
+                  </br></br></br></br></br></br>
                 </div>
               </div>
               <div class="tab-pane" id="tab62">
@@ -565,106 +361,7 @@
                       </div>
                     </div> 
                   </div> 
-                  <div class="row">
-                  </br></br>
-                    <div class ="col-md-2">
-                      <div class="form-group">
-                        <label class="control-label text-navy"><?php echo $fascia7; ?></label>
-                        <div class="">
-                          <div class="radio">
-                            <label><input type="radio" checked name="fo7z3" <?php if (isset($fo7z3) && $fo7z3=="0") echo "checked "; ?> value = "0"> <?php echo $prev0; ?> </label>
-                          </div>
-                          <div class="radio">
-                            <label><input type="radio" name="fo7z3" <?php if (isset($fo7z3) && $fo7z3=="1") echo "checked "; ?> value = "1"> <?php echo $prev1; ?> </label>
-                          </div>
-                          <div class="radio">
-                            <label><input type="radio" name="fo7z3" <?php if (isset($fo7z3) && $fo7z3=="2") echo "checked "; ?> value = "2"> <?php echo $prev2; ?> </label>
-                          </div>
-                        </div> 
-                      </div>
-                    </div>
-                    <div class ="col-md-2">
-                      <div class="form-group">
-                        <label class="control-label text-navy"><?php echo $fascia8; ?></label>
-                        <div class="">
-                          <div class="radio">
-                            <label><input type="radio" checked name="fo8z3" <?php if (isset($fo8z3) && $fo8z3=="0") echo "checked "; ?> value = "0"> <?php echo $prev0; ?> </label>
-                          </div>
-                          <div class="radio">
-                            <label><input type="radio" name="fo8z3" <?php if (isset($fo8z3) && $fo8z3=="1") echo "checked "; ?> value = "1"> <?php echo $prev1; ?> </label>
-                          </div>
-                          <div class="radio">
-                            <label><input type="radio" name="fo8z3" <?php if (isset($fo8z3) && $fo8z3=="2") echo "checked "; ?> value = "2"> <?php echo $prev2; ?> </label>
-                          </div>
-                        </div> 
-                      </div>
-                    </div>
-                    <div class ="col-md-2">
-                      <div class="form-group">
-                        <label class="control-label text-navy"><?php echo $fascia9; ?></label>
-                        <div class="">
-                          <div class="radio">
-                            <label><input type="radio" checked name="fo9z3" <?php if (isset($fo9z3) && $fo9z3=="0") echo "checked ";?> value = "0"> <?php echo $prev0; ?> </label>
-                          </div>
-                          <div class="radio">
-                            <label><input type="radio" name="fo9z3" <?php if (isset($fo9z3) && $fo9z3=="1") echo "checked ";?> value = "1"> <?php echo $prev1; ?> </label>
-                          </div>
-                          <div class="radio">
-                            <label><input type="radio" name="fo9z3" <?php if (isset($fo9z3) && $fo9z3=="2") echo "checked ";?> value = "2"> <?php echo $prev2; ?> </label>
-                          </div>
-                        </div> 
-                      </div>
-                    </div>
-                    <div class ="col-md-2">
-                      <div class="form-group">
-                        <label class="control-label text-navy"><?php echo $fascia10; ?></label>
-                        <div class="">
-                          <div class="radio">
-                            <label><input type="radio" checked name="fo10z3" <?php if (isset($fo10z3) && $fo10z3=="0") echo "checked ";?> value = "0"> <?php echo $prev0; ?> </label>
-                          </div>
-                          <div class="radio">
-                            <label><input type="radio" name="fo10z3" <?php if (isset($fo10z3) && $fo10z3=="1") echo "checked ";?> value = "1"> <?php echo $prev1; ?> </label>
-                          </div>
-                          <div class="radio">
-                            <label><input type="radio" name="fo10z3" <?php if (isset($fo10z3) && $fo10z3=="2") echo "checked ";?> value = "2"> <?php echo $prev2; ?> </label>
-                          </div>
-                        </div> 
-                      </div>
-                    </div>
-                    <div class ="col-md-2">
-                      <div class="form-group">
-                        <label class="control-label text-navy"><?php echo $fascia11; ?></label>
-                        <div class="">
-                          <div class="radio">
-                            <label><input type="radio" checked name="fo11z3" <?php if (isset($fo11z3) && $fo11z3=="0") echo "checked ";?> value = "0"> <?php echo $prev0; ?> </label>
-                          </div>
-                          <div class="radio">
-                            <label><input type="radio" name="fo11z3" <?php if (isset($fo11z3) && $fo11z3=="1") echo "checked ";?> value = "1"> <?php echo $prev1; ?> </label>
-                          </div>
-                          <div class="radio">
-                            <label><input type="radio" name="fo11z3" <?php if (isset($fo11z3) && $fo11z3=="2") echo "checked ";?> value = "2"> <?php echo $prev2; ?> </label>
-                          </div>
-                        </div> 
-                      </div>
-                    </div>
-                    <div class ="col-md-2">
-                      <div class="form-group">
-                        <label class="control-label text-navy"><?php echo $fascia12; ?></label>
-                        <div class="">
-                          <div class="radio">
-                            <label><input type="radio" checked name="fo12z3" <?php if (isset($fo12z3) && $fo12z3=="0") echo "checked ";?> value = "0"> <?php echo $prev0; ?> </label>
-                          </div>
-                          <div class="radio">
-                            <label><input type="radio" name="fo12z3" <?php if (isset($fo12z3) && $fo12z3=="1") echo "checked ";?> value = "1"> <?php echo $prev1; ?> </label>
-                          </div>
-                          <div class="radio">
-                            <label><input type="radio" name="fo12z3" <?php if (isset($fo12z3) && $fo12z3=="2") echo "checked ";?> value = "2"> <?php echo $prev2; ?> </label>
-                          </div>
-                        </div> 
-                      </div>
-                    </div> 
-                  </div> 
-                  </br></br></br>
+                  </br></br></br></br></br></br>
                 </div>
               </div>
               <div class="tab-pane" id="tab63">
@@ -768,106 +465,7 @@
                       </div>
                     </div> 
                   </div> 
-                  <div class="row">
-                  </br></br>
-                    <div class ="col-md-2">
-                      <div class="form-group">
-                        <label class="control-label text-navy"><?php echo $fascia7; ?></label>
-                        <div class="">
-                          <div class="radio">
-                            <label><input type="radio" checked name="fo7z4" <?php if (isset($fo7z4) && $fo7z4=="0") echo "checked "; ?> value = "0"> <?php echo $prev0; ?> </label>
-                          </div>
-                          <div class="radio">
-                            <label><input type="radio" name="fo7z4" <?php if (isset($fo7z4) && $fo7z4=="1") echo "checked "; ?> value = "1"> <?php echo $prev1; ?> </label>
-                          </div>
-                          <div class="radio">
-                            <label><input type="radio" name="fo7z4" <?php if (isset($fo7z4) && $fo7z4=="2") echo "checked "; ?> value = "2"> <?php echo $prev2; ?> </label>
-                          </div>
-                        </div> 
-                      </div>
-                    </div>
-                    <div class ="col-md-2">
-                      <div class="form-group">
-                        <label class="control-label text-navy"><?php echo $fascia8; ?></label>
-                        <div class="">
-                          <div class="radio">
-                            <label><input type="radio" checked name="fo8z4" <?php if (isset($fo8z4) && $fo8z4=="0") echo "checked "; ?> value = "0"> <?php echo $prev0; ?> </label>
-                          </div>
-                          <div class="radio">
-                            <label><input type="radio" name="fo8z4" <?php if (isset($fo8z4) && $fo8z4=="1") echo "checked "; ?> value = "1"> <?php echo $prev1; ?> </label>
-                          </div>
-                          <div class="radio">
-                            <label><input type="radio" name="fo8z4" <?php if (isset($fo8z4) && $fo8z4=="2") echo "checked "; ?> value = "2"> <?php echo $prev2; ?> </label>
-                          </div>
-                        </div> 
-                      </div>
-                    </div>
-                    <div class ="col-md-2">
-                      <div class="form-group">
-                        <label class="control-label text-navy"><?php echo $fascia9; ?></label>
-                        <div class="">
-                          <div class="radio">
-                            <label><input type="radio" checked name="fo9z4" <?php if (isset($fo9z4) && $fo9z4=="0") echo "checked ";?> value = "0"> <?php echo $prev0; ?> </label>
-                          </div>
-                          <div class="radio">
-                            <label><input type="radio" name="fo9z4" <?php if (isset($fo9z4) && $fo9z4=="1") echo "checked ";?> value = "1"> <?php echo $prev1; ?> </label>
-                          </div>
-                          <div class="radio">
-                            <label><input type="radio" name="fo9z4" <?php if (isset($fo9z4) && $fo9z4=="2") echo "checked ";?> value = "2"> <?php echo $prev2; ?> </label>
-                          </div>
-                        </div> 
-                      </div>
-                    </div>
-                    <div class ="col-md-2">
-                      <div class="form-group">
-                        <label class="control-label text-navy"><?php echo $fascia10; ?></label>
-                        <div class="">
-                          <div class="radio">
-                            <label><input type="radio" checked name="fo10z4" <?php if (isset($fo10z4) && $fo10z4=="0") echo "checked ";?> value = "0"> <?php echo $prev0; ?> </label>
-                          </div>
-                          <div class="radio">
-                            <label><input type="radio" name="fo10z4" <?php if (isset($fo10z4) && $fo10z4=="1") echo "checked ";?> value = "1"> <?php echo $prev1; ?> </label>
-                          </div>
-                          <div class="radio">
-                            <label><input type="radio" name="fo10z4" <?php if (isset($fo10z4) && $fo10z4=="2") echo "checked ";?> value = "2"> <?php echo $prev2; ?> </label>
-                          </div>
-                        </div> 
-                      </div>
-                    </div>
-                    <div class ="col-md-2">
-                      <div class="form-group">
-                        <label class="control-label text-navy"><?php echo $fascia11; ?></label>
-                        <div class="">
-                          <div class="radio">
-                            <label><input type="radio" checked name="fo11z4" <?php if (isset($fo11z4) && $fo11z4=="0") echo "checked ";?> value = "0"> <?php echo $prev0; ?> </label>
-                          </div>
-                          <div class="radio">
-                            <label><input type="radio" name="fo11z4" <?php if (isset($fo11z4) && $fo11z4=="1") echo "checked ";?> value = "1"> <?php echo $prev1; ?> </label>
-                          </div>
-                          <div class="radio">
-                            <label><input type="radio" name="fo11z4" <?php if (isset($fo11z4) && $fo11z4=="2") echo "checked ";?> value = "2"> <?php echo $prev2; ?> </label>
-                          </div>
-                        </div> 
-                      </div>
-                    </div>
-                    <div class ="col-md-2">
-                      <div class="form-group">
-                        <label class="control-label text-navy"><?php echo $fascia12; ?></label>
-                        <div class="">
-                          <div class="radio">
-                            <label><input type="radio" checked name="fo12z4" <?php if (isset($fo12z4) && $fo12z4=="0") echo "checked ";?> value = "0"> <?php echo $prev0; ?> </label>
-                          </div>
-                          <div class="radio">
-                            <label><input type="radio" name="fo12z4" <?php if (isset($fo12z4) && $fo12z4=="1") echo "checked ";?> value = "1"> <?php echo $prev1; ?> </label>
-                          </div>
-                          <div class="radio">
-                            <label><input type="radio" name="fo12z4" <?php if (isset($fo12z4) && $fo12z4=="2") echo "checked ";?> value = "2"> <?php echo $prev2; ?> </label>
-                          </div>
-                        </div> 
-                      </div>
-                    </div> 
-                  </div> 
-                  </br></br></br>
+                  </br></br></br></br></br></br>
                 </div> 
               </div>
               <div class="tab-pane" id="tab64">
@@ -971,106 +569,7 @@
                       </div>
                     </div>  
                   </div>  
-                  <div class="row">
-                  </br></br>
-                    <div class ="col-md-2">
-                      <div class="form-group">
-                        <label class="control-label text-navy"><?php echo $fascia7; ?></label>
-                        <div class="">
-                          <div class="radio">
-                            <label><input type="radio" checked name="fo7z5" <?php if (isset($fo7z5) && $fo7z5=="0") echo "checked "; ?> value = "0"> <?php echo $prev0; ?> </label>
-                          </div>
-                          <div class="radio">
-                            <label><input type="radio" name="fo7z5" <?php if (isset($fo7z5) && $fo7z5=="1") echo "checked "; ?> value = "1"> <?php echo $prev1; ?> </label>
-                          </div>
-                          <div class="radio">
-                            <label><input type="radio" name="fo7z5" <?php if (isset($fo7z5) && $fo7z5=="2") echo "checked "; ?> value = "2"> <?php echo $prev2; ?> </label>
-                          </div>
-                        </div> 
-                      </div>
-                    </div>
-                    <div class ="col-md-2">
-                      <div class="form-group">
-                        <label class="control-label text-navy"><?php echo $fascia8; ?></label>
-                        <div class="">
-                          <div class="radio">
-                            <label><input type="radio" checked name="fo8z5" <?php if (isset($fo8z5) && $fo8z5=="0") echo "checked "; ?> value = "0"> <?php echo $prev0; ?> </label>
-                          </div>
-                          <div class="radio">
-                            <label><input type="radio" name="fo8z5" <?php if (isset($fo8z5) && $fo8z5=="1") echo "checked "; ?> value = "1"> <?php echo $prev1; ?> </label>
-                          </div>
-                          <div class="radio">
-                            <label><input type="radio" name="fo8z5" <?php if (isset($fo8z5) && $fo8z5=="2") echo "checked "; ?> value = "2"> <?php echo $prev2; ?> </label>
-                          </div>
-                        </div> 
-                      </div>
-                    </div>
-                    <div class ="col-md-2">
-                      <div class="form-group">
-                        <label class="control-label text-navy"><?php echo $fascia9; ?></label>
-                        <div class="">
-                          <div class="radio">
-                            <label><input type="radio" checked name="fo9z5" <?php if (isset($fo9z5) && $fo9z5=="0") echo "checked ";?> value = "0"> <?php echo $prev0; ?> </label>
-                          </div>
-                          <div class="radio">
-                            <label><input type="radio" name="fo9z5" <?php if (isset($fo9z5) && $fo9z5=="1") echo "checked ";?> value = "1"> <?php echo $prev1; ?> </label>
-                          </div>
-                          <div class="radio">
-                            <label><input type="radio" name="fo9z5" <?php if (isset($fo9z5) && $fo9z5=="2") echo "checked ";?> value = "2"> <?php echo $prev2; ?> </label>
-                          </div>
-                        </div> 
-                      </div>
-                    </div>
-                    <div class ="col-md-2">
-                      <div class="form-group">
-                        <label class="control-label text-navy"><?php echo $fascia10; ?></label>
-                        <div class="">
-                          <div class="radio">
-                            <label><input type="radio" checked name="fo10z5" <?php if (isset($fo10z5) && $fo10z5=="0") echo "checked ";?> value = "0"> <?php echo $prev0; ?> </label>
-                          </div>
-                          <div class="radio">
-                            <label><input type="radio" name="fo10z5" <?php if (isset($fo10z5) && $fo10z5=="1") echo "checked ";?> value = "1"> <?php echo $prev1; ?> </label>
-                          </div>
-                          <div class="radio">
-                            <label><input type="radio" name="fo10z5" <?php if (isset($fo10z5) && $fo10z5=="2") echo "checked ";?> value = "2"> <?php echo $prev2; ?> </label>
-                          </div>
-                        </div> 
-                      </div>
-                    </div>
-                    <div class ="col-md-2">
-                      <div class="form-group">
-                        <label class="control-label text-navy"><?php echo $fascia11; ?></label>
-                        <div class="">
-                          <div class="radio">
-                            <label><input type="radio" checked name="fo11z5" <?php if (isset($fo11z5) && $fo11z5=="0") echo "checked ";?> value = "0"> <?php echo $prev0; ?> </label>
-                          </div>
-                          <div class="radio">
-                            <label><input type="radio" name="fo11z5" <?php if (isset($fo11z5) && $fo11z5=="1") echo "checked ";?> value = "1"> <?php echo $prev1; ?> </label>
-                          </div>
-                          <div class="radio">
-                            <label><input type="radio" name="fo11z5" <?php if (isset($fo11z5) && $fo11z5=="2") echo "checked ";?> value = "2"> <?php echo $prev2; ?> </label>
-                          </div>
-                        </div> 
-                      </div>
-                    </div>
-                    <div class ="col-md-2">
-                      <div class="form-group">
-                        <label class="control-label text-navy"><?php echo $fascia12; ?></label>
-                        <div class="">
-                          <div class="radio">
-                            <label><input type="radio" checked name="fo12z5" <?php if (isset($fo12z5) && $fo12z5=="0") echo "checked ";?> value = "0"> <?php echo $prev0; ?> </label>
-                          </div>
-                          <div class="radio">
-                            <label><input type="radio" name="fo12z5" <?php if (isset($fo12z5) && $fo12z5=="1") echo "checked ";?> value = "1"> <?php echo $prev1; ?> </label>
-                          </div>
-                          <div class="radio">
-                            <label><input type="radio" name="fo12z5" <?php if (isset($fo12z5) && $fo12z5=="2") echo "checked ";?> value = "2"> <?php echo $prev2; ?> </label>
-                          </div>
-                        </div> 
-                      </div>
-                    </div>  
-                  </div>
-                  </br></br></br>            
+                  </br></br></br></br></br></br>           
                 </div>
               </div>
             </div>
@@ -1078,7 +577,7 @@
         </div>
         <div class="clearfix"></div>
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-md-12 col-xs-12">
           	<div class="x_panel">
             	<div class="form-group">
               	<?php echo form_submit('submit', 'Rivedi e conferma dati', array('class' => 'btn btn-success submit pull-right')); ?>

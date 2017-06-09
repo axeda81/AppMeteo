@@ -120,75 +120,9 @@ class Archivio extends CI_Controller
 
 		// Carico la view per inserire dati storici relativi alle previsioni fatte dall'utente loggato
 		$data['content'] = 'members_area/appTemporali/meteo/dati_storici_passo1';
-		$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie(); 
+		$data['fasceorarie'] = $this->Fasciaorariaprevisione_old_model->elencofasceorarie(); 
 		$this->load->view('includes/template', $data);	
 
-	}
-
-	function salva_dati_storici() {
-
-		// Prima cosa, bisogna inserire una riga nella tabella previsionieffettuate facendosi restituire l'ID della riga stessa 
-		
-		$dataeora = $this->input->post('dataeora');
-
-		$dataeora_array = explode("-", $dataeora);
-		$dataeora_array[0] = str_replace("/","-", $dataeora_array[0]); 
-
-		$dataformattata = date_create($dataeora_array[0]);
-		$dataformattata = date_format($dataformattata,"Y-m-d"); 
-
-		$id_prev_storico = $this->Previsionieffettuate_model->inserisci_riga_storico($dataformattata, $dataeora_array[1]);
-
-//		if (non può creare la nuova riga) {
-			// Gestire questo errore 
-//		}
-
-		$data = array(
-
-			'id_prev_storico' => $id_prev_storico
-		);
-
-		// Salvo l'ID della previsione nella sessione così posso utilizzarli anche in altre funzioni
-		$this->session->set_userdata($data); 
-
-		
-		// Salvo nella tabella dettaglioprevisioni tutte le previsioni fatte 
-		// (40 righe se quando son state fatte le previsioni erano già passate le 12, 60 altrimenti)
-
-		$fuoriorario = 0;
-		$orario = explode(":", $dataeora_array[1]);
-		if ($orario[0] > 12) $fuoriorario = 1;
-		else $fuoriorario = 0;
-
-		$result = $this->Dettaglioprevisioni_model->inserisci_dati($id_prev_storico, $fuoriorario);
-
-		if ($result = true) {
-
-			// Tutti gli inserimenti nel DB sono andati a buon fine, riempio la view di riepilogo 
-			$data['previsioni'] = $this->Dettaglioprevisioni_model->elenco_previsioni($id_prev_storico);
-			$data['dati_previsione'] = $this->Previsionieffettuate_model->dati_previsione($id_prev_storico);
-			$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie();
-			$data['turno'] = $this->input->post('inTurno');
-
-			$data['content'] = 'members_area/appTemporali/meteo/rivedi_dati_storici'; // Devo poter rivedere i dati per confermare 
-			$this->load->view('includes/template', $data);
-		}
-
-		else {
-
-			// ERRORE
-			// Deve eliminare le righe inserite in previsionieffettuate e dettaglioprevisioni e ricaricare la view meteo così viene ricompilata
-
-			$this->Previsionieffettuate_model->elimina_riga($id_prev_storico);
-			$this->Dettaglioprevisioni_model->elimina_dati($id_prev_storico);
-
-			$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie();
-
-			$data['content'] = 'members_area/appTemporali/meteo/inserisci_dati_storici';
-			$data['messaggioerrore'] = 'Errore nell\'inserimento dei dati nel DB. Per favore compila nuovamente le tue previsioni.'; 
-
-			$this->load->view('includes/template', $data);
-		}
 	}
 
 	function salva_dati_storici_passo1 (){
@@ -240,7 +174,7 @@ class Archivio extends CI_Controller
 		// Salvo queste informazioni nella sessione così le posso usare anche in altre funzioni e altre view
 		$this->session->set_userdata($info); 
 
-		$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie();
+		$data['fasceorarie'] = $this->Fasciaorariaprevisione_old_model->elencofasceorarie();
 		$data['inTurno'] = $this->input->post('inTurno');
 		$data['fuoriOrario'] = $this->input->post('fuoriorario_storico');
 
@@ -321,7 +255,7 @@ class Archivio extends CI_Controller
 		$res = $this->Previsionieffettuate_model->prev_in_turno($id_prev_storico);
 		$data['inTurno'] = $res[0]->inTurno;
 
-		$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie();
+		$data['fasceorarie'] = $this->Fasciaorariaprevisione_old_model->elencofasceorarie();
 
 		$data['content'] = 'members_area/appTemporali/meteo/dati_storici_compilato';  // ???
 		
@@ -350,7 +284,7 @@ class Archivio extends CI_Controller
 		// Devo resettare la view compilato.php: ricarico semplicemente quella di partenza delle previsioni
 		$data['content'] = 'members_area/appTemporali/meteo/inserisci_dati_storici';
 		
-		$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie();
+		$data['fasceorarie'] = $this->Fasciaorariaprevisione_old_model->elencofasceorarie();
 		$data['fuoriorario'] = 0;
 
 		// Carico la view 

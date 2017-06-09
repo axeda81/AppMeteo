@@ -1,6 +1,6 @@
 <div class="right_col" role="main">
   <div class="row">
-    <div class ="col-md-8">
+    <div class ="col-md-8 col-xs-12">
       <div class="x_panel">
         <h3>Visualizza tutte le previsioni - <small><i> in forma anonima </i></small></h3>
       </div>
@@ -56,7 +56,7 @@
                 </label>
               </div>
             </div>
-            <div class ="col-md-6">                 
+            <div class ="col-md-6 col-xs-12">                 
               <?php echo form_submit('submit', 'Cerca', array('class' => 'btn btn-success submit pull-right')); ?>
               <?php echo anchor('archivio/ricerca_tutto', 'Clear', array('class' => 'btn btn-primary pull-right')); ?>
               <?php echo anchor('archivio/mostra_menu_archivio', 'Indietro', array('class' => 'btn btn-default pull-right')); ?>

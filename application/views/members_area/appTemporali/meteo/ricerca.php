@@ -1,6 +1,6 @@
 <div class="right_col" role="main">
   <div class="row">
-    <div class ="col-md-8">
+    <div class ="col-md-8 col-xs-12">
       <div class="x_panel">
         <h3>Cerca tra le previsioni effettuate</h3>
       </div>
@@ -49,7 +49,7 @@
          
           <!-- Pulsanti per confermare le previsioni o tornare indietro alla compilazione -->
           <div class="row">
-            <div class ="col-md-12">                 
+            <div class ="col-md-12 col-xs-12">                 
               <?php echo form_submit('submit', 'Cerca', array('class' => 'btn btn-success submit pull-right')); ?>
               <?php echo anchor('archivio/ricercaperutente', 'Clear', array('class' => 'btn btn-primary pull-right')); ?>
               <?php echo anchor('archivio/mostra_menu_archivio', 'Indietro', array('class' => 'btn btn-default pull-right')); ?>

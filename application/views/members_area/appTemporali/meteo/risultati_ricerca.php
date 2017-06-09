@@ -1,6 +1,6 @@
 <div class="right_col" role="main">
   <div class="row">
-    <div class ="col-md-8">
+    <div class ="col-md-8 col-xs-12">
       <div class="x_panel">
         <h3>Risultati della ricerca</h3>
           <?php 
