@@ -68,25 +68,32 @@ class Dettaglioprevisioni_model extends CI_Model {
 		$nomevar = "";
 		$numzone = 5;
 		$numfasceorarie = 6;
-		$numfasceorarieoggi =2;
+		$numfasceorarieoggi = 2;
+		$cont_righe = 1;
 
 		$this->db->trans_start();
 
 		for ($i = 1; $i <= $numzone; $i++) { // Scorro le zone
 
+			if ($fuoriorario == false) $cont_righe = 1; 
+			else $cont_righe = 5;
+
 			for($j = 1; $j <= $numfasceorarie; $j++) {
-				// Per ogni zona, scorro le fasce orarie prendendo in considerazione le prime quattro (quelle relative
-				// alla giornata odierna) solo se non son passate le 12
+				// Per ogni zona, scorro le fasce orarie; per ognuna, devo inserire due righe in dettaglioprevisioni
 
 				$nomevar = "fo${j}z${i}";
 				$data['ID_tipoprevisione'] = $this->input->post($nomevar);
-				$data['ID_fasciaoraria'] = $j;
+				$data['ID_fasciaoraria'] = $cont_righe;
 				$codicezona = $i + 59;
 				$data['zona'] = "${codicezona}";
 
 				if (((($j <= $numfasceorarieoggi) and ($fuoriorario == false))) or ($j > $numfasceorarieoggi)) {
 					
 					$result = $result && $this->db->insert('dettaglioprevisioni', $data);
+					$cont_righe = $cont_righe + 1;
+					$data['ID_fasciaoraria'] = $cont_righe;
+					$result = $result && $this->db->insert('dettaglioprevisioni', $data);
+					$cont_righe = $cont_righe + 1;
 				}
 			}
 		}
@@ -148,7 +155,7 @@ class Dettaglioprevisioni_model extends CI_Model {
 		return $result;
 	}
 
-	function aggiorna_dati_storici($id_prev, $fuoriorario) {
+	function aggiorna_dati_storici($id_prev, $fuoriorario) { // TODO verificare funzionamento
 
 		// Devo aggiornare nel DB tutte le previsioni, cioè numzone * numfasceorarie (12) = 60 righe 
 		// oppure numzone * 8 se è passato mezzogiorno, e quindi 40 righe
@@ -168,17 +175,21 @@ class Dettaglioprevisioni_model extends CI_Model {
 		$numzone = 5;
 		$numfasceorarie = 6;
 		$numfasceorarieoggi = 2;
+		$cont_righe = 1;
 
 		$this->db->trans_start();
 
 		for ($i = 1; $i <= $numzone; $i++) { // Scorro le zone
+			
+			if ($fuoriorario == false) $cont_righe = 1; 
+			else $cont_righe = 5;
 
 			for($j = 1; $j <= $numfasceorarie; $j++) {
 				// Per ogni zona, scorro le fasce orarie prendendo in considerazione le prime due solo se non son passate le 12
 
 				$nomevar = "fo${j}z${i}";
 				$data['ID_tipoprevisione'] = $this->input->post($nomevar);
-				$data['ID_fasciaoraria'] = $j;
+				$data['ID_fasciaoraria'] = $cont_righe;
 				$codicezona = $i + 59;
 				$data['zona'] = "${codicezona}";
 
@@ -187,9 +198,18 @@ class Dettaglioprevisioni_model extends CI_Model {
 					// Non so l'ID della riga che devo aggiornare, ma dovrebbe essere identificata anche da ID_previsione + zona + fascia oraria
 					$this->db->where('ID_previsione', $id_preveff);
 					$this->db->where('zona', "${codicezona}");
-					$this->db->where('ID_fasciaoraria', $j);
+					$this->db->where('ID_fasciaoraria', $cont_righe);
 
 					$result = $result && $this->db->update('dettaglioprevisioni', $data);
+
+					$cont_righe = $cont_righe + 1;
+					$this->db->where('ID_previsione', $id_preveff);
+					$this->db->where('zona', "${codicezona}");
+					$this->db->where('ID_fasciaoraria', $cont_righe);
+
+					$data['ID_fasciaoraria'] = $cont_righe;
+					$result = $result && $this->db->update('dettaglioprevisioni', $data);
+					$cont_righe = $cont_righe + 1;
 				}
 			}
 		}
@@ -197,9 +217,8 @@ class Dettaglioprevisioni_model extends CI_Model {
 		$this->db->trans_complete();
 		
 		return $result;
+
 	}
-
-
 
 	function elenco_previsioni($id_preveff) {
 

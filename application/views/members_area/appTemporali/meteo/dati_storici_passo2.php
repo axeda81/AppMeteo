@@ -61,13 +61,13 @@
                         <label class="control-label text-navy"><?php echo $fascia1; ?></label>
                         <div class="">
                           <div class="radio">
-                            <label><input type="radio" checked name="fo1z1" <?php if (isset($fo1z1) && $fo1z1=="0") echo "checked "; ?> value = "0"> <?php echo $prev0; ?> </label>
+                            <label><input type="radio" checked name="fo1z1" <?php if (isset($fo1z1) && $fo1z1=="0") echo "checked "; ?> value = "0" <?php if ($fuoriorario == true) echo "disabled"; ?> > <?php echo $prev0; ?> </label>
                           </div>
                           <div class="radio">
-                            <label><input type="radio" name="fo1z1" <?php if (isset($fo1z1) && $fo1z1=="1") echo "checked "; ?> value = "1"> <?php echo $prev1; ?> </label>
+                            <label><input type="radio" name="fo1z1" <?php if (isset($fo1z1) && $fo1z1=="1") echo "checked "; ?> value = "1" <?php if ($fuoriorario == true) echo "disabled"; ?> > <?php echo $prev1; ?> </label>
                           </div>
                           <div class="radio">
-                            <label><input type="radio" name="fo1z1" <?php if (isset($fo1z1) && $fo1z1=="2") echo "checked "; ?> value = "2"> <?php echo $prev2; ?> </label>
+                            <label><input type="radio" name="fo1z1" <?php if (isset($fo1z1) && $fo1z1=="2") echo "checked "; ?> value = "2" <?php if ($fuoriorario == true) echo "disabled"; ?> > <?php echo $prev2; ?> </label>
                           </div>
                         </div> 
                       </div>
@@ -77,13 +77,13 @@
                         <label class="control-label text-navy"><?php echo $fascia2; ?></label>
                         <div class="">
                           <div class="radio">
-                            <label><input type="radio" checked name="fo2z1" <?php if (isset($fo2z1) && $fo2z1=="0") echo "checked "; ?> value = "0"> <?php echo $prev0; ?> </label>
+                            <label><input type="radio" checked name="fo2z1" <?php if (isset($fo2z1) && $fo2z1=="0") echo "checked "; ?> value = "0" <?php if ($fuoriorario == true) echo "disabled"; ?> > <?php echo $prev0; ?> </label>
                           </div>
                           <div class="radio">
-                            <label><input type="radio" name="fo2z1" <?php if (isset($fo2z1) && $fo2z1=="1") echo "checked "; ?> value = "1"> <?php echo $prev1; ?> </label>
+                            <label><input type="radio" name="fo2z1" <?php if (isset($fo2z1) && $fo2z1=="1") echo "checked "; ?> value = "1" <?php if ($fuoriorario == true) echo "disabled"; ?> > <?php echo $prev1; ?> </label>
                           </div>
                           <div class="radio">
-                            <label><input type="radio" name="fo2z1" <?php if (isset($fo2z1) && $fo2z1=="2") echo "checked "; ?> value = "2"> <?php echo $prev2; ?> </label>
+                            <label><input type="radio" name="fo2z1" <?php if (isset($fo2z1) && $fo2z1=="2") echo "checked "; ?> value = "2" <?php if ($fuoriorario == true) echo "disabled"; ?> > <?php echo $prev2; ?> </label>
                           </div>
                         </div> 
                       </div>
@@ -165,13 +165,13 @@
                         <label class="control-label text-navy"><?php echo $fascia1; ?></label>
                         <div class="">
                           <div class="radio">
-                            <label><input type="radio" checked name="fo1z2" <?php if (isset($fo1z2) && $fo1z2=="0") echo "checked "; ?> value = "0"> <?php echo $prev0; ?> </label>
+                            <label><input type="radio" checked name="fo1z2" <?php if (isset($fo1z2) && $fo1z2=="0") echo "checked "; ?> value = "0" <?php if ($fuoriorario == true) echo "disabled"; ?> > <?php echo $prev0; ?> </label>
                           </div>
                           <div class="radio">
-                            <label><input type="radio" name="fo1z2" <?php if (isset($fo1z2) && $fo1z2=="1") echo "checked "; ?> value = "1"> <?php echo $prev1; ?> </label>
+                            <label><input type="radio" name="fo1z2" <?php if (isset($fo1z2) && $fo1z2=="1") echo "checked "; ?> value = "1" <?php if ($fuoriorario == true) echo "disabled"; ?> > <?php echo $prev1; ?> </label>
                           </div>
                           <div class="radio">
-                            <label><input type="radio" name="fo1z2" <?php if (isset($fo1z2) && $fo1z2=="2") echo "checked "; ?> value = "2"> <?php echo $prev2; ?> </label>
+                            <label><input type="radio" name="fo1z2" <?php if (isset($fo1z2) && $fo1z2=="2") echo "checked "; ?> value = "2" <?php if ($fuoriorario == true) echo "disabled"; ?> > <?php echo $prev2; ?> </label>
                           </div>
                         </div> 
                       </div>
@@ -181,13 +181,13 @@
                         <label class="control-label text-navy"><?php echo $fascia2; ?></label>
                         <div class="">
                           <div class="radio">
-                            <label><input type="radio" checked name="fo2z2" <?php if (isset($fo2z2) && $fo2z2=="0") echo "checked "; ?> value = "0"> <?php echo $prev0; ?> </label>
+                            <label><input type="radio" checked name="fo2z2" <?php if (isset($fo2z2) && $fo2z2=="0") echo "checked "; ?> value = "0" <?php if ($fuoriorario == true) echo "disabled"; ?> > <?php echo $prev0; ?> </label>
                           </div>
                           <div class="radio">
-                            <label><input type="radio" name="fo2z2" <?php if (isset($fo2z2) && $fo2z2=="1") echo "checked "; ?> value = "1"> <?php echo $prev1; ?> </label>
+                            <label><input type="radio" name="fo2z2" <?php if (isset($fo2z2) && $fo2z2=="1") echo "checked "; ?> value = "1" <?php if ($fuoriorario == true) echo "disabled"; ?> > <?php echo $prev1; ?> </label>
                           </div>
                           <div class="radio">
-                            <label><input type="radio" name="fo2z2" <?php if (isset($fo2z2) && $fo2z2=="2") echo "checked "; ?> value = "2"> <?php echo $prev2; ?> </label>
+                            <label><input type="radio" name="fo2z2" <?php if (isset($fo2z2) && $fo2z2=="2") echo "checked "; ?> value = "2" <?php if ($fuoriorario == true) echo "disabled"; ?> > <?php echo $prev2; ?> </label>
                           </div>
                         </div> 
                       </div>
@@ -269,13 +269,13 @@
                         <label class="control-label text-navy"><?php echo $fascia1; ?></label>
                         <div class="">
                           <div class="radio">
-                            <label><input type="radio" checked name="fo1z3" <?php if (isset($fo1z3) && $fo1z3=="0") echo "checked "; ?> value = "0"> <?php echo $prev0; ?> </label>
+                            <label><input type="radio" checked name="fo1z3" <?php if (isset($fo1z3) && $fo1z3=="0") echo "checked "; ?> value = "0" <?php if ($fuoriorario == true) echo "disabled"; ?> > <?php echo $prev0; ?> </label>
                           </div>
                           <div class="radio">
-                            <label><input type="radio" name="fo1z3" <?php if (isset($fo1z3) && $fo1z3=="1") echo "checked "; ?> value = "1"> <?php echo $prev1; ?> </label>
+                            <label><input type="radio" name="fo1z3" <?php if (isset($fo1z3) && $fo1z3=="1") echo "checked "; ?> value = "1" <?php if ($fuoriorario == true) echo "disabled"; ?> > <?php echo $prev1; ?> </label>
                           </div>
                           <div class="radio">
-                            <label><input type="radio" name="fo1z3" <?php if (isset($fo1z3) && $fo1z3=="2") echo "checked "; ?> value = "2"> <?php echo $prev2; ?> </label>
+                            <label><input type="radio" name="fo1z3" <?php if (isset($fo1z3) && $fo1z3=="2") echo "checked "; ?> value = "2" <?php if ($fuoriorario == true) echo "disabled"; ?> > <?php echo $prev2; ?> </label>
                           </div>
                         </div> 
                       </div>
@@ -285,13 +285,13 @@
                         <label class="control-label text-navy"><?php echo $fascia2; ?></label>
                         <div class="">
                           <div class="radio">
-                            <label><input type="radio" checked name="fo2z3" <?php if (isset($fo2z3) && $fo2z3=="0") echo "checked "; ?> value = "0"> <?php echo $prev0; ?> </label>
+                            <label><input type="radio" checked name="fo2z3" <?php if (isset($fo2z3) && $fo2z3=="0") echo "checked "; ?> value = "0" <?php if ($fuoriorario == true) echo "disabled"; ?> > <?php echo $prev0; ?> </label>
                           </div>
                           <div class="radio">
-                            <label><input type="radio" name="fo2z3" <?php if (isset($fo2z3) && $fo2z3=="1") echo "checked "; ?> value = "1"> <?php echo $prev1; ?> </label>
+                            <label><input type="radio" name="fo2z3" <?php if (isset($fo2z3) && $fo2z3=="1") echo "checked "; ?> value = "1" <?php if ($fuoriorario == true) echo "disabled"; ?> > <?php echo $prev1; ?> </label>
                           </div>
                           <div class="radio">
-                            <label><input type="radio" name="fo2z3" <?php if (isset($fo2z3) && $fo2z3=="2") echo "checked "; ?> value = "2"> <?php echo $prev2; ?> </label>
+                            <label><input type="radio" name="fo2z3" <?php if (isset($fo2z3) && $fo2z3=="2") echo "checked "; ?> value = "2" <?php if ($fuoriorario == true) echo "disabled"; ?> > <?php echo $prev2; ?> </label>
                           </div>
                         </div> 
                       </div>
@@ -373,13 +373,13 @@
                         <label class="control-label text-navy"><?php echo $fascia1; ?></label>
                         <div class="">
                           <div class="radio">
-                            <label><input type="radio" checked name="fo1z4" <?php if (isset($fo1z4) && $fo1z4=="0") echo "checked "; ?> value = "0"> <?php echo $prev0; ?> </label>
+                            <label><input type="radio" checked name="fo1z4" <?php if (isset($fo1z4) && $fo1z4=="0") echo "checked "; ?> value = "0" <?php if ($fuoriorario == true) echo "disabled"; ?> > <?php echo $prev0; ?> </label>
                           </div>
                           <div class="radio">
-                            <label><input type="radio" name="fo1z4" <?php if (isset($fo1z4) && $fo1z4=="1") echo "checked "; ?> value = "1"> <?php echo $prev1; ?> </label>
+                            <label><input type="radio" name="fo1z4" <?php if (isset($fo1z4) && $fo1z4=="1") echo "checked "; ?> value = "1" <?php if ($fuoriorario == true) echo "disabled"; ?> > <?php echo $prev1; ?> </label>
                           </div>
                           <div class="radio">
-                            <label><input type="radio" name="fo1z4" <?php if (isset($fo1z4) && $fo1z4=="2") echo "checked "; ?> value = "2"> <?php echo $prev2; ?> </label>
+                            <label><input type="radio" name="fo1z4" <?php if (isset($fo1z4) && $fo1z4=="2") echo "checked "; ?> value = "2" <?php if ($fuoriorario == true) echo "disabled"; ?> > <?php echo $prev2; ?> </label>
                           </div>
                         </div> 
                       </div>
@@ -389,13 +389,13 @@
                         <label class="control-label text-navy"><?php echo $fascia2; ?></label>
                         <div class="">
                           <div class="radio">
-                            <label><input type="radio" checked name="fo2z4" <?php if (isset($fo2z4) && $fo2z4=="0") echo "checked "; ?> value = "0"> <?php echo $prev0; ?> </label>
+                            <label><input type="radio" checked name="fo2z4" <?php if (isset($fo2z4) && $fo2z4=="0") echo "checked "; ?> value = "0" <?php if ($fuoriorario == true) echo "disabled"; ?> > <?php echo $prev0; ?> </label>
                           </div>
                           <div class="radio">
-                            <label><input type="radio" name="fo2z4" <?php if (isset($fo2z4) && $fo2z4=="1") echo "checked "; ?> value = "1"> <?php echo $prev1; ?> </label>
+                            <label><input type="radio" name="fo2z4" <?php if (isset($fo2z4) && $fo2z4=="1") echo "checked "; ?> value = "1" <?php if ($fuoriorario == true) echo "disabled"; ?> > <?php echo $prev1; ?> </label>
                           </div>
                           <div class="radio">
-                            <label><input type="radio" name="fo2z4" <?php if (isset($fo2z4) && $fo2z4=="2") echo "checked "; ?> value = "2"> <?php echo $prev2; ?> </label>
+                            <label><input type="radio" name="fo2z4" <?php if (isset($fo2z4) && $fo2z4=="2") echo "checked "; ?> value = "2" <?php if ($fuoriorario == true) echo "disabled"; ?> > <?php echo $prev2; ?> </label>
                           </div>
                         </div> 
                       </div>
@@ -477,13 +477,13 @@
                         <label class="control-label text-navy"><?php echo $fascia1; ?></label>
                         <div class="">
                           <div class="radio">
-                            <label><input type="radio" checked name="fo1z5" <?php if (isset($fo1z5) && $fo1z5=="0") echo "checked "; ?> value = "0"> <?php echo $prev0; ?> </label>
+                            <label><input type="radio" checked name="fo1z5" <?php if (isset($fo1z5) && $fo1z5=="0") echo "checked "; ?> value = "0" <?php if ($fuoriorario == true) echo "disabled"; ?> > <?php echo $prev0; ?> </label>
                           </div>
                           <div class="radio">
-                            <label><input type="radio" name="fo1z5" <?php if (isset($fo1z5) && $fo1z5=="1") echo "checked "; ?> value = "1"> <?php echo $prev1; ?> </label>
+                            <label><input type="radio" name="fo1z5" <?php if (isset($fo1z5) && $fo1z5=="1") echo "checked "; ?> value = "1" <?php if ($fuoriorario == true) echo "disabled"; ?> > <?php echo $prev1; ?> </label>
                           </div>
                           <div class="radio">
-                            <label><input type="radio" name="fo1z5" <?php if (isset($fo1z5) && $fo1z5=="2") echo "checked "; ?> value = "2"> <?php echo $prev2; ?> </label>
+                            <label><input type="radio" name="fo1z5" <?php if (isset($fo1z5) && $fo1z5=="2") echo "checked "; ?> value = "2" <?php if ($fuoriorario == true) echo "disabled"; ?> > <?php echo $prev2; ?> </label>
                           </div>
                         </div> 
                       </div>
@@ -493,13 +493,13 @@
                         <label class="control-label text-navy"><?php echo $fascia2; ?></label>
                         <div class="">
                           <div class="radio">
-                            <label><input type="radio" checked name="fo2z5" <?php if (isset($fo2z5) && $fo2z5=="0") echo "checked "; ?> value = "0"> <?php echo $prev0; ?> </label>
+                            <label><input type="radio" checked name="fo2z5" <?php if (isset($fo2z5) && $fo2z5=="0") echo "checked "; ?> value = "0" <?php if ($fuoriorario == true) echo "disabled"; ?> > <?php echo $prev0; ?> </label>
                           </div>
                           <div class="radio">
-                            <label><input type="radio" name="fo2z5" <?php if (isset($fo2z5) && $fo2z5=="1") echo "checked "; ?> value = "1"> <?php echo $prev1; ?> </label>
+                            <label><input type="radio" name="fo2z5" <?php if (isset($fo2z5) && $fo2z5=="1") echo "checked "; ?> value = "1" <?php if ($fuoriorario == true) echo "disabled"; ?> > <?php echo $prev1; ?> </label>
                           </div>
                           <div class="radio">
-                            <label><input type="radio" name="fo2z5" <?php if (isset($fo2z5) && $fo2z5=="2") echo "checked "; ?> value = "2"> <?php echo $prev2; ?> </label>
+                            <label><input type="radio" name="fo2z5" <?php if (isset($fo2z5) && $fo2z5=="2") echo "checked "; ?> value = "2" <?php if ($fuoriorario == true) echo "disabled"; ?> > <?php echo $prev2; ?> </label>
                           </div>
                         </div> 
                       </div>

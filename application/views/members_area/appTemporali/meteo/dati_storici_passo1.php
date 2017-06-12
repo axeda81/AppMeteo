@@ -2,9 +2,17 @@
 
 <div class="right_col" role="main">
   <div class="row">
-    <div class ="col-md-8">
+    <div class ="col-md-8 col-xs-12">
       <div class="x_panel">
         <h3>Compilazione dati storici previsioni </h3><h4><small class="pull-left"><i> Passo 1 - inserisci data e ora della previsione ed indica se eri di turno o no. </i></small></h4>
+        <?php 
+          if(isset($messaggioerrore))  {
+            echo '<div class="alert alert-danger alert-dismissible fade in" role="alert">
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>';
+            echo $messaggioerrore;
+            echo '</div>';
+          } 
+        ?>         
       </div>
       <div class="clearfix"></div>
 

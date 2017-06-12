@@ -198,34 +198,20 @@ class Archivio extends CI_Controller
 
 			$data['content'] = 'members_area/appTemporali/meteo/rivedi_dati_storici'; // Devo poter rivedere i dati per confermare 
 			$this->load->view('includes/template', $data);
-
-
-
 		}
+
 		else {
 
 			// ERRORE
-			// Deve eliminare le righe inserite in previsionieffettuate e dettaglioprevisioni e ricaricare la view meteo così viene ricompilata
+			// Deve eliminare le righe inserite in previsionieffettuate e dettaglioprevisioni e ricaricare la view così viene ricompilata
+			$this->Previsionieffettuate_model->elimina_riga($id_preveff);
 
-			// $this->Previsionieffettuate_model->elimina_riga($id_preveff);
-			// $this->Dettaglioprevisioni_model->elimina_dati($id_preveff);
+			$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie_6ore();
 
-			// $data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie_3ore();
-
-			// $data['content'] = 'members_area/appTemporali/meteo/da_compilare';
-			// $data['messaggioerrore'] = 'Errore nell\'inserimento dei dati nel DB. Per favore compila nuovamente le tue previsioni.'; // TODO - usare questo messaggio nella view
-			// $prev = array(
-			// 	'prev_fatte' => false, 
-			// 	'prev_confermate' => false
-			// );
-			// $this->session->set_userdata($prev);
-			// $this->load->view('includes/template', $data);
-
-			
+			$data['content'] = 'members_area/appTemporali/meteo/dati_storici_passo1';
+			$data['messaggioerrore'] = 'Errore nell\'inserimento dei dati nel DB. Per favore compila nuovamente le tue previsioni.'; 
+			$this->load->view('includes/template', $data);
 		}
-
-
-
 	}
 
 
@@ -270,11 +256,12 @@ class Archivio extends CI_Controller
 			$data['dati_previsione'] = $this->Previsionieffettuate_model->dati_previsione($id_prev_storico);
 			$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie_6ore();
 			$data['turno'] = $inTurno;
-			$data['content'] = 'members_area/appTemporali/meteo/rivedi_dati_storici'; // Devo poter rivedere i dati per confermare 
+			$data['fuoriorario'] = $fuoriorario;
+			$data['content'] = 'members_area/appTemporali/meteo/dati_storici_passo2'; // Devo poter rivedere i dati per confermare 
 			$this->load->view('includes/template', $data);
 		}
 
-		// // TODO - gestire il caso in cui $result = false
+		// TODO - gestire il caso in cui $result = false
 	}
 
 	function aggiorna_dati_storici_passo2() 
@@ -355,7 +342,7 @@ class Archivio extends CI_Controller
 
 		$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie_6ore();
 
-		$data['content'] = 'members_area/appTemporali/meteo/dati_storici_compilato';  // ???
+		$data['content'] = 'members_area/appTemporali/meteo/dati_storici_passo2_compilato';  // ???
 		
 		$this->load->view('includes/template', $data);
 
