@@ -155,7 +155,7 @@
                       </div>
                     </div>  
                   </div>
-                  </br>
+                  </br></br>
                   <div class = "row">
                     <div class ="col-md-2">
                       <div class="form-group">
@@ -254,6 +254,7 @@
                       </div>
                     </div>  
                   </div>
+                  </br></br>
                 </div>
               </div>
               <div class="tab-pane" id="tab61">
@@ -356,7 +357,7 @@
                       </div>
                     </div> 
                   </div>
-                  </br>
+                  </br></br>
                   <div class="row">
                     <div class ="col-md-2">
                       <div class="form-group">
@@ -455,6 +456,7 @@
                       </div>
                     </div> 
                   </div>
+                  </br></br>
                 </div>
               </div>
               <div class="tab-pane" id="tab62">
@@ -557,7 +559,7 @@
                       </div>
                     </div> 
                   </div> 
-                  </br>
+                  </br></br>
                   <div class="row">
                     <div class ="col-md-2">
                       <div class="form-group">
@@ -656,6 +658,7 @@
                       </div>
                     </div> 
                   </div> 
+                  </br></br>
                 </div>
               </div>
               <div class="tab-pane" id="tab63">
@@ -758,7 +761,7 @@
                       </div>
                     </div> 
                   </div> 
-                  </br>
+                  </br></br>
                   <div class="row">
                     <div class ="col-md-2">
                       <div class="form-group">
@@ -857,6 +860,7 @@
                       </div>
                     </div> 
                   </div> 
+                  </br></br>
                 </div> 
               </div>
               <div class="tab-pane" id="tab64">
@@ -959,7 +963,7 @@
                       </div>
                     </div>  
                   </div>
-                  </br>  
+                  </br></br> 
                   <div class="row">
                     <div class ="col-md-2">
                       <div class="form-group">
@@ -1057,7 +1061,8 @@
                         </div> 
                       </div>
                     </div>  
-                  </div>        
+                  </div>
+                  </br></br>        
                 </div>
               </div>
             </div>

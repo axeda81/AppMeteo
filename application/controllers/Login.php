@@ -14,7 +14,8 @@ class Login extends CI_Controller {
 
 		$result = $this->Utenti_model->validate($this->input->post('username'), md5($this->input->post('password')));
 
-		if ($result == true) {
+		if ($result == true) 
+		{
 
 			// Se entro qui vuol dire che l'utente esiste e ha inserito la password giusta:
 			// salvo nella sessione alcune info come username e tipo di utente, in funzione 
@@ -34,8 +35,8 @@ class Login extends CI_Controller {
 			redirect('site/members_area');
 		}
 
-		else {
-
+		else 
+		{
 			// Se il login non è andato a buon fine, torno alla pagina iniziale
 			$data['messaggioerrore'] = 'Attenzione! Username o password errati. ';
 			$this->load->view('login_form', $data);
