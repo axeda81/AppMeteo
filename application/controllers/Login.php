@@ -16,7 +16,6 @@ class Login extends CI_Controller {
 
 		if ($result == true) 
 		{
-
 			// Se entro qui vuol dire che l'utente esiste e ha inserito la password giusta:
 			// salvo nella sessione alcune info come username e tipo di utente, in funzione 
 			// del quale il controller site caricherà la view giusta
@@ -37,7 +36,7 @@ class Login extends CI_Controller {
 
 		else 
 		{
-			// Se il login non è andato a buon fine, torno alla pagina iniziale
+			// Se il login non è andato a buon fine, torno alla pagina iniziale con un messaggio di errore
 			$data['messaggioerrore'] = 'Attenzione! Username o password errati. ';
 			$this->load->view('login_form', $data);
 		}

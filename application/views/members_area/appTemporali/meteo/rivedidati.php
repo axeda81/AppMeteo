@@ -106,6 +106,7 @@
           <div class ="col-md-12">                 
             <button type="submit" class="btn btn-success submit pull-right">Conferma previsioni</button>
             <?php echo anchor('site/ricompila_previsioni', 'Indietro', array('class' => 'btn btn-primary pull-right')); ?>
+            <?php echo anchor('CreatePDF/crea_bollettino', 'Scarica PDF', array('class' => 'btn btn-default pull-right')); ?> 
             <button type="button" class="btn btn-danger pull-right" data-toggle="modal" data-target=".bs-example-modal-sm">Annulla previsioni</button> 
             <!-- Modal che appare per chiedere conferma dell'annullamento delle previsioni -->
             <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">

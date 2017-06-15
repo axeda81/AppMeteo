@@ -54,7 +54,6 @@ class Site extends CI_Controller
 
 	}
 
-
 	function istruzioni() 
 	{
 		// Carico la pagina di istruzioni corretta a seconda dell'applicazione in cui mi trovo
@@ -124,7 +123,7 @@ class Site extends CI_Controller
 		{
 			// Se le previsioni non son già state fatte da quell'utente, carico la view per farle 
 			$data['content'] = 'members_area/appTemporali/meteo/da_compilare';
-			$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie_3ore_3ore();
+			$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie_3ore();
 			 	
 		}
 
