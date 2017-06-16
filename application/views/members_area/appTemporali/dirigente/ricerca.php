@@ -5,7 +5,7 @@
         <h3>Cerca tra le previsioni effettuate</h3>
       </div>
       <div class="clearfix"></div>
-        <?php echo form_open('archivio/esegui_ricerca', array('class' => 'form-horizontal form-label-left')); ?>
+        <?php echo form_open('Ricerche/esegui_ricerca', array('class' => 'form-horizontal form-label-left')); ?>
       <div class="x_panel">
         <div class="x_content">    
           <div class = "row">
@@ -68,7 +68,7 @@
           <div class="row">
             <div class ="col-md-12">                 
               <?php echo form_submit('submit', 'Cerca', array('class' => 'btn btn-success submit pull-right')); ?>
-              <?php echo anchor('archivio/ricercadirigente', 'Clear', array('class' => 'btn btn-primary pull-right')); ?>
+              <?php echo anchor('Ricerche/ricerca_dirigente', 'Clear', array('class' => 'btn btn-primary pull-right')); ?>
               <?php echo anchor('site/members_area_temporali', 'Indietro', array('class' => 'btn btn-default pull-right')); ?>
               <?php echo form_close(); ?>
             </div>

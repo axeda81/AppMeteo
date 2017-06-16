@@ -36,7 +36,7 @@
 <script type="text/javascript">
   $(document).ready(function() {
     $('#rivediPrevisioni').on('click', function() {
-      window.location.replace("<?php echo base_url();?>index.php/archivio/ricercadirigente");
+      window.location.replace("<?php echo base_url();?>index.php/Ricerche/ricerca_dirigente");
     })
   });
 </script>

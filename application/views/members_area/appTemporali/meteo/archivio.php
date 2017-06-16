@@ -87,7 +87,7 @@
 <script type="text/javascript">
   $(document).ready(function() {
     $('#rivediPrevisioni').on('click', function() {
-      window.location.replace("<?php echo base_url();?>index.php/archivio/ricercaperutente");
+      window.location.replace("<?php echo base_url();?>index.php/Ricerche/ricerca_per_utente");
     })
   });
 </script>
@@ -95,7 +95,7 @@
 <script type="text/javascript">
   $(document).ready(function() {
     $('#previsioniTutti').on('click', function() {
-      window.location.replace("<?php echo base_url();?>index.php/archivio/ricerca_tutto");
+      window.location.replace("<?php echo base_url();?>index.php/Ricerche/ricerca_tutto");
     })
   });
 </script>

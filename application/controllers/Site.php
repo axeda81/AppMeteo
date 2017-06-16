@@ -6,7 +6,8 @@ class Site extends CI_Controller
 	function __construct()
 	{
 		parent::__construct();
-		$this->is_logged_in();
+		$this->load->helper('utilities');
+		is_logged_in($this->session->userdata('is_logged_in'));
 	}
 
 	function members_area () 
@@ -72,19 +73,6 @@ class Site extends CI_Controller
 		$this->load->view('includes/template', $data);
 	}
 
-	function fuoriorariomax()
-	{
-
-		$max = 43200; // orario massimo espresso in secondi (12:00 = 43200)
-		$ora_attuale = date('H.i', time()); // estraggo l'ora attuale
-		$ora = explode(".", $ora_attuale); // ricavo ora e minuti separati
-		$ore = $ora[0];
-		$minuti = $ora[1];
-		$tempo = ($ore*3600) + ($minuti*60); // trasformo ora e minuti attuali in secondi
-
-		if ($tempo > $max) return true;
-		else return false;
-	}
 
 	function verificaPrevEffettuate() 
 	{
@@ -127,7 +115,7 @@ class Site extends CI_Controller
 			 	
 		}
 
-		$data['fuoriorario'] = $this->fuoriorariomax();
+		$data['fuoriorario'] = fuoriorariomax();
 
 		// Salvo l'informazione sull'orario nella sessione perchè dovrebbe servire anche in altri controller 
 		$sess = array(
@@ -139,20 +127,6 @@ class Site extends CI_Controller
 
 		// Carico la view 
 		$this->load->view('includes/template', $data);
-	}
-
-	function is_logged_in()
-	{
-		// Verifico se c'è una sessione attiva, altrimenti torno al login
-		$is_logged_in = $this->session->userdata('is_logged_in');
-
-		if(!isset($is_logged_in) || $is_logged_in == false) {
-
-			$paginaIniziale = base_url().'index.php/login';
-			echo 'Sessione scaduta o login non effettuato - non hai il permesso di accedere a questa pagina. <a href='.$paginaIniziale.'>Login </a>';
-
-			die();
-		}
 	}
 
 	function salva_dati() 
@@ -176,7 +150,7 @@ class Site extends CI_Controller
 //		}
 
 		// Salvo nella tabella dettaglioprevisioni tutte le previsioni fatte (40 righe se sono già passate le 12, 60 altrimenti)
-		$result = $this->Dettaglioprevisioni_model->inserisci_dati($id_preveff, $this->fuoriorariomax());
+		$result = $this->Dettaglioprevisioni_model->inserisci_dati($id_preveff, fuoriorariomax());
 
 		if ($result = true) {
 
@@ -246,8 +220,8 @@ class Site extends CI_Controller
 		// Devo caricare la view meteo_compilato, che è uguale a meteo/da_compilare ma con i dati ripresi dal db 
 		$data['previsioni'] = $this->Dettaglioprevisioni_model->elenco_previsioni($id_preveff);
 		
-		// Questa query su dettaglioprevisioni tornerà un numero variabile di righe, lo so chiamando $this->fuoriorariomax()
-		$data['fuoriorario'] = $this->fuoriorariomax();
+		// Questa query su dettaglioprevisioni tornerà un numero variabile di righe, lo so chiamando fuoriorariomax()
+		$data['fuoriorario'] = fuoriorariomax();
 		
 		// Passo alla view anche l'informazione sul turno 
 		//$res = $this->Previsionieffettuate_model->prev_in_turno($id_preveff);
@@ -277,7 +251,7 @@ class Site extends CI_Controller
 		// Aggiorno l'orario di modifica della riga con ID = id_preveff e l'informazione sul turno
 		$this->Previsionieffettuate_model->aggiorna_dati($id_preveff); 
 		$this->Previsionieffettuate_model->indietro_previsione($id_preveff);
-		$result = $this->Dettaglioprevisioni_model->aggiorna_dati($id_preveff, $this->fuoriorariomax());
+		$result = $this->Dettaglioprevisioni_model->aggiorna_dati($id_preveff, fuoriorariomax());
 
 		$prev = array(
 			'inTurno' => $this->input->post('inTurno'),
@@ -312,7 +286,7 @@ class Site extends CI_Controller
 		$data['content'] = 'members_area/appTemporali/meteo/da_compilare';
 		
 		$data['fasceorarie'] = $this->Fasciaorariaprevisione_model->elencofasceorarie_3ore();
-		$data['fuoriorario'] = $this->fuoriorariomax();
+		$data['fuoriorario'] = fuoriorariomax();
 
 		$prev = array(
 			'prev_fatte' => false,

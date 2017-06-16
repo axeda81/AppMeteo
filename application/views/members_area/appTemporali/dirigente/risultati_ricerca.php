@@ -99,7 +99,7 @@
     <!-- Pulsanti per confermare le previsioni o tornare indietro alla compilazione -->
         <div class="row">
           <div class ="col-md-12">             
-            <?php echo anchor('archivio/ricercadirigente', 'Nuova ricerca', array('class' => 'btn btn-success pull-right')); ?>
+            <?php echo anchor('Ricerche/ricerca_dirigente', 'Nuova ricerca', array('class' => 'btn btn-success pull-right')); ?>
             <?php echo anchor('site/members_area_temporali', 'Torna alla home', array('class' => 'btn btn-primary pull-right')); ?>     
           </div>
         </div>  
