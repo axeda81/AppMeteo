@@ -27,11 +27,6 @@ class CreaPDF extends CI_Controller {
     $oggi = date('d-m-Y', strtotime($dati_previsione[0]->Data)); 
     $domani = date('d-m-Y',strtotime($oggi.' +'."1".' days'));          
 
-    // Carico il foglio di stile
-		$stylesheet = file_get_contents('../third_party/mpdf/mpdfstyletables.css');
-
-		$pdf->WriteHTML($stylesheet,1);	// The parameter 1 tells that this is css/style only and no body/html/text
-
     // Costruisco una stringa contenente il codice HTML che andrà poi a formare il file PDF
 		$html='<table border="1" align="center">
             <thead>
@@ -73,7 +68,7 @@ class CreaPDF extends CI_Controller {
           default: break;
         }
 
-				$html .= '<td>'.$tmp.'</td>';
+				$html .= '<td class = "fasciaoraria">'.$tmp.'</td>';
 
 				$tmp = '';
 

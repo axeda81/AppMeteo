@@ -1,15 +1,15 @@
 /*
-   This is a secondary default stylesheet for mPDF
-   It will only parse element-level CSS here 
-   Remove the comment marks below and edit as required
+This is a secondary default stylesheet for mPDF
+It will only parse element-level CSS here 
+Remove the comment marks below and edit as required
 */
 
 
 
 /* 
-   These values used to be the default prior to mPDF 4.2
-   Altered to make appearance closer to that of browsers
-   Uncomment these lines to return to behaviour prior to v4.2  
+These values used to be the default prior to mPDF 4.2
+Altered to make appearance closer to that of browsers
+Uncomment these lines to return to behaviour prior to v4.2  
 */
 
 
@@ -18,3 +18,99 @@ img { margin: 0.83em 0; vertical-align: bottom; }
 table { margin: 0.5em; }
 textarea { vertical-align: top; }
 */
+body { font-family: 'sans-serif'; font-size: 10pt;  }
+
+p { text-align: justify; margin-bottom: 4pt; margin-top:0pt;  }
+
+table 
+{
+	font-family: 'sans-serif'; font-size: 9pt; line-height: 1.2; 
+	margin-top: 2pt; margin-bottom: 5pt;
+	border-collapse: collapse; 
+	border-width: 2px;
+	text-align: center;
+}
+
+thead {	font-weight: bold; vertical-align: bottom; }
+tfoot {	font-weight: bold; vertical-align: top; }
+thead td { font-weight: bold; }
+tfoot td { font-weight: bold; }
+
+.headerrow td, .headerrow th { background-gradient: linear #b7cebd #f5f8f5 0 1 0 0.2;  }
+.footerrow td, .footerrow th { background-gradient: linear #b7cebd #f5f8f5 0 1 0 0.2;  }
+
+th 
+{	
+	font-weight: bold; 
+	vertical-align: middle; 
+	padding-left: 2mm; 
+	padding-right: 2mm; 
+	padding-top: 1mm; 
+	padding-bottom: 1mm; 
+ }
+
+td 
+{	
+	padding-left: 2mm; 
+	vertical-align: middle; 
+	padding-right: 2mm; 
+	padding-top: 1mm; 
+	padding-bottom: 1mm;
+ }
+
+th p { margin:0pt;  }
+td p { margin:0pt;  }
+
+table.widecells td {
+	padding-left: 5mm;
+	padding-right: 5mm;
+}
+table.tallcells td {
+	padding-top: 3mm;
+	padding-bottom: 3mm; 
+}
+
+hr 
+{	
+	width: 70%; height: 1px; 
+	text-align: center; color: #999999; 
+	margin-top: 8pt; margin-bottom: 8pt; }
+
+a {	color: #000066; font-style: normal; text-decoration: underline; 
+	font-weight: normal; }
+
+pre { font-family: 'DejaVu Sans Mono'; font-size: 9pt; margin-top: 5pt; margin-bottom: 5pt; }
+
+h1 
+{	
+	font-weight: normal; font-size: 26pt; color: #000066; 
+	font-family: 'DejaVu Sans Condensed'; margin-top: 18pt; margin-bottom: 6pt; 
+	border-top: 0.075cm solid #000000; border-bottom: 0.075cm solid #000000; 
+	text-align: ; page-break-after:avoid; }
+h2 
+{	
+	font-weight: bold; font-size: 12pt; color: #000066; 
+	font-family: 'DejaVu Sans Condensed'; margin-top: 6pt; margin-bottom: 6pt; 
+	border-top: 0.07cm solid #000000; border-bottom: 0.07cm solid #000000; 
+	text-align: ;  text-transform:uppercase; page-break-after:avoid; }
+h3 
+{	
+	font-weight: normal; font-size: 26pt; color: #000000; 
+	font-family: 'DejaVu Sans Condensed'; margin-top: 0pt; margin-bottom: 6pt; 
+	border-top: 0; border-bottom: 0; 
+	text-align: ; page-break-after:avoid; }
+h4 
+{	
+	font-weight: ; font-size: 13pt; color: #9f2b1e; 
+	font-family: 'DejaVu Sans Condensed'; margin-top: 10pt; margin-bottom: 7pt; font-variant: small-caps; 
+	text-align: ;  margin-collapse:collapse; page-break-after:avoid; }
+h5 
+{	
+	font-weight: bold; font-style:italic; ; font-size: 11pt; color: #000044; 
+	font-family: 'DejaVu Sans Condensed'; margin-top: 8pt; margin-bottom: 4pt; 
+	text-align: ;  page-break-after:avoid; }
+h6 
+{	
+	font-weight: bold; font-size: 9.5pt; color: #333333; 
+	font-family: 'DejaVu Sans Condensed'; margin-top: 6pt; margin-bottom: ; 
+	text-align: ;  page-break-after:avoid; }
