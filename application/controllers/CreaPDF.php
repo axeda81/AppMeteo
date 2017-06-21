@@ -28,7 +28,16 @@ class CreaPDF extends CI_Controller {
     $domani = date('d-m-Y',strtotime($oggi.' +'."1".' days'));          
 
     // Costruisco una stringa contenente il codice HTML che andrà poi a formare il file PDF
-		$html='<table border="1" align="center">
+
+    $html .= '<table border="0" align="center">
+    					<thead></thead>
+    					<tbody>
+    					<tr>';
+    $html .= '<td><img src='.base_url()."images/Immagine.jpg".'>'.'</img></td>';
+
+    $html .= '</tr></tbody></table>';
+
+		$html .= '<table border="1" align="center">
             <thead>
               <tr>
                 <th>Data previsione</th>
@@ -102,7 +111,6 @@ class CreaPDF extends CI_Controller {
 		$pdf->WriteHTML($html,2);	// Scrivo sul pdf il codice html appena confezionato
 
 		// Footer che verrà ripetuto su ogni pagina
-
 		$pdf->pagenumPrefix = 'Pag. ';
 		$pdf->pagenumSuffix = ' / ';
 		$pdf->SetFooter('{PAGENO}{nbpg}');
