@@ -79,14 +79,14 @@ hr
 a {	color: #000066; font-style: normal; text-decoration: underline; 
 	font-weight: normal; }
 
-pre { font-family: 'DejaVu Sans Mono'; font-size: 9pt; margin-top: 5pt; margin-bottom: 5pt; }
+pre { font-family: 'sans-serif'; font-size: 9pt; margin-top: 5pt; margin-bottom: 5pt; }
 
 h1 
 {	
-	font-weight: normal; font-size: 26pt; color: #000066; 
-	font-family: 'DejaVu Sans Condensed'; margin-top: 18pt; margin-bottom: 6pt; 
-	border-top: 0.075cm solid #000000; border-bottom: 0.075cm solid #000000; 
-	text-align: ; page-break-after:avoid; }
+	font-weight: normal; font-size: 22pt;  
+	font-family: 'sans-serif'; 
+	margin-top: 18pt; margin-bottom: 6pt; 
+	text-align: center; page-break-after:avoid; }
 h2 
 {	
 	font-weight: bold; font-size: 12pt; color: #000066; 

@@ -29,15 +29,18 @@ class CreaPDF extends CI_Controller {
 
     // Costruisco una stringa contenente il codice HTML che andrà poi a formare il file PDF
 
-    $html .= '<table border="0" align="center">
+    $html .= '<table border="1" align="center" style="width: 100%;">
     					<thead></thead>
     					<tbody>
     					<tr>';
-    $html .= '<td><img src='.base_url()."images/Immagine.jpg".'>'.'</img></td>';
+
+    $html .= '<td><img src='.base_url()."images/LOGORAS.jpg".' style="float:left;width: 125px; height: 134px;">'.'</img></td>';
+    $html .= '<td> <h1>Bollettino Temporali</h1> </td>';
+    $html .= '<td><img src='.base_url()."images/LOGOPROTCIV.jpg".' style="float:right; width: 125px; height: 125px;">'.'</img></td>';
 
     $html .= '</tr></tbody></table>';
 
-		$html .= '<table border="1" align="center">
+		$html .= '<table border="1" align="center" style="width: 100%;">
             <thead>
               <tr>
                 <th>Data previsione</th>
@@ -107,6 +110,12 @@ class CreaPDF extends CI_Controller {
   	endif;
 
 	  $html .= '</tbody></table>';
+
+
+		// PDFa compliance - non so come si verifica se funziona
+		$pdf->PDFA = true;
+		$pdf->PDFAauto = true;
+
 
 		$pdf->WriteHTML($html,2);	// Scrivo sul pdf il codice html appena confezionato
 
