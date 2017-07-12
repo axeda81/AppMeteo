@@ -63,7 +63,8 @@ class Archivio extends CI_Controller
 		// nella view del passo2 le fasce orarie della giornata di oggi saranno disabilitate
 		$fuoriorario = 0;
 		$orario = explode(":", $dataeora_array[1]);
-		if ($orario[0] > 12) $fuoriorario = 1;
+
+		if (fuoriorariomax_archivio($orario) == true) $fuoriorario = 1;
 		else $fuoriorario = 0;
 
 		$info = array(
@@ -134,7 +135,8 @@ class Archivio extends CI_Controller
 
 		$fuoriorario = 0;
 		$orario = explode(":", $dataeora_array[1]);
-		if ($orario[0] > 12) $fuoriorario = 1;
+		
+		if (fuoriorariomax_archivio($orario) == true) $fuoriorario = 1;
 		else $fuoriorario = 0;
 
 		$inTurno = $this->input->post('inTurno');

@@ -15,6 +15,19 @@ function fuoriorariomax()
 	else return false;
 }
 
+function fuoriorariomax_archivio($ora_previsione)
+{
+
+	$max = 43200; // orario massimo espresso in secondi (12:00 = 43200)
+	$ore = $ora_previsione[0];
+	$minuti = $ora_previsione[1];
+	$tempo = ($ore*3600) + ($minuti*60); // trasformo ora e minuti attuali in secondi
+
+	if ($tempo > $max) return true;
+	else return false;
+}
+
+
 function is_logged_in($is_logged_in)
 {
 	// Verifico se c'è una sessione attiva, altrimenti torno al login
