@@ -47,10 +47,10 @@ class Gestioneutenti extends CI_Controller
 		$data['dati_utente'] = $this->Utenti_model->dati_utente($id);
 
 		//Regole di validazione
-		$this->form_validation->set_rules('nome', 'Nome', 'trim|required');
-		$this->form_validation->set_rules('cognome', 'Cognome', 'trim|required');
-		$this->form_validation->set_rules('email', 'e-mail', 'trim|required|valid_email');
-		$this->form_validation->set_rules('username', 'Username', 'trim|required');
+		$this->form_validation->set_rules('nome', 'Nome', 'trim');
+		$this->form_validation->set_rules('cognome', 'Cognome', 'trim');
+		$this->form_validation->set_rules('email', 'e-mail', 'trim|valid_email');
+		$this->form_validation->set_rules('username', 'Username', 'trim');
 		$this->form_validation->set_rules('password', 'Password', 'trim|min_length[6]|max_length[32]');
 		$this->form_validation->set_rules('password2', 'Conferma password', 'trim|matches[password]');
 
@@ -150,12 +150,12 @@ class Gestioneutenti extends CI_Controller
 	{
 
 		// Regole di validazione
-		$this->form_validation->set_rules('nome', 'Nome', 'trim|required');
-		$this->form_validation->set_rules('cognome', 'Cognome', 'trim|required');
-		$this->form_validation->set_rules('email', 'E-mail', 'trim|required|valid_email');
-		$this->form_validation->set_rules('username', 'Username', 'trim|required|is_unique[utenti.username]');
-		$this->form_validation->set_rules('password', 'Password', 'trim|required|max_length[32]');
-		$this->form_validation->set_rules('password2', 'Conferma password', 'trim|required|matches[password]');
+		$this->form_validation->set_rules('nome', 'Nome', 'trim');
+		$this->form_validation->set_rules('cognome', 'Cognome', 'trim');
+		$this->form_validation->set_rules('email', 'E-mail', 'trim|valid_email');
+		$this->form_validation->set_rules('username', 'Username', 'trim|is_unique[utenti.username]');
+		$this->form_validation->set_rules('password', 'Password', 'trim|max_length[32]');
+		$this->form_validation->set_rules('password2', 'Conferma password', 'trim|matches[password]');
 
 		if ($this->form_validation->run() == false){
 

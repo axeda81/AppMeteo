@@ -75,8 +75,8 @@
       autoclose: true,
       language: "it",
       forceParse: false,
-      startDate: "2017-05-01 00:00",
-      initialDate: "2017-05-01 00:00",
+      startDate: "2016-12-01 00:00",
+      initialDate: "2016-12-01 00:00",
       minuteStep: 5        
   });
 </script>   

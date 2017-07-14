@@ -15,13 +15,13 @@
             <div class="form-group">
              	<?php echo form_label('Nome', 'nome', array('class' => 'control-label col-md-3 col-sm-3 col-xs-12')); ?>
               <div class="col-md-9 col-sm-9 col-xs-12">                   
-								<?php echo form_input(array('type' => 'text', 'class'=>'form-control', 'id' => 'nome', 'name' => 'nome')); ?>
+								<?php echo form_input(array('type' => 'text', 'class'=>'form-control', 'id' => 'nome', 'name' => 'nome', "required" => "required")); ?>
               </div>
             </div>
             <div class="form-group">
             	<?php echo form_label('Cognome', 'cognome', array('class' => 'control-label col-md-3 col-sm-3 col-xs-12')); ?>
               <div class="col-md-9 col-sm-9 col-xs-12">                   
-								<?php echo form_input(array('type' => 'text', 'class'=>'form-control', 'id' => 'cognome', 'name' => 'cognome')); ?>
+								<?php echo form_input(array('type' => 'text', 'class'=>'form-control', 'id' => 'cognome', 'name' => 'cognome', "required" => "required")); ?>
               </div>
             </div>
             <div class="form-group">
@@ -35,25 +35,25 @@
             <div class="form-group">
              	<?php echo form_label('E-mail', 'email', array('class' => 'control-label col-md-3 col-sm-3 col-xs-12')); ?>
               <div class="col-md-9 col-sm-9 col-xs-12">                   
-								<?php echo form_input(array('type' => 'text', 'class'=>'form-control', 'id' => 'email', 'name' => 'email')); ?>
+								<?php echo form_input(array('type' => 'text', 'class'=>'form-control', 'id' => 'email', 'name' => 'email', "required" => "required")); ?>
               </div>
             </div>
             <div class="form-group">
              	<?php echo form_label('Username', 'username', array('class' => 'control-label col-md-3 col-sm-3 col-xs-12')); ?>
               <div class="col-md-9 col-sm-9 col-xs-12">                   
-								<?php echo form_input(array('type' => 'text', 'class'=>'form-control', 'id' => 'username', 'name' => 'username')); ?>
+								<?php echo form_input(array('type' => 'text', 'class'=>'form-control', 'id' => 'username', 'name' => 'username', "required" => "required")); ?>
               </div>
             </div>
             <div class="form-group">
             	<?php echo form_label('Password', 'password', array('class' => 'control-label col-md-3 col-sm-3 col-xs-12')); ?>
               <div class="col-md-9 col-sm-9 col-xs-12">                   
-								<?php echo form_input(array('type' => 'password', 'class'=>'form-control', 'id' => 'password', 'name' => 'password')); ?>
+								<?php echo form_input(array('type' => 'password', 'class'=>'form-control', 'id' => 'password', 'name' => 'password', "required" => "required")); ?>
               </div>
             </div>
             <div class="form-group">
             	<?php echo form_label('Conferma password', 'password2', array('class' => 'control-label col-md-3 col-sm-3 col-xs-12')); ?>
               <div class="col-md-9 col-sm-9 col-xs-12">                   
-								<?php echo form_input(array('type' => 'password', 'class'=>'form-control', 'id' => 'password2', 'name' => 'password2')); ?>
+								<?php echo form_input(array('type' => 'password', 'class'=>'form-control', 'id' => 'password2', 'name' => 'password2', "required" => "required")); ?>
               </div>
             </div>
            	<div class="ln_solid"></div>
