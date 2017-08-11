@@ -111,11 +111,9 @@ class CreaPDF extends CI_Controller {
 
 	  $html .= '</tbody></table>';
 
-
 		// PDFa compliance - non so come si verifica se funziona
 		$pdf->PDFA = true;
 		$pdf->PDFAauto = true;
-
 
 		$pdf->WriteHTML($html,2);	// Scrivo sul pdf il codice html appena confezionato
 
@@ -123,8 +121,8 @@ class CreaPDF extends CI_Controller {
 		$pdf->pagenumPrefix = 'Pag. ';
 		$pdf->pagenumSuffix = ' / ';
 		$pdf->SetFooter('{PAGENO}{nbpg}');
-
 		// Tutto ciò che ho scritto viene poi mandato sul file $pdfpath e scaricato senza chiedere conferma 
 		$pdf->Output($pdfpath, 'D'); // D = Download diretto 
+
 	}
 }
